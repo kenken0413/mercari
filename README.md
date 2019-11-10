@@ -11,8 +11,7 @@
 + has_many :addresses
 + has_one  :profile
 + has_many :credits
-+ has_many :items, thorough: items_users
-+ has_many :items_users
++ has_may :itmes
 
 ## addresses table
 | column           | type        | options                        |
@@ -71,7 +70,7 @@
 | description| text        | null: false                |
 | price      | integer     | index: true, null: false   |
 | state      | integer     | null: false                |
-| saler_id   | integer     | null: false, foreign_key: true|
+| seller_id  | integer     | null: false, foreign_key: true|
 | buyer_id   | integer     | foreign_key: true          |
 | category_id| integer     | null: false, foreign_key: true|
 
@@ -79,8 +78,7 @@
 + belongs_to :category
 + has_many :images
 + has_one :delivery
-+ has_many :users, thorough: items_users
-+ has_many :items_users
++ belongs_to: user
 
 ## images table
 | column     | type        | options                          |
@@ -119,16 +117,6 @@
 | item_id         | integer     | null: false, foreign_key: true |
 | user_id         | integer     | null: false, foreign_key: true |
 | comment         | text        | null: false                    |
-
-## Association
-+ belongs_to :item
-+ belongs_to :user
-
-## items_users table
-| column     | type        | options                       |
-|:-----------|------------:|:-----------------------------:|
-| item_id    | integer     |index: true, foreign_key: true |
-| user_id    | integer     |index: true, foreign_key: true |
 
 ## Association
 + belongs_to :item
