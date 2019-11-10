@@ -62,6 +62,28 @@
 ## Association
 + has_many :items
 + has_ancestry
++ has_many :brands through: :categories_brands
++ has_many : categories_brands
+
+## brands table
+| column           | type        | options                        |
+|:---------------- |------------:|:------------------------------:|
+| brand            | string      | null: false                    |
+
+## Association
++ has_many :items
++ has_many :categories through: :categories_brands
++ has_many : categories_brands
+
+## categories_brands table
+| column           | type        | options                        |
+|:---------------- |------------:|:------------------------------:|
+| category         | string      | null: false, foreign_key: true |
+| brand            | string      | null: false, foreign_key: true |
+
+## Association
++ belongs_to :category
++ belongs_to :brand
 
 ## items table
 | column     | type        | options                    |
@@ -73,9 +95,11 @@
 | seller_id  | integer     | null: false, foreign_key: true|
 | buyer_id   | integer     | foreign_key: true          |
 | category_id| integer     | null: false, foreign_key: true|
+| brand_id   | integer     | foreign_key: true          |
 
 ## Association
 + belongs_to :category
++ belongs_to :brand
 + has_many :images
 + has_one :delivery
 + belongs_to: user
