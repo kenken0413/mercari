@@ -11,7 +11,7 @@
 + has_many :addresses
 + has_one  :profile
 + has_many :credits
-+ has_may :itmes
++ has_many :items
 
 ## addresses table
 | column           | type        | options                        |
