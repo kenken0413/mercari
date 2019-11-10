@@ -58,12 +58,11 @@
 ## categories table
 | column           | type        | options                        |
 |:---------------- |------------:|:------------------------------:|
-| large_category   | string      | null: false                    |
-| middle_category  | string      | null: false                    |
-| small_category   | string      |                                |
+| category         | string      | null: false                    |
 
 ## Association
 + has_many :items
++ has_ancestry
 
 ## items table
 | column     | type        | options                    |
