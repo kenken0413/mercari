@@ -1,0 +1,358 @@
+.wrapper{
+  background: rgb(245, 245, 245);
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+
+
+  @mixin clearfix {
+    zoom: 1;
+  
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+    }
+  
+    &:after {
+      clear: both;
+    }
+  }
+
+  .user-header{
+    background-image:url("mercari_header.png");
+    background-size:cover;
+    height:149px;
+  }
+
+  .userpage-main{
+    margin: 0 auto;
+    width: 1020px;
+    background:whitesmoke;
+    height: 1350px;
+
+
+    .user-side-box{
+      float: left;
+      width: 280px;
+      margin: 0 40px 0 0;
+      
+      &__side-list{
+
+        &__main-box{
+          padding-top:40px !important;
+        }
+
+        ul {
+          list-style: none;
+          font-weight:bold;
+          padding-top:50px;
+          
+          a {
+            color: #333;
+            text-decoration:none;
+
+            li{
+              background: white;
+              font-weight: 300;
+              display: block;
+              min-height: 15px;
+              padding: 16px;
+              font-size: 14px;
+              margin-bottom:1px;
+              line-height: 15px;
+
+              .list-box{
+                display:flex;
+                display:block;
+                width:100%;
+
+                &__name{
+                  float:left;
+
+
+                }
+
+                &__arrow{
+                  float:right;
+                  font-weight:400;
+                  font-size:20px;
+                  font-family: 'icon-font';
+                  color:gainsboro;
+                  -webkit-font-smoothing: antialiased;
+                }
+
+                &:hover{
+                  color:#333;
+                }
+              }
+
+              &:hover{
+                background-color: #fafafa;
+  
+                .list-box{
+
+                  &__arrow{
+                    color:#333;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .user-content-box{
+      margin-top: 40px;
+      float: right;
+
+      &__user-icon{
+        height:200px;
+        width: 700px;
+        background-image: url("https://st.depositphotos.com/1755195/3391/i/950/depositphotos_33919061-stock-photo-blurred-lights.jpg");
+        background-size:cover;
+        position: relative;
+        
+        
+        &__box{
+          height:111px;
+          width:100%;
+          position:absolute;
+          top:50%;
+          transform: translate(0, -50%);
+          color: #333;
+          text-align:center;
+          font-size:14px;
+          font-family:'icon-font';
+          &:hover{opacity: 0.6; text-decoration: underline;}
+
+
+          &__circle-user{
+            border-radius: 50%;
+            display:block;
+            margin:0 auto;
+          }
+
+          &__number-box{
+            display:flex;
+            justify-content: center; 
+            span{font-weight:bold;}
+          }
+        }
+      }
+
+      &__tab-container-notification-todo{
+        background-color:whitesmoke;
+        height:578.42px;
+        width:700px;
+
+        .mypage-tabs{
+          display:flex;
+          width:700px;
+          height:74px;
+
+          input[name="tab1"]{
+            display: none;
+          }
+
+          label{
+            height:74px;
+            width:calc(700px/2);
+            text-align:center;
+            line-height: 74px;
+            font-weight:bold;
+            display: block;
+            transition: all 0.2s ease;
+            
+            &:hover{opacity:0.5; cursor:pointer;}
+          }
+        }
+
+        .mypage-tabs input:checked + .tab1{
+          background-color:#fff;
+          border-top: 2px solid #ea352d;
+        }
+
+
+        .mypage-tabs{
+          
+          .mypage-tab-notification{
+
+            li{
+              padding:16px;
+              box-sizing: border-box;
+              height:80px;
+              margin-bottom: 1px;
+              background-color: white;
+
+              .notification-box{
+
+
+                &__mercari-icon{
+                  float:left;
+                }
+
+                &__title{
+                  float:left;
+                  padding-left:20px;
+                  box-sizing: border-box;
+                  color:#333;
+                  height:21px;
+                  width:560px;
+
+                }
+
+                &__time{
+                  height:17.42px;
+                  width:82.72px;
+                  float:left;
+                  padding-left:20px;
+                  padding-top:8px;
+
+                  .icon{
+                    margin-right:8px;
+                    height:16px;
+                    width:16px;
+                    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUDG4BEIdB4OOm-NBUoCwQee2QQYV6yUzm5csYABNBM8fpwY17aw&s");
+                    background-size: cover;
+                    float:left;
+                  }
+
+                  .text{
+                    font-size:14px;
+                    float:right;
+                    color:#333;
+                  }
+
+                }
+
+                &__arrow-box{
+                  height:48px;
+                  width:48px;
+                  float:right;
+                  padding:5px;
+                  box-sizing: border-box;
+                  
+                  
+                  .arrow{
+                    // background-image:url("https://chicodeza.com/wordpress/wp-content/uploads/yajirushi-illust25.png");
+                    // background-size:cover;
+                    height:38px;
+                    width:38px;
+                    font-weight:bold;
+                    color:black;
+                    font-family:'icon-font';
+                    padding-top:5px;
+                    padding-left:5px;
+
+                  }
+                }
+              }
+            }
+
+            li:hover{
+              background-color:#fafafa;
+            }
+
+
+
+            .mypage-go-list{
+
+              &__list{
+                background-color: whitesmoke;
+                height:100%;
+                width:100%;
+                color:#333;
+                text-decoration: none;
+                display:table;
+                text-align:center;
+                line-height:48px;
+              }
+
+              &__list:hover{
+                background-color:#fafafa;
+              }
+            }
+
+            .mypage-go-list:hover{
+              background-color: white;
+            }
+          }
+        }
+
+        #user-notification:checked ~ #user-notification-content{display:block;}
+      }
+
+      &__mypage-tab-container{
+        margin-top:30px;
+        background-color:#fafafa;
+        width:100%;
+
+        &__head{
+          font-weight:bold;
+          line-height:80px;
+          height:80px;
+          padding-left:20px;
+          box-sizing: border-box;
+        }
+
+        &__tabs{
+          display:flex;
+          width:700px;
+          height:74px;
+
+          input[name="tab2"]{
+            display:none;
+          }
+
+          label{
+            height:74px;
+            width:calc(700px/2);
+            text-align:center;
+            line-height: 74px;
+            font-weight:bold;
+            display: block;
+            transition: all 0.2s ease;
+
+            &:hover{opacity:0.5; cursor:pointer;}
+          }
+
+          .sold{
+            background-color: gainsboro;
+            border-top: 2px solid gainsboro;
+          }
+        }
+
+        .user-content-box__mypage-tab-container__tabs input:checked + .tab2{
+          background-color:#fff;
+          border-top: 2px solid #ea352d;
+        }
+
+        &__content{
+          background-color: white;
+          height:250px;
+          
+
+          &__icon{
+            padding-left:310px;
+            padding-top:60px;
+            float:left;
+          }
+
+          &__text{
+            padding-top:160px;
+            padding-left:250px;
+            color:gainsboro;
+            font-weight:bold;
+            @include clearfix;
+          }
+        }
+      }
+    }
+  }
+
+  .user-footer{
+    background-image:url("mercari_footer.png");
+    background-size:cover;
+    height:651px;
+  }
+}
