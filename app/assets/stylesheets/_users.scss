@@ -59,6 +59,7 @@
               font-size: 14px;
               margin-bottom:1px;
               line-height: 15px;
+              &:hover{background-color: #fafafa; .list-box__arrow{color:$main-font;}}
 
               .list-box{
                 display:flex;
@@ -78,21 +79,6 @@
                   font-family: 'icon-font';
                   color:gainsboro;
                   -webkit-font-smoothing: antialiased;
-                }
-
-                &:hover{
-                  color:$main-font;
-                }
-              }
-
-              &:hover{
-                background-color: #fafafa;
-  
-                .list-box{
-
-                  &__arrow{
-                    color: $main-font;
-                  }
                 }
               }
             }
@@ -182,9 +168,9 @@
               height:80px;
               margin-bottom: 1px;
               background-color: $main-content;
+              &:hover{background-color:#fafafa;}
 
               .notification-box{
-
 
                 &__mercari-icon{
                   float:left;
@@ -197,7 +183,6 @@
                   color:$main-font;
                   height:21px;
                   width:560px;
-
                 }
 
                 &__time{
@@ -246,13 +231,8 @@
               }
             }
 
-            li:hover{
-              background-color:#fafafa;
-            }
-
-
-
             .mypage-go-list{
+              &:hover{background-color: $main-content;}
 
               &__list{
                 background-color: $main-background;
@@ -263,15 +243,8 @@
                 display:table;
                 text-align:center;
                 line-height:48px;
+                &:hover{background-color:#fafafa;}
               }
-
-              &__list:hover{
-                background-color:#fafafa;
-              }
-            }
-
-            .mypage-go-list:hover{
-              background-color: $main-content;
             }
           }
         }
