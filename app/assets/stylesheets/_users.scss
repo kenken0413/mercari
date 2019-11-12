@@ -26,7 +26,7 @@
   .userpage-main{
     margin: 0 auto;
     width: 1020px;
-    background:whitesmoke;
+    background: $main-background;
     height: 1350px;
 
 
@@ -47,11 +47,11 @@
           padding-top:50px;
           
           a {
-            color: #333;
+            color: $main-font;
             text-decoration:none;
 
             li{
-              background: white;
+              background: $main-content;
               font-weight: 300;
               display: block;
               min-height: 15px;
@@ -81,7 +81,7 @@
                 }
 
                 &:hover{
-                  color:#333;
+                  color:$main-font;
                 }
               }
 
@@ -91,7 +91,7 @@
                 .list-box{
 
                   &__arrow{
-                    color:#333;
+                    color: $main-font;
                   }
                 }
               }
@@ -107,7 +107,7 @@
 
       &__user-icon{
         height:200px;
-        width: 700px;
+        width: $main-width;
         background-image: url("https://st.depositphotos.com/1755195/3391/i/950/depositphotos_33919061-stock-photo-blurred-lights.jpg");
         background-size:cover;
         position: relative;
@@ -119,7 +119,7 @@
           position:absolute;
           top:50%;
           transform: translate(0, -50%);
-          color: #333;
+          color:  $main-font;
           text-align:center;
           font-size:14px;
           font-family:'icon-font';
@@ -141,13 +141,12 @@
       }
 
       &__tab-container-notification-todo{
-        background-color:whitesmoke;
+        background-color: $main-background;
         height:578.42px;
-        width:700px;
+        width: $main-width;
 
         .mypage-tabs{
           display:flex;
-          width:700px;
           height:74px;
 
           input[name="tab1"]{
@@ -156,7 +155,7 @@
 
           label{
             height:74px;
-            width:calc(700px/2);
+            width:calc(100%/2);
             text-align:center;
             line-height: 74px;
             font-weight:bold;
@@ -168,7 +167,7 @@
         }
 
         .mypage-tabs input:checked + .tab1{
-          background-color:#fff;
+          background-color: $main-content;
           border-top: 2px solid #ea352d;
         }
 
@@ -182,7 +181,7 @@
               box-sizing: border-box;
               height:80px;
               margin-bottom: 1px;
-              background-color: white;
+              background-color: $main-content;
 
               .notification-box{
 
@@ -195,7 +194,7 @@
                   float:left;
                   padding-left:20px;
                   box-sizing: border-box;
-                  color:#333;
+                  color:$main-font;
                   height:21px;
                   width:560px;
 
@@ -220,7 +219,7 @@
                   .text{
                     font-size:14px;
                     float:right;
-                    color:#333;
+                    color:$main-font;
                   }
 
                 }
@@ -234,8 +233,6 @@
                   
                   
                   .arrow{
-                    // background-image:url("https://chicodeza.com/wordpress/wp-content/uploads/yajirushi-illust25.png");
-                    // background-size:cover;
                     height:38px;
                     width:38px;
                     font-weight:bold;
@@ -258,10 +255,10 @@
             .mypage-go-list{
 
               &__list{
-                background-color: whitesmoke;
+                background-color: $main-background;
                 height:100%;
                 width:100%;
-                color:#333;
+                color:$main-font;
                 text-decoration: none;
                 display:table;
                 text-align:center;
@@ -274,7 +271,7 @@
             }
 
             .mypage-go-list:hover{
-              background-color: white;
+              background-color: $main-content;
             }
           }
         }
@@ -297,7 +294,6 @@
 
         &__tabs{
           display:flex;
-          width:700px;
           height:74px;
 
           input[name="tab2"]{
@@ -306,7 +302,7 @@
 
           label{
             height:74px;
-            width:calc(700px/2);
+            width:calc(100%/2);
             text-align:center;
             line-height: 74px;
             font-weight:bold;
@@ -323,12 +319,12 @@
         }
 
         .user-content-box__mypage-tab-container__tabs input:checked + .tab2{
-          background-color:#fff;
+          background-color:$main-content;
           border-top: 2px solid #ea352d;
         }
 
         &__content{
-          background-color: white;
+          background-color: $main-content;
           height:250px;
           
 
