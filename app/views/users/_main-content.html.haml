@@ -1,0 +1,43 @@
+.user-content-box
+  %section.user-content-box__user-icon
+    =link_to userpage_path do
+      .user-content-box__user-icon__box
+        = image_tag 'user_icon.png', alt: 'logo', height: '60', width: '60', class: 'user-content-box__user-icon__box__circle-user'
+        .user-content-box__user-icon__box__name
+          メルカリ太郎
+        .user-content-box__user-icon__box__number-box
+          .user-content-box__user-icon__box__number-box__review
+            評価
+            %span 　0　
+          .user-content-box__user-icon__box__number-box__exhibits
+            出品数
+            %span 　0
+
+
+
+  %section.user-content-box__tab-container-notification-todo
+    .mypage-tabs
+      %input#user-notification{name: "tab1", type: "radio", checked: "checked"}
+      %label.tab-user-notification.tab1{for: "user-notification"}
+        お知らせ
+      %input#user-todo{name: "tab1", type: "radio"}
+      %label.tab-user-todo.tab1{for: "user-todo"}
+        やることリスト
+    #user-notification-content.mypage-tabs
+      %ul.mypage-tab-notification
+        = render "notification"
+
+  %section.user-content-box__mypage-tab-container
+    %h2.user-content-box__mypage-tab-container__head
+      購入した商品
+    .user-content-box__mypage-tab-container__tabs
+      %input#user-selling{name: "tab2", type: "radio", checked: "checked"}
+      %label.tab-user-selling.tab2{for: "user-selling"}
+        取引中
+      %input#user-sold{name: "tab2", type: "radio",}
+      %label.tab-user-selling.tab2{for: "user-sold"}
+        過去の取引
+    %div.user-content-box__mypage-tab-container__content
+      = image_tag 'logo_gray.svg', alt: 'logo', height: '80px', width: '80px', class: 'user-content-box__mypage-tab-container__content__icon'
+      %div.user-content-box__mypage-tab-container__content__text 
+        取引中の商品がありません
