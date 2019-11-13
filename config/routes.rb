@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/detail', to: 'items#detail'
   get '/buy', to: 'items#buy'
 
+  get '/userpage', to: 'users#index'
 end
