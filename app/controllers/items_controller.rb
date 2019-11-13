@@ -8,6 +8,11 @@ class ItemsController < ApplicationController
       render "sell.html.haml"
       return
     end
+
+    if params[:id] =="detail"
+      render "item-detail.html.haml"
+      return
+    end
   end
 
 end
