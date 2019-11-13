@@ -1,0 +1,110 @@
+.sell-wrapper
+  =render partial: "sell-header"
+  .sell-main
+    %h2
+      商品の情報を入力
+    .sell-main-form
+      .sell-main-form__images
+        %h3
+          %span.image-title 出品画像
+          %span#must__red.must__tag 必須
+        %p 最大10枚までアップロードできます
+        .sell-main-form__images__photos
+          .sell-main-form__images__photos__update
+            %input.sell-upload-drop-file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}/
+            %ul
+              %li ドラッグアンドドロップ
+              %li またはクリックしてファイルをアップロード
+      .sell-main-form__descriptions
+        .sell-main-form__descriptions__name
+          %h4
+            %span.item-name 商品名
+            %span#must__red.must__tag 必須
+          %input.input-name{placeholder: "商品名（必須 40文字まで)", value: ""}/
+        .sell-main-form__descriptions__comment
+          %h5 
+            %span.item-comment 商品の説明
+            %span#must__red.must__tag 必須
+          %textarea.textarea-comment{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: " "}
+      .sell-main-form__content.clearfix
+        %p 商品の詳細
+        .sell-main-form__content__detail
+          .sell-main-form__content__detail__category
+            %h6
+              %span.category-choice カテゴリー 
+              %span#must__red.must__tag 必須
+            .sell-main-form__content__detail__category__box
+              %select#select-box(name="category")
+                %option{value: ""} ---
+          .sell-main-form__content__detail__status
+            %h7
+              %span.item-status 商品の状態 
+              %span#must__red.must__tag 必須
+            .sell-main-form__content__detail__status__box
+              %select#select-box(name="status")
+                %option{value: ""} ---
+      .sell-main-form__content.clearfix
+        %p 配送について
+        %a#question{href: ''} ?
+        .sell-main-form__content__delivery
+          .sell-main-form__content__delivery__fee
+            %h8
+              %span.delivery-fee-choice 配送料の負担 
+              %span#must__red.must__tag 必須
+            .sell-main-form__content__delivery__fee__box
+              %select#select-box(name="fee")
+                %option{value: ""} ---
+          .sell-main-form__content__delivery__region
+            %h9
+              %span.delivery-reginon-choice 配送元の地域
+              %span#must__red.must__tag 必須
+            .sell-main-form__content__delivery__region__box
+              %select#select-box(name="region")
+                %option{value: ""} ---
+          .sell-main-form__content__delivery__delay
+            %h10
+              %span.delivery-delay-choice 発送までの日数
+              %span#must__red.must__tag 必須
+            .sell-main-form__content__delivery__delay__box
+              %select#select-box(name="delay")
+                %option{value: ""} ---
+
+      .sell-main-form__content.clearfix
+        %p 販売価格（300~9,999,999)
+        %a#question{href: ''} ?
+        .sell-main-form__content__price
+          %ul
+            %li.sell-main-form__content__price__total.clearfix
+              %h11
+                %span.price-choice 価格 
+                %span#must__red.must__tag 必須
+              .sell-main-form__content__price__total__input
+                %p ¥
+                %input.input-price{placeholder: "例）300", value: ""}/
+            %li.sell-main-form__content__price__charge.clearfix
+              .sell-main-form__content__price__charge__title 販売手数料(10%)
+              .sell-main-form__content__price__charge__auto -
+            %li.sell-main-form__content__price__profit.clearfix
+              .sell-main-form__content__price__profit__title 販売利益
+              .sell-main-form__content__price__profit__auto -
+
+      .sell-main-form__btn-box
+        .sell-main-form__btn-box__caution
+          %p
+            = link_to "禁止されている出品"
+            、
+            = link_to "行為"
+            を必ず確認ください。
+          %p
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            = link_to"偽ブランドの販売"
+            は犯罪であり処罰される可能性があります。
+          %p
+            また、出品をもちまして
+            = link_to"加盟店規約"
+            に同意したことになります。
+        %button.sell-main-form__btn-box__submit-btn{type: "submit"}出品する
+        .sell-main-form__btn-box__back-btn
+          =link_to "もどる"
+  = render partial:"sell-footer"
+    
