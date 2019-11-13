@@ -3,13 +3,11 @@ class ItemsController < ApplicationController
   def index
   end
 
-  def sell
-  end
-
-  def detail
-  end
-
-  def buy
+  def show
+    if params[:id] == "sell"
+      render "sell.html.haml"
+      return
+    end
   end
 
 end

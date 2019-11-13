@@ -405,17 +405,19 @@ header.sell-header{
         font-size: 14px;
         text-align: center;
       }
-      a.sell-main-form__btn-box__back-btn{
+      .sell-main-form__btn-box__back-btn{
         display: block;
         line-height: 3.5;
         font-size: 14px;
         background: #aaa;
         border: 1px solid #aaa;
-        color: #fff;
         width: 45%;
         margin: 24px auto 0;
         text-align: center;
-        text-decoration: none;
+        a{
+          color: #fff;
+          text-decoration: none;
+        }
       }
     }
   }
