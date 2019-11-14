@@ -2,7 +2,7 @@
   background-image:url("mercari_camp.png");
   height: 390px;
   background-size:auto 390px;
-  background-position: center center;
+  background-position: center;
 }
 
 .app-info{
@@ -34,7 +34,7 @@
   &__category{
     text-align: center;
     .lists{
-      background-color: rgb(239, 239, 239);
+      background-color: $main-background;
       cursor: pointer;
       display: inline-block;
       font-size: 14px;
