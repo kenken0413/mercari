@@ -1,0 +1,17 @@
+.popular-index__header
+  %h3.popular-index__header__title レディース新着アイテム
+  = link_to root_path,class:'link-more' do
+    .popular-index__header__link-more もっと見る
+    = icon('fas', 'chevron-right',  class: "popular-index__header__link-more")
+
+%ul.popular-index__card
+  = render 'items/card'
+  = render 'items/card'
+  = render 'items/card'
+  = render 'items/card'
+  = render 'items/card'
+  = render 'items/card'
+  = render 'items/card'
+  = render 'items/card'
+  = render 'items/card'
+  = render 'items/card'
