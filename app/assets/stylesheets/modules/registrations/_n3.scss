@@ -38,7 +38,7 @@
     .profile-form-title{font-size:14px;font-weight:bold;}
     #must__red{@include must}
     input{@include input;@include clearfix;}
-    select{@include input}
-    
+    select{@include input;background-color:$main-content;}
+
   }
 }
