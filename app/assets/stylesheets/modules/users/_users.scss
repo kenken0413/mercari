@@ -1,5 +1,5 @@
 .wrapper{
-  background: rgb(245, 245, 245);
+  background: $main-background;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 
 
@@ -56,6 +56,7 @@
               font-weight: 300;
               display: block;
               min-height: 15px;
+              height:47px;
               padding: 16px;
               font-size: 14px;
               margin-bottom:1px;

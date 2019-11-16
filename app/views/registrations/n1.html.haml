@@ -1,0 +1,64 @@
+.wrapper
+  .n1
+    = render "/shared/SignUp-header"
+  .registration-content
+    .profile-head
+      会員情報入力
+    .profile-content.signup-height
+      .profile-form.signup-margin
+        .form-group
+          .profile-form-title
+            ニックネーム
+            %span#must__red.must__tag 必須
+          %input{placeholder: "例）メルカリ太郎"}
+        .form-group
+          .profile-form-title
+            メールアドレス
+            %span#must__red.must__tag 必須
+          %input{placeholder: "PC・携帯どちらでも可"}
+        .form-group
+          .profile-form-title
+            パスワード
+            %span#must__red.must__tag 必須
+          %input.form-group__password{type:"password",placeholder:"７文字以上"}
+        .form-group
+          .profile-form-title
+            本人確認
+          安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .form-group
+          .profile-form-title
+            お名前(全角)
+            %span#must__red.must__tag 必須
+          .name-form
+            %input.namae{placeholder:"例）山田"}
+            %input.namae{placeholder:"例）彩"}
+        .form-group
+          .profile-form-title
+            お名前カナ(全角)
+            %span#must__red.must__tag 必須
+          .name-form
+            %input.namae{placeholder:"例）ヤマダ"}
+            %input.namae{placeholder:"例）アヤ"}
+        .form-group
+          .profile-form-title
+            生年月日
+            %span#must__red.must__tag 必須
+          %select.birthday-form(name="year") 
+            %option{value: ""} --
+          年
+          %select.birthday-form(name="month")
+            %option{value: ""} --
+          月
+          %select.birthday-form(name="day")
+            %option{value: ""} --
+          日
+          .birthday-text
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .form-group.next-box
+          -#recapyha
+          %p.terms「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+          =link_to n2_registrations_path do
+            %input.next-btn{type:"button",value:"次へ進む"}
+          =link_to root_path do
+            %p.bluelink 本人情報の登録について
+  =render "items/sell-footer"

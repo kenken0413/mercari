@@ -1,0 +1,12 @@
+*{box-sizing: border-box;}
+.registration-header{
+  padding-right:300px;
+  width:100vw;
+  height:128px;
+  background-color:$main-background;
+  .mercari-logo{
+    float:right;
+    margin-top:30px;
+    &:hover{opacity:0.8;}
+  }
+}

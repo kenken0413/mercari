@@ -3,7 +3,6 @@
  @import "./config/variable";
  @import "font-awesome-sprockets";
  @import "font-awesome";
- @import "users";
  @import "seller";
  @import "font-awesome-sprockets";
  @import "font-awesome";
@@ -12,5 +11,16 @@
  @import "modules/footer";
  @import "modules/header";
  @import "modules/parts";
+ @import "./modules/users/users";
+ @import "./modules/users/login";
+ @import "./modules/registrations/registration";
+ @import "./modules/registrations/SignUp-header";
+ @import "./modules/progress";
+ @import "./modules/registrations/content";
+ @import "./modules/registrations/n1";
+ @import "./modules/registrations/n2";
+ @import "./modules/registrations/n3";
+ @import "./modules/registrations/n4";
+ @import "./modules/registrations/end";
  @import "modules/edit-user";
  @import "item-detail";
