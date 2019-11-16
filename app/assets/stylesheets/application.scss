@@ -1,7 +1,9 @@
  @import "reset";
  @import "config/color";
  @import "./config/variable";
- @import "./users";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+ @import "users";
  @import "seller";
  @import "font-awesome-sprockets";
  @import "font-awesome";
@@ -11,3 +13,4 @@
  @import "modules/header";
  @import "modules/parts";
  @import "modules/edit-user";
+ @import "item-detail";
