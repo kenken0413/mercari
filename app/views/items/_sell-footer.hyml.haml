@@ -1,0 +1,16 @@
+%footer.sell-footer
+  .sell-footer__link-boxes
+    .sell-footer__link-boxes__privacy-policy
+      = link_to "" do
+        プライバシーポリシー
+    .sell-footer__link-boxes__terms_and_conditions
+      = link_to "" do
+        メルカリ利用規約
+    .sell-footer__link-boxes__commeracial_transactions_law
+      = link_to "" do
+        特定商取引に関する表記
+  .sell-footer__image
+    =link_to root_path do
+      = image_tag 'logo_gray.svg', alt: 'logo', height: '65', width: '80', class: 'sell-footer-logo'
+  .sell-footer__copyright
+    © 2019 Mercari 

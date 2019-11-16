@@ -1,0 +1,21 @@
+.signup-wrapper
+  %header.signup-header
+    -# = render
+  .signup-content
+    .signup-upper
+      新規会員登録
+    .choose-signup
+      =link_to n1_registrations_path do
+        .email-signup-box
+          .email-signup-box__icon
+          .email-signup-box__btn
+            メールアドレスで登録する
+    .signup-content__sns
+      =link_to 'https://ja-jp.facebook.com/' do
+        .facebook-btn
+          Facebookで登録する
+      =link_to 'https://accounts.google.com/' do
+        .google-btn
+          Googleで登録する
+  %footer.signup-footer
+    -# = render

@@ -1,0 +1,16 @@
+.wrapper
+  .n2
+    = render "/shared/SignUp-header"
+  .registration-content
+    .profile-head
+      電話番号認証
+    .authentication-content.signup-height
+      .tellnum-form.signup-margin
+        %h1 携帯電話の番号
+        %input{placeholder:" 携帯電話の番号を入力"}
+        %p ※本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+        .next-box
+          =link_to n3_registrations_path do
+            %input.next-btn{type:"button",value:"SMSを送信する"}
+          %p ※電話番号は本人確認や不正利用防止のために使用します。他のユーザーに公開されることはありません。
+          .bluelink 電話番号の確認が必要な理由

@@ -1,0 +1,44 @@
+*{box-sizing: border-box;}
+@mixin clearfix {
+  zoom: 1;
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin input {
+  height:48px;
+  width:100%;
+  border-radius:4px;
+  border:gainsboro solid 1px;
+  padding-left:20px;
+}
+
+@mixin must{
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.addless-form{
+  .form-group{
+    margin-top:32px;
+    &:nth-child(4){font-size:14px;}
+    .profile-form-title{font-size:14px;font-weight:bold;}
+    #must__red{@include must}
+    input{@include input;@include clearfix;}
+    select{@include input}
+    
+  }
+}

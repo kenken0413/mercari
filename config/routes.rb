@@ -4,6 +4,14 @@ Rails.application.routes.draw do
 
   get '/userpage', to: 'users#mypage'
   get '/signin', to: 'users#login'
-  get '/signup', to: 'users#signup'
-  get '/signup/1', to:
+
+  resources :registrations, only: [:index] do
+    collection do
+      get :n1
+      get :n2
+      get :n3
+      get :n4
+      get :end
+    end 
+  end
 end

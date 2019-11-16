@@ -1,0 +1,98 @@
+*{box-sizing: border-box;}
+
+@mixin clearfix {
+  zoom: 1;
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin input {
+  height:48px;
+  width:100%;
+  border-radius:4px;
+  border:gainsboro solid 1px;
+  padding-left:20px;
+}
+
+@mixin must{
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.profile-head{
+  font-size:22px;
+  font-weight:bold;
+  text-align:center;
+  height:97px;
+  line-height:97px;
+  border:$main-background solid 1px;
+}
+
+.bluelink{color:#0099e8;position:absolute;bottom:0;right:0;&:hover{opacity:0.7;text-decoration:underline;cursor:pointer;}}
+
+.next-box{
+  max-width:343px;
+  padding-top:50px;
+  padding-bottom:60px;
+  position:relative;
+  p{margin:0 auto;font-size:14px;text-align:center;}
+}
+.signup-height{padding: 40px 40px 64px;}
+.signup-margin{max-width:343px;margin:0 auto;}
+
+.next-btn{
+  background-color:#ea352d;
+  color:white;
+  margin-top:40px;
+  height:48px;
+  width:100%;
+  padding-left:20px;
+  @include clearfix;
+}
+
+
+
+
+
+.registration-content{
+  .profile-content{
+    height:1211px;
+  
+    .profile-form{
+      .name-form{display:flex;}
+      .namae{width:165px;&:first-child{margin-right:10px;}}
+      .form-group{
+        margin-top:32px;
+        &:first-child{margin:0;}
+        &:nth-child(4){font-size:14px;}
+        .profile-form-title{font-size:14px;font-weight:bold;}
+        .must__red{@include must}
+        input{
+          @include input;
+          @include clearfix;
+        }
+        .next-btn{border: #ea352d solid 1px;border-radius:0;}
+        .birthday-form{
+          height:48px;
+          width:76px;
+          background-color:$main-content;
+        }
+        .birthday-text{margin-top:8px;color:gray;font-size:14px;}
+        .terms{margin-top:40px;}
+      }
+    }
+  }
+}
