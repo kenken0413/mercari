@@ -1,6 +1,12 @@
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
  @import "./reset";
  @import "./config/color";
  @import "./config/variable";
+ @import "modules/body";
+ @import "modules/footer";
+ @import "modules/header";
+ @import "modules/parts";
  @import "./modules/users/users";
  @import "./modules/users/login";
  @import "./modules/registrations/registration";
@@ -12,5 +18,3 @@
  @import "./modules/registrations/n3";
  @import "./modules/registrations/n4";
  @import "./modules/registrations/end";
-
-
