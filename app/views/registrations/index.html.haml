@@ -1,6 +1,5 @@
 .signup-wrapper
-  %header.signup-header
-    -# = render
+  =render "items/sell-header"
   .signup-content
     .signup-upper
       新規会員登録
@@ -17,5 +16,4 @@
       =link_to 'https://accounts.google.com/' do
         .google-btn
           Googleで登録する
-  %footer.signup-footer
-    -# = render
+  = render "items/sell-footer"

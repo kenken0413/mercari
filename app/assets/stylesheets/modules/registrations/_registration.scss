@@ -3,6 +3,7 @@
 @mixin sns{text-align:center;line-height:50px;}
 .signup-wrapper{
   background-color: $main-background;
+  height:100vh;
   .signup-content{
     background-color:$main-content;
     height:384px;
@@ -20,7 +21,7 @@
 
 
     .choose-signup{
-      margin-top:60px;
+      margin-top:40px;
       .email-signup-box{
         width:343px;
         margin:0 auto;

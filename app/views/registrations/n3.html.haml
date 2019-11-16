@@ -11,13 +11,13 @@
             お名前
             %span#must__red.must__tag 必須
           %input{placeholder: "例）山田"}
-          %input{placeholder: "例）彩"}
+          %input.last-name-form{placeholder: "例）彩"}
         .form-group
           .profile-form-title
             お名前カナ
             %span#must__red.must__tag 必須
           %input{placeholder: "例）ヤマダ"}
-          %input{placeholder: "例）アヤ"}
+          %input.last-name-form{placeholder: "例）アヤ"}
         .form-group
           .profile-form-title
             郵便番号
@@ -49,4 +49,5 @@
             電話
             %span#must__red.must__tag 必須
           %input{placeholder: "例）09012345678"}
-        %input.next-btn{type:"button",value:"次へ進む"}
+        %input.next-btn#n3-next{type:"button",value:"次へ進む"}
+  =render "items/sell-footer"

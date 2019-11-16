@@ -38,7 +38,8 @@
     .profile-form-title{font-size:14px;font-weight:bold;}
     #must__red{@include must}
     input{@include input;@include clearfix;}
+    .last-name-form{margin-top:8px;}
     select{@include input;background-color:$main-content;}
-
   }
+  #n3-next{margin-bottom:60px;}
 }
