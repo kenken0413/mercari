@@ -1,0 +1,454 @@
+* {
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+}
+
+@mixin form-content-set{
+  border-bottom-color: $main-background;  
+  border-bottom-style: solid;
+}
+
+@mixin form-content-set-with-text-align{
+  border-bottom-color: $main-background;  
+  border-bottom-style: solid;
+  text-align: left;
+}
+
+@mixin form-content-set-with-padding_{
+  border-bottom-color: $main-background;  
+  border-bottom-style: solid;
+  padding: 40px;
+}
+
+@mixin form-content-set-with-text-align_and_padding{
+  border-bottom-color: $main-background;  
+  border-bottom-style: solid;
+  text-align: left;
+  padding: 40px;
+}
+
+@mixin form-content-title-font{
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@mixin form-content-title-left{
+  float: left;
+  font-size: 14px;
+  color: #888;
+  font-weight: bold;
+}
+
+@mixin form-content-title-right{
+float: right;
+width: 400px;
+}
+
+@mixin form-box-position{
+  position: relative;
+  margin: 8px 0 0;
+}
+
+@mixin select-box{
+  width:100%;
+  position: relative;
+  z-index: 1;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@mixin select-box-margin-not-first{
+  margin:40px 0 0;
+}
+
+@mixin price-content-underline{
+  border-bottom-color:#ccc;;  
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+}
+
+@mixin must{
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  font-weight: bold;
+}
+
+@mixin question{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #0099e8;
+    color: #fff;
+    line-height: 14px;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+}
+
+@mixin clearfix{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.sell-wrapper{
+  background-color: $main-background;
+  color: #333;
+  width: 100%;
+}
+
+header.sell-header{
+  height: 128px;
+  h1{
+  text-align: center;
+  padding-top: 40px;
+  }
+}
+
+.sell-main {
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  text-align: center;
+  h2{
+    padding: 32px 16px;
+    font-size: 22px;
+    font-weight: bold;
+    @include form-content-set;
+  }
+  .sell-main-form{
+    &__images{
+      padding: 40px 2.5%;
+      @include form-content-set-with-text-align;
+      h3{
+        .image-title{
+          font-size: 16px;
+          font-weight: bold;
+        }
+        .must__tag{
+          @include must;
+        }
+      }
+      p{
+        font-size: 13px;
+        margin-top: 8px;
+        line-height: 1.5;
+      }
+      .sell-main-form__images__photos{
+        width:620px;
+        margin:16px auto 0;
+        &__update{
+          min-height: 162px;
+          background: $main-background;
+          border: 1px dashed #ccc;
+          text-align: center;
+          ul{
+            list-style: none;
+            font-size: 14px;
+            padding: 60px 40px 40px 40px;
+            min-height: 162px;
+            li{
+              line-height: 1.5;
+            } 
+          }
+        }
+      }
+    }
+    &__descriptions{
+      @include form-content-set-with-text-align_and_padding; 
+      &__name{
+        h4{
+          .item-name{
+            @include form-content-title-font;
+          }
+          .must__tag{
+            @include must;
+          }
+        }
+        input{
+          width: 100%;
+          margin: 8px 0 0;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          font-size: 16px;
+          line-height: 1.5;
+        }
+      }
+      &__comment{
+        margin: 40px 0 0;
+        h5{
+          .item-comment{
+            @include form-content-title-font;
+          }
+          .must__tag{
+            @include must;
+          }
+        }
+        textarea{
+          margin: 8px 0 0;
+          width: 100%;
+          max-width: 100%;
+          min-height: 142px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          background: #fff;
+          font-size: 16px;
+          line-height: 1.5;
+        }
+      }
+    }
+    &__content.clearfix:after{
+      @include clearfix;
+    }
+    &__content{
+      @include form-content-set-with-text-align_and_padding;
+      p{
+        @include form-content-title-left;
+      }
+      &__detail{
+        @include form-content-title-right;
+        &__category{
+          h6{
+            @include form-content-title-font;
+            .category-choice{
+            }
+            .must__tag{
+              @include must;
+            }
+          }
+          &__box{
+            @include form-box-position;
+            select{
+              @include select-box;
+            } 
+          }
+        }
+        &__status{
+          @include select-box-margin-not-first;
+          h7{
+            @include form-content-title-font;
+            .item-status{
+            }
+            .must__tag{
+              @include must;
+            }
+          }
+          &__box{
+            @include form-box-position;
+            select{
+              @include select-box;
+            } 
+          }
+        }
+      }
+      a{
+        @include question;
+      }
+      &__delivery{
+        @include form-content-title-right;
+        &__fee{
+          h8{
+            @include form-content-title-font;
+            .delivery-fee-choice{
+            }
+            .must__tag{
+              @include must;
+            }
+          }
+          &__box{
+            @include form-box-position;
+            select{
+              @include select-box;
+            } 
+          }
+        }
+        &__region{
+          @include select-box-margin-not-first;
+          h9{
+            @include form-content-title-font;
+            .delivery-region-choice{
+            }
+            .must__tag{
+              @include must;
+            }
+          }
+          &__box{
+            @include form-box-position;
+            select{
+              @include select-box;
+            } 
+          }
+        }
+        &__delay{
+          @include select-box-margin-not-first;
+          h10{
+            @include form-content-title-font;
+            .delivery-delay-choice{
+            }
+            .must__tag{
+              @include must;
+            }
+          }
+          &__box{
+            @include form-box-position;
+            select{
+              @include select-box;
+            } 
+          }
+        }
+      }
+      &__price{
+        @include form-content-title-right;
+        ul{
+          li.sell-main-form__content__price__total.clearfix:after{
+            @include clearfix;
+          }
+          .sell-main-form__content__price__total{
+            @include price-content-underline;
+            padding: 0 0 24px;
+            h11{
+              @include form-content-title-font;
+              float:left;
+              line-height: 48px;
+              .price-choice{
+              }
+              .must__tag{
+              @include must;
+              }
+            }
+            &__input{
+              float: right;
+              p{
+              line-height: 48px;
+              font-weight: initial;
+              }
+              input{
+                width: 80%;
+                margin: 0 0 0 5%;
+                text-align: right;
+                height: 48px;
+                padding: 10px 16px 8px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: #fff;
+                line-height: 1.5;
+                font-size: 16px;
+              }
+            }
+          }
+          li.sell-main-form__content__price__charge.clearfix:after{
+            @include clearfix;
+          }
+          li.sell-main-form__content__price__charge{
+            @include price-content-underline;
+            padding: 24px 0;
+            font-size: 14px;
+            &__title{
+              float:left;
+            }
+            &__auto{
+              float:right;
+            }
+          }
+          li.sell-main-form__content__price__profit.clearfix:after{
+            @include clearfix;
+          }
+          li.sell-main-form__content__price__profit{
+            padding: 24px 0;
+            font-size: 16px;
+            font-weight: 600;
+            &__title{
+              float:left;
+            }
+            &__auto{
+              float:right;
+            }
+          }
+        }
+      }
+    }
+    &__btn-box{
+      padding:40px;
+      text-align:left;
+      &__caution{
+        p{
+          font-size: 14px;
+          line-height: 1.5;
+          a{
+            color: #0099e8;
+            text-decoration: none;
+          }
+        }
+      }
+      button.sell-main-form__btn-box__submit-btn{
+        margin: 40px 0 0;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        text-align: center;
+      }
+      .sell-main-form__btn-box__back-btn{
+        display: block;
+        line-height: 3.5;
+        font-size: 14px;
+        background: #aaa;
+        border: 1px solid #aaa;
+        width: 45%;
+        margin: 24px auto 0;
+        text-align: center;
+        a{
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.sell-footer{
+  background: $main-background;
+  margin:0 auto;
+  width: 456px;
+  height: 220px;
+  text-decoration: none;
+  padding: 40px 0;
+  text-align: center;
+  &__link-boxes{
+    display:flex;
+    font-size: 12px;
+    justify-content: space-around;
+    a{
+      text-decoration: none;
+      color: #333333!important;
+    }
+  }
+  &__image{
+    padding-top: 40px;
+  }
+  &__copyright{
+    font-size: 13px;
+  }
+}
+
+
+
+
+

@@ -1,15 +1,14 @@
 class UsersController < ApplicationController
 
-  def mypage
-  end
-  
-  def edit
+  def index
   end
 
-  def update
-  end
+  def show
+    if params[:id] == "login"
+      render "login.html.haml"
+      return
+    end
 
-  def login
   end
 
 end
