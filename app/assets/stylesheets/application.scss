@@ -1,5 +1,8 @@
- @import "reset";
- @import "config/color";
- @import "./config/variable";
- @import "./users";
- @import "seller";
+@import "reset";
+@import "config/color";
+@import "./config/variable";
+@import './font-awesome-sprockets';
+@import 'font-awesome';
+@import "users";
+@import "seller";
+@import "item-detail";
