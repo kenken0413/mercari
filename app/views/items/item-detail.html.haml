@@ -1,0 +1,141 @@
+.detail-wrapper
+  .to-render-header
+    = image_tag 'mercari_header.png', alt: '', height: '100px', width: '100%', class: ''
+  -# =render partial "header"
+  .detail-main
+    .detail-main__item
+      %h1 CHANEL マトラッセ ショルダーバッグ
+      .detail-main__item__content.clearfix
+        .detail-main__item__content__images
+          .detail-main__item__content__images--main
+            = image_tag "bag-photo", alt: 'バッグ',height: '300px', width: '300px', class: '.detail-main__item__content__images--main__photo'
+          .detail-main__item__content__images--subs
+            = image_tag "bag-photo", alt: 'バッグ',height: '60px', width: '60px', class: '.detail-main__item__content__images--main__photo'
+            -# この写真のスライド部分は今のところ全くやり方がわからないので、後回し。
+        %table.detail-main__item__content__table
+          %tr
+            %th 出品者
+            %td
+              = link_to "ユーザー名", users_path
+              .detail-user__rating
+                %i.fas.fa-laugh.fapink
+                %span 100
+              .detail-user__rating
+                %i.fas.fa-meh.faorange
+                %span 50
+              .detail-user__rating
+                %i.fas.fa-frown.fablue
+                %span 30
+          %tr
+            %th カテゴリー
+            %td
+              = link_to "レディース", items_path
+              = link_to "＞バッグ", items_path
+              = link_to "＞ショルダーバッグ", items_path
+          %tr
+            %th ブランド
+            %td
+              = link_to "フルラ", items_path
+          %tr
+            %th 商品の状態
+            %td 目立った傷や汚れなし
+          %tr
+            %th 配送料の負担
+            %td 送料込み(出品者負担)
+          %tr
+            %th 配送の方法
+            %td クロネコヤマト
+          %tr
+            %th 配送元地域
+            %td 
+              = link_to "奈良県", items_path
+          %tr
+            %th 配送日の目安
+            %td 1~2日で発送
+      .detail-main__item__price
+        %span.detail-main__item__price--number ¥4,700 
+        %span.detail-main__item__price--tax (税込) 
+        %span.detail-main__item__price--charge 送料込み
+      .detail-main__item__link-buy
+        = link_to('購入画面に進む', class: 'detail-main__item__link-buy__btn')
+      .detail-main__item__description
+        %p　ご覧いただきありがとうございます。
+        %p　フルラショルダーバックの出品です
+        %p【ブランド】
+        %p　フルラ 
+        %p【コンディション】
+        %p　外観
+        %p　少し傷や汚れありますが、比較的綺麗です
+        %p　中身
+        %p　未使用品だと思いますので、非常に綺麗です
+        %p　ベージュで凄くオシャレな商品です(^^)
+        %p　詳細は画像にてご確認ください。
+      .detail-main__item__button-container.clearfix
+        .detail-main__item__button-container__left
+          %button.item-button--like{:name => "like!", :type => "button"}
+            %i.far.fa-heart.grey
+            %span いいね!
+            %span 13
+          %button.item-button--report{:name => "report", :type => "button"}
+            %i.far.fa-flag
+            %span 不適切な商品の報告
+        .detail-main__item__button-container__right
+          %i.fas.fa-lock
+          %span あんしん・あんぜんへの取り組み
+    .detail-main__message
+      = form_tag do
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = text_area_tag :message
+        = submit_tag 'コメントする'
+    .detail-main__prev-next-items
+      %ul
+        %li.link-prev-left
+          =link_to('＜海外限定フィギュア ワンピース 白ひげ',class: "detail-main__prev-next-items__link-prev")
+        %li.link-prev-left
+          =link_to('X1 ポーチ＞',class: "detail-main__prev-next-items__link-next")
+    .detail-main__social-media-box
+      %ul.detail-main__social-media-box__icons
+        %li.detail-main__social-media-box__icons__facebook
+          = link_to(href="http://www.facebook.com") do
+            %i.fab.fa-facebook-square.logosize#facebookcolor
+        %li.detail-main__social-media-box__icons__tweeter
+          = link_to(href="http://twetter.com") do
+            %i.fab.fa-twitter-square.logosize#tweetercolor
+        %li.detail-main__social-media-box__icons__line
+          = link_to(href="http://www.line.me") do
+            %i.fab.fa-line.logosize#linecolor
+        %li.detail-main__social-media-box__icons__pinterest
+          = link_to(href="http://www.pinterest.com") do
+            %i.fab.fa-pinterest-square.logosize#pinterestcolor
+    .detail-main__related-products
+      .detail-main__related-products__seller
+        = link_to users_path do
+          %h2 けーんさんのその他の出品
+          -# items.sellerのパス
+        .detail-main__related-products__seller__images-box.clearfix
+          = render partial: "detail-main__related-products__seller__images-box__item"
+          = render partial: "detail-main__related-products__seller__images-box__item"
+          = render partial: "detail-main__related-products__seller__images-box__item"
+          = render partial: "detail-main__related-products__seller__images-box__item"
+          = render partial: "detail-main__related-products__seller__images-box__item"
+          = render partial: "detail-main__related-products__seller__images-box__item"
+      .detail-main__related-products__brand
+        = link_to users_path do
+          %h4 フルラのショルダーバッグ その他の商品
+          -# items.brandのパス
+        .detail-main__related-products__brand__images-box.clearfix
+          = render partial: "detail-main__related-products__brand__images-box__item"
+          = render partial: "detail-main__related-products__brand__images-box__item"
+          = render partial: "detail-main__related-products__brand__images-box__item"
+          = render partial: "detail-main__related-products__brand__images-box__item"
+          = render partial: "detail-main__related-products__brand__images-box__item"
+          = render partial: "detail-main__related-products__brand__images-box__item"
+    %ul.detail-main__bottom-title
+      = link_to 'メルカリ  ＞', 'https://www.mercari.com/jp/' 
+      %li.detail-main__bottom-title__item-name 
+        %p CHANEL マトラッセ ショルダーバッグ
+        -# .detail-main__item h1の内容
+
+  .to-render-footer
+    = image_tag 'mercari_footer.png', alt: '', height: '300px', width: '100%', class: ''
+  -# =render partial "footer"

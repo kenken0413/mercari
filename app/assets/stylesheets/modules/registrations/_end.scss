@@ -1,0 +1,13 @@
+*{box-sizing: border-box;}
+.end-wrapper{
+  max-height:100vh;
+  .registration-content{
+    p{text-align:center;}
+    .registrations-end-image{
+      background-image:url('https://www.pakutaso.com/shared/img/thumb/NKJ56_taketomishimanoumitosora_TP_V.jpg');
+      background-size: cover;
+      height:80px;
+      width:700px;
+    }
+  }
+}
