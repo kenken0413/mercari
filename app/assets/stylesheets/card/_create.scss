@@ -1,0 +1,100 @@
+// mixinは重複のため後ほど削除
+
+@mixin clearfix {
+  zoom: 1;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin input {
+  height:48px;
+  width:100%;
+  border-radius:4px;
+  border:gainsboro solid 1px;
+  padding-left:20px;
+}
+
+.must__tag{
+  @include must;
+}
+
+.must{
+  @include must;
+}
+
+.form-group{
+  margin-top:32px;
+  &:first-child{margin:0;}
+  &:nth-child(4){font-size:14px;}
+  .profile-form-title{font-size:14px;font-weight:bold;}
+  .must__red{@include must}
+  input{
+    @include input;
+    @include clearfix;
+  }
+}
+
+.credit-new{
+  padding: 40px 40px 64px;
+  &__create{
+    max-width: 343px;
+    margin: 0 auto;
+    &__limit{
+      display: inline-block;
+      width: calc(50% - 3px);
+      margin: 8px 0 0;
+      position: relative;
+      span{
+        width:100%;
+      }
+      .default-select{
+        width: calc(100% - 40px);
+        z-index: 2;
+        height: 48px;
+        padding: 0 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: 0;
+        cursor: pointer;
+        -webkit-appearance: none;
+        .month.year{
+          position: relative;
+        }
+        &__chevron{
+          margin: 0 6px 0 -15px;
+          pointer-events: none;
+          position: absolute;
+          top: 15px;
+          right: 50px;
+          color: #888;
+        }
+      }
+ 
+    }
+    &__question{
+      text-align: right;
+      color: #0099e8;
+      &__icon{
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #0099e8;
+        color: #fff;
+        line-height: 14px;
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+
+
+
