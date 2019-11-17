@@ -1,0 +1,39 @@
+.credit-top
+  %h2.credit-top__upper クレジットカード情報入力
+  =form_tag(class: "credit-new") do 
+    -# フォームの属性等について入力が必要
+    .credit-new
+      .credit-new__create
+        .form-group
+          .profile-form-title
+            カード番号
+            %span#must__red.must__tag 必須
+          %input{type: 'text', placeholder: '半角数字のみ',maxlength: '19'}   
+          = image_tag 'card-logo.png', alt: 'logo', height: '20', width: '343', class: 'card-logo'  
+        .form-group
+          .profile-form-title
+            有効期限
+            %span#must__red.must__tag 必須
+          .credit-new__create__limit
+            %select.default-select.month(name="month") 
+              %option{value: ""} --
+            = icon('fas', 'chevron-down',  class: "default-select__chevron")
+            月
+
+          .credit-new__create__limit
+            %select.default-select.year(name="year")
+              %option{value: ""} --
+            = icon('fas', 'chevron-down',  class: "default-select__chevron")
+            年
+
+        .form-group
+          .profile-form-title
+            セキュリティコード
+            %span#must__red.must__tag 必須
+          %input{type: 'text', placeholder: 'カード背面4桁もしくは3桁の番号'}   
+          .credit-new__create__question
+            %span.credit-new__create__question__icon ?
+            カード裏面の番号とは？
+        .form-group
+          = link_to root_path ,class:'credit-new__create__btn btn-red btn-default' do
+            .icon-card 追加する
