@@ -1,12 +1,10 @@
-*{box-sizing: border-box; text-decoration:none;}
-@mixin btn{border-radius:4px;height:50px;color:white;font-size:15px;}
-@mixin sns{text-align:center;line-height:50px;}
 .signup-wrapper{
   background-color: $main-background;
   height:100vh;
+  
   .signup-content{
     background-color:$main-content;
-    height:384px;
+    height:382px;
     width:$main-width;
     margin:0 auto;
 
@@ -43,7 +41,6 @@
     }
 
     &__sns{
-      height:500px;
       width:343px;
       margin:20px 178.5px 0 178.5px;
 

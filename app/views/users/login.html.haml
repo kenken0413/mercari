@@ -1,5 +1,5 @@
 .login-wrapper
-  %header.login-header
+  =render "items/sell-header"
   .login-content
     .login-content__signup
       .login-content__signup__title
@@ -24,5 +24,4 @@
         =link_to users_path do
           .login-btn
             ログイン
-
-  %footer.login-footer
+  =render "items/sell-footer"
