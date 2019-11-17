@@ -14,18 +14,17 @@
           .profile-form-title
             有効期限
             %span#must__red.must__tag 必須
-            %br
           .credit-new__create__limit
             %select.default-select.month(name="month") 
               %option{value: ""} --
             = icon('fas', 'chevron-down',  class: "default-select__chevron")
-            %span 月
+            月
 
           .credit-new__create__limit
             %select.default-select.year(name="year")
               %option{value: ""} --
             = icon('fas', 'chevron-down',  class: "default-select__chevron")
-            %span 年
+            年
 
         .form-group
           .profile-form-title
