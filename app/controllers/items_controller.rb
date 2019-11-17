@@ -4,20 +4,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    if params[:id] == "sell"
-      render "sell.html.haml"
-      return
-    end
-
-    if params[:id] =="detail"
-      render "item-detail.html.haml"
-      return
-    end
-
-    if params[:id] =="buy"
-      render "buy-confirmation.html.haml"
-      return
-    end
+    render "sell.html.haml"if params[:id] == "sell"
+    render "item-detail.html.haml" if params[:id] =="detail"
+    render "buy-confirmation.html.haml" if params[:id] =="buy"
   end
 
 end
