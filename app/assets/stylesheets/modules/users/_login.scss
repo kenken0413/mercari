@@ -16,7 +16,6 @@
       font-size:14px;
       font-family: 'icon-font';
       padding:40px 64px;
-      box-sizing: border-box;
       border-bottom: $main-background solid 1px;
       a{text-decoration:none;}
 
@@ -43,7 +42,6 @@
       background-color: $main-content;
       font-size:13px;
       height:180px;
-      box-sizing: border-box;
       text-align:center;
       a{text-decoration:none;}
       
@@ -76,11 +74,9 @@
       .login-email,.login-password{
         height:42px;
         width:328px;
-        border-radius:8px;
-        border:#979797 solid 1px;
+        border-radius:4px;
+        border:#ccc solid 1px;
         padding:10px;
-        box-sizing: border-box;
-        &:focus{border: 1px solid #333; box-shadow: none;}
       }
 
       .login-btn{
@@ -92,6 +88,4 @@
       }
     }
   }
-  .login-footer{}
-
 }
