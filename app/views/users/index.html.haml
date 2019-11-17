@@ -1,7 +1,8 @@
 .wrapper
   -# = render "shared/header"
-  %header.user-header
+  -# %header.user-header
+  =render "items/header"
   .userpage-main
     =render "side-list"
     =render "main-content"
-  %footer.user-footer
+  =render "items/footer"
