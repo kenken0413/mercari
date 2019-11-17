@@ -63,7 +63,6 @@
     .link-more{
       color: rgb(0, 149, 238);
       font-weight: 600;
-      text-decoration: none;
       display: flex;
       align-items: center;
     }
@@ -138,7 +137,6 @@
   position: fixed;
   background-color: rgb(234, 53, 45);
   border-radius: 50%;
-  text-decoration:none;
   &__btn{
     color: white;
     &__text{

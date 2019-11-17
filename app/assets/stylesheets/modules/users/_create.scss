@@ -1,13 +1,8 @@
-.must__tag{
-  @include must;
-}
-
 .form-group{
   margin-top:32px;
   &:first-child{margin:0;}
   &:nth-child(4){font-size:14px;}
   .profile-form-title{font-size:14px;font-weight:bold;}
-  .must__red{@include must}
   input{
     @include input;
     @include clearfix;

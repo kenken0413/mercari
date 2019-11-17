@@ -3,7 +3,6 @@
     margin-top:32px;
     &:nth-child(4){font-size:14px;}
     .profile-form-title{font-size:14px;font-weight:bold;}
-    #must__red{@include must}
     input{@include input;@include clearfix;}
     .last-name-form{margin-top:8px;}
     select{@include input;background-color:$main-content;}

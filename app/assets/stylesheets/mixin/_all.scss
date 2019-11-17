@@ -3,6 +3,12 @@
   border-bottom-style: solid;
 }
 
+@mixin price-content-underline{
+  border-bottom-color:#ccc;;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+ }
+
 @mixin form-content-title-font{
   font-size: 14px;
   font-weight: 600;
@@ -53,7 +59,6 @@ width: 400px;
     line-height: 14px;
     font-size: 12px;
     text-align: center;
-    text-decoration: none;
 }
 
 @mixin clearfix{
@@ -111,9 +116,6 @@ width: 400px;
   }
   &__item:nth-child(3n){
     margin-right: 0;
-  }
-  a{
-    text-decoration: none;
   }
 }
 

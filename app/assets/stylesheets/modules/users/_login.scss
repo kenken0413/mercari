@@ -17,7 +17,6 @@
       font-family: 'icon-font';
       padding:40px 64px;
       border-bottom: $main-background solid 1px;
-      a{text-decoration:none;}
 
       &__title{
         text-align:center;
@@ -43,7 +42,6 @@
       font-size:13px;
       height:180px;
       text-align:center;
-      a{text-decoration:none;}
       
       .facebook-btn{
         background-color:#385185;
@@ -68,7 +66,7 @@
       padding:24px 64px 32px;
       background-color: $main-content;
       .form-group{margin-top:24px;}
-      a{color:white;text-decoration:none;}
+      a{color:white;}
       
 
       .login-email,.login-password{

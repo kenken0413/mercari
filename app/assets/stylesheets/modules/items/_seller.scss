@@ -25,7 +25,7 @@ header.sell-header{
   }
   .sell-main-form{
     &__images{
-      padding: 40px 2.5%;
+      padding: 40px;
       @include form-content-set;
       text-align: left;
 
@@ -33,9 +33,6 @@ header.sell-header{
         .image-title{
           font-size: 16px;
           font-weight: bold;
-        }
-        .must__tag{
-          @include must;
         }
       }
       p{
@@ -72,9 +69,6 @@ header.sell-header{
           .item-name{
             @include form-content-title-font;
           }
-          .must__tag{
-            @include must;
-          }
         }
         input{
           width: 100%;
@@ -93,9 +87,6 @@ header.sell-header{
         h5{
           .item-comment{
             @include form-content-title-font;
-          }
-          .must__tag{
-            @include must;
           }
         }
         textarea{
@@ -128,9 +119,6 @@ header.sell-header{
             @include form-content-title-font;
             .category-choice{
             }
-            .must__tag{
-              @include must;
-            }
           }
           &__box{
             @include form-box-position;
@@ -144,9 +132,6 @@ header.sell-header{
           h7{
             @include form-content-title-font;
             .item-status{
-            }
-            .must__tag{
-              @include must;
             }
           }
           &__box{
@@ -167,9 +152,6 @@ header.sell-header{
             @include form-content-title-font;
             .delivery-fee-choice{
             }
-            .must__tag{
-              @include must;
-            }
           }
           &__box{
             @include form-box-position;
@@ -184,9 +166,6 @@ header.sell-header{
             @include form-content-title-font;
             .delivery-region-choice{
             }
-            .must__tag{
-              @include must;
-            }
           }
           &__box{
             @include form-box-position;
@@ -200,9 +179,6 @@ header.sell-header{
           h10{
             @include form-content-title-font;
             .delivery-delay-choice{
-            }
-            .must__tag{
-              @include must;
             }
           }
           &__box{
@@ -228,9 +204,6 @@ header.sell-header{
               line-height: 48px;
               .price-choice{
               }
-              .must__tag{
-              @include must;
-              }
             }
             &__input{
               float: right;
@@ -255,7 +228,7 @@ header.sell-header{
           li.sell-main-form__content__price__charge.clearfix:after{
             @include clearfix;
           }
-          li.sell-main-form__content__price__charge{
+          .sell-main-form__content__price__charge{
             @include price-content-underline;
             padding: 24px 0;
             font-size: 14px;
@@ -264,12 +237,13 @@ header.sell-header{
             }
             &__auto{
               float:right;
+              margin-right:50px;
             }
           }
           li.sell-main-form__content__price__profit.clearfix:after{
             @include clearfix;
           }
-          li.sell-main-form__content__price__profit{
+          .sell-main-form__content__price__profit{
             padding: 24px 0;
             font-size: 16px;
             font-weight: 600;
@@ -278,6 +252,7 @@ header.sell-header{
             }
             &__auto{
               float:right;
+              margin-right:50px;
             }
           }
         }
@@ -292,7 +267,6 @@ header.sell-header{
           line-height: 1.5;
           a{
             color: #0099e8;
-            text-decoration: none;
           }
         }
       }
@@ -318,7 +292,6 @@ header.sell-header{
         text-align: center;
         a{
           color: #fff;
-          text-decoration: none;
         }
       }
     }
@@ -330,7 +303,6 @@ header.sell-header{
   margin:0 auto;
   width: 456px;
   height: 220px;
-  text-decoration: none;
   padding: 40px 0;
   text-align: center;
   &__link-boxes{
@@ -338,7 +310,6 @@ header.sell-header{
     font-size: 12px;
     justify-content: space-around;
     a{
-      text-decoration: none;
       color: #333333!important;
     }
   }

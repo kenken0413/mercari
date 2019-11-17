@@ -2,29 +2,29 @@
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
+ @import "./mixin/all";
  @import "./mixin/color";
  @import "./mixin/variable";
  @import "./mixin/parts";
- @import "./mixin/all";
 
- @import "./modules/items/body";
- @import "./modules/items/buy-confirmation";
- @import "./modules/items/footer";
  @import "./modules/items/header";
+ @import "./modules/items/body";
+ @import "./modules/items/footer";
  @import "./modules/items/item-detail";
  @import "./modules/items/seller";
+ @import "./modules/items/buy-confirmation";
 
  @import "./modules/users/create";
- @import "./modules/users/edit-user";
  @import "./modules/users/index";
+ @import "./modules/users/edit-user";
  @import "./modules/users/login";
  @import "./modules/users/users";
 
+ @import "./modules/registrations/SignUp-header";
+ @import "./modules/registrations/registration";
  @import "./modules/registrations/progress";
  @import "./modules/registrations/n1";
  @import "./modules/registrations/n2";
  @import "./modules/registrations/n3";
  @import "./modules/registrations/n4";
  @import "./modules/registrations/end";
- @import "./modules/registrations/registration";
- @import "./modules/registrations/SignUp-header";

@@ -55,7 +55,6 @@
             padding: 8px;
             a{
               @include link-font-color-and-size();
-              text-decoration: none;
               display:block;
             }
             .detail-user__rating{
@@ -103,7 +102,6 @@
       text-align: center;
       a{
         font-weight: 600;
-        text-decoration: none;
         color: #fff;
       }
     }
@@ -195,7 +193,6 @@
       justify-content: space-between;
       li{
           a{
-          text-decoration: none;
           @include link-font-color-and-size();
         }
       }
@@ -237,7 +234,6 @@
     @include content-no-border-background-width;
     &__seller{
       a{
-        text-decoration: none;
         h2{
           @include related-products-title;
         }
@@ -251,7 +247,6 @@
     }
     &__brand{
       a{
-        text-decoration: none;
         h4{
           @include related-products-title;
         }
@@ -272,7 +267,6 @@
     padding: 16px 0;
     list-style: none;
     a{
-      text-decoration: none;
       @include link-font-color-and-size()
     }
     li.detail-main__bottom-title__item-name{
