@@ -1,9 +1,10 @@
 .signup-wrapper{
   background-color: $main-background;
   height:100vh;
+  
   .signup-content{
     background-color:$main-content;
-    height:384px;
+    height:382px;
     width:$main-width;
     margin:0 auto;
 
@@ -40,7 +41,6 @@
     }
 
     &__sns{
-      height:500px;
       width:343px;
       margin:20px 178.5px 0 178.5px;
 
