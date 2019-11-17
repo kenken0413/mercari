@@ -1,0 +1,47 @@
+.credit-top{
+  margin-top: 40px;
+  float: right;
+  width: 700px;
+  background: $main-content;
+  &__upper{
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 1px solid #f3f3f3;
+    text-align: center;
+    font-weight: bold;
+  }
+  &__main{
+    padding: 64px;
+    border-top: 1px solid #f3f3f3;
+    &__title{
+      max-width: 320px;
+      margin: 0 auto;
+      font-weight: bold;
+    }
+    &__card-add{
+      padding: 24px 0;
+      border-bottom: 1px solid $main-background;
+      &__btn{
+        margin: 0 auto;
+        max-width: 320px;
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+      }
+      .icon-card{
+        margin-right: 16px;
+      }
+    }
+    &__link-guide{
+      margin: 40px 0 0;
+      text-align: right;
+      color: #0099e8;
+      display: block;
+      text-decoration: none;
+      &__icon{
+        padding-left: 8px;
+      }
+    }
+  }
+}

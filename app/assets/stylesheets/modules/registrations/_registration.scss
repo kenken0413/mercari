@@ -1,0 +1,64 @@
+*{box-sizing: border-box; text-decoration:none;}
+@mixin btn{border-radius:4px;height:50px;color:white;font-size:15px;}
+@mixin sns{text-align:center;line-height:50px;}
+.signup-wrapper{
+  background-color: $main-background;
+  height:100vh;
+  .signup-content{
+    background-color:$main-content;
+    height:384px;
+    width:$main-width;
+    margin:0 auto;
+
+    .signup-upper{
+      height:96px;
+      border-bottom:$main-background solid 1px;
+      text-align:center;
+      line-height:96px;
+      font-weight:bold;
+      font-size:22px;
+    }
+
+
+    .choose-signup{
+      margin-top:40px;
+      .email-signup-box{
+        width:343px;
+        margin:0 auto;
+        background-color:#ea352d;
+        padding:11px 81px 13px 0;
+        @include btn;
+
+        &__btn{
+          float:right;
+        }
+
+        &__icon{
+          height:20px;
+          width:30px;
+          float:left;
+          margin:5px 0 0 20px;
+        }
+      }
+    }
+
+    &__sns{
+      height:500px;
+      width:343px;
+      margin:20px 178.5px 0 178.5px;
+
+      .facebook-btn{
+        background-color:#385185;
+        @include btn;
+        @include sns;
+      }
+      .google-btn{
+        border:#333 solid 1px;
+        @include btn;
+        @include sns;
+        color:#333;
+        margin-top:20px;
+      }
+    }
+  }
+}

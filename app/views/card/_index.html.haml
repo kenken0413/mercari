@@ -1,0 +1,12 @@
+.credit-wrapper
+  .credit-top
+    %h2.credit-top__upper 支払い方法
+    .credit-top__main
+      .credit-top__main__title クレジットカード一覧
+      .credit-top__main__card-add
+        = link_to root_path ,class:'credit-top__main__card-add__btn btn-red btn-default' do
+          = icon('fas', 'credit-card',  class: "icon-card")
+          クレジットカードを追加する
+      = link_to root_path,class:'credit-top__main__link-guide' do
+        支払い方法について
+        = icon('fas', 'chevron-right',  class: "credit-top__main__link-guide__icon")

@@ -1,0 +1,15 @@
+.wrapper.end-wrapper
+  .n5-end
+    = render "/shared/SignUp-header"
+  .registration-content
+    .profile-head
+      会員登録完了
+    .signup-height
+      .signup-margin
+        %p
+          ありがとうございます。
+          %br 会員登録が完了いたしました。
+        =link_to root_path do
+          %input.next-btn{type:"button",value:"メルカリをはじめる"}
+    .registrations-end-image
+  =render "items/sell-footer"

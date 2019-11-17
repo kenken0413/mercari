@@ -1,0 +1,97 @@
+.login-wrapper{
+  background-color: $main-background;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+
+  .login-header{height:128px;width:100vw;}
+  .login-content{
+    background-color:$main-background;
+    height:731px;
+    width:456px;
+    margin:0 auto;
+
+    &__signup{
+      background-color: $main-content;
+      height:143px;
+      width:100%;
+      font-size:14px;
+      font-family: 'icon-font';
+      padding:40px 64px;
+      box-sizing: border-box;
+      border-bottom: $main-background solid 1px;
+      a{text-decoration:none;}
+
+      &__title{
+        text-align:center;
+        font-family: 'icon-font';
+        height:14px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .login-signup-btn{
+        background-color:#0098e8;
+        height:42px;
+        width:100%;
+        text-align:center;
+        line-height:42px;
+        color:white;
+        margin-top:8px;
+      }
+    }
+
+    &__sns{
+      padding:30px 64px;
+      background-color: $main-content;
+      font-size:13px;
+      height:180px;
+      box-sizing: border-box;
+      text-align:center;
+      a{text-decoration:none;}
+      
+      .facebook-btn{
+        background-color:#385185;
+        height:50px;
+        line-height:50px;
+        color:white;
+      }
+
+      .google-btn{
+        background-color:$main-content;
+        height:50px;
+        line-height:50px;
+        color:$main-font;
+        border:#979797 solid 1px;
+        margin-top:16px;
+      }
+
+
+    }
+
+    &__form{
+      padding:24px 64px 32px;
+      background-color: $main-content;
+      .form-group{margin-top:24px;}
+      a{color:white;text-decoration:none;}
+      
+
+      .login-email,.login-password{
+        height:42px;
+        width:328px;
+        border-radius:8px;
+        border:#979797 solid 1px;
+        padding:10px;
+        box-sizing: border-box;
+        &:focus{border: 1px solid #333; box-shadow: none;}
+      }
+
+      .login-btn{
+        height:42px;
+        width:328px;
+        background-color:red;
+        text-align:center;
+        line-height:42px;
+      }
+    }
+  }
+  .login-footer{}
+
+}
