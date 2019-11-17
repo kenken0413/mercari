@@ -1,0 +1,12 @@
+.logout-wrapper
+  = render "items/header"
+  .wrapper
+    .userpage-main
+      = render "side-list"
+      .logout-main__right
+        =form_tag do
+          = submit_tag "ログアウト"
+          = hidden_field_tag(name: "", value: "")  
+  .app-info
+  = render "items/sell-icon"
+  = render "items/footer"

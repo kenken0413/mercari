@@ -4,11 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    if params[:id] == "login"
-      render "login.html.haml"
-      return
-    end
-
+    render "login.html.haml" if params[:id] == "login"
+    render "logout.html.haml" if params[:id] =="logout"
   end
 
-end
+  end
