@@ -1,0 +1,109 @@
+.buy-wrapper{
+  background: $main-background;
+  .buy-main{
+    width: 700px;
+    margin: 0 auto;
+    background: $main-content;
+    h1{
+      padding: 16px;
+      font-size: 22px;
+      line-height: 1.5;
+      text-align: center;
+      font-weight: bold;
+    }
+    section{
+      padding: 24px 12.5% 0;
+      border-top: 1px solid #f5f5f5;
+    }
+    &__content{
+      max-width: 320px;
+      margin: 0 auto;
+      h2{
+        display:flex;
+        p{
+          margin: 0 0 0 16px;
+          text-align: left; 
+          font-size: 16px;
+          line-height: 1.5;
+          font-weight: 600;
+        }
+      }
+      form{
+        width: 100%;
+      }
+      &__price{
+        justify-content: center;
+        display:flex;
+        margin: 8px 0 0;
+        line-height: 1.5;
+        p1{
+          font-size: 22px;
+          font-weight: bold;
+        }
+        p2{
+            margin: 0 0 0 8px;
+            font-size: 14px;
+            font-weight: 400;
+            padding-top: 8px;
+        }
+      }
+      &__point{
+        background: #ccc;
+        margin: 16px 0 0;
+        text-align: center;
+        padding:16px;
+        font-size: 14px;
+      }
+      &__final-price{
+        display:flex;
+        justify-content:space-between;
+        padding: 16px 0;
+        font-weight: bold;
+        line-height: 1.0;
+        &--left{
+          padding-top: 10px;
+          font-size: 18px;
+        }
+        &--right{
+          font-size: 28px;
+        }
+      }
+      input{
+        margin: 8px 0 0;
+        background: #ea352d;
+        color: #fff;
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+    }
+    .with_margin_top{
+      margin: 40px 0 0;
+      h3{
+        font-weight: bold;
+        font-size: 14px;
+      }
+      p{
+        font-size: 12px;
+      }
+      a{
+        font-size: 14px;
+        text-decoration: none;
+        color:#0099E8;
+        display:block;
+        text-align: right;
+      }
+      i.blue{
+        font-size: 20px;
+        color:blue;
+      }
+    }
+    .with_margin_top.and-bottom{
+      padding-bottom: 40px;
+    }
+  }
+}
+

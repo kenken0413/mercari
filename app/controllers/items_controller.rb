@@ -13,6 +13,11 @@ class ItemsController < ApplicationController
       render "item-detail.html.haml"
       return
     end
+
+    if params[:id] =="buy"
+      render "buy-confirmation.html.haml"
+      return
+    end
   end
 
 end
