@@ -1,0 +1,21 @@
+.logout-main__right{
+  float:right;
+  width:700px;
+  margin-top: 40px;
+  background: $main-content;
+  form{
+    max-width: 320px;
+    padding: 64px 0;
+    margin:0 auto;
+    border: 1px solid #ea352d;
+    input{
+    width:100%;
+    line-height: 48px;
+    text-align: center;
+    background: #ea352d;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    }
+  }
+}

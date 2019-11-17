@@ -1,37 +1,38 @@
-.header-contents
-  .header-contents__upper
-    = link_to root_path do
-      = image_tag 'fmarket_logo_red.svg', alt: 'mercari', height: '36px', width: '134px', class: 'header-contents__upper__logo'
-    
-    .header-contents__upper__form-search
-      %input{type:"search", name:"keyword", placeholder:"何かお探しですか？", class:"header-contents__upper__form-search__form", value:" "}
-      %button.header-contents__upper__form-search__btn
-        = icon('fas', 'search',  class: "search-icon")
-  .header-contents__lower
-    .header-contents__lower__item-search
-      = link_to root_path, class:'menu-link' do
-        .header-contents__lower__item-search__list
-          = icon('fas', 'list-ul',  class: "header-contents__lower__item-search__list__icon")
-          .header-contents__lower__item-search__list__text カテゴリーから探す
-      = link_to root_path, class:'menu-link' do
-        .header-contents__lower__item-search__list.right
-          = icon('fas', 'tag',  class: "header-contents__lower__item-search__list__icon")
-          .header-contents__lower__item-search__list__text ブランドから探す    
+.header
+  .header-contents
+    .header-contents__upper
+      = link_to root_path do
+        = image_tag 'fmarket_logo_red.svg', alt: 'mercari', height: '36px', width: '134px', class: 'header-contents__upper__logo'
+      
+      .header-contents__upper__form-search
+        %input{type:"search", name:"keyword", placeholder:"何かお探しですか？", class:"header-contents__upper__form-search__form", value:" "}
+        %button.header-contents__upper__form-search__btn
+          = icon('fas', 'search',  class: "search-icon")
+    .header-contents__lower
+      .header-contents__lower__item-search
+        = link_to root_path, class:'menu-link' do
+          .header-contents__lower__item-search__list
+            = icon('fas', 'list-ul',  class: "header-contents__lower__item-search__list__icon")
+            .header-contents__lower__item-search__list__text カテゴリーから探す
+        = link_to root_path, class:'menu-link' do
+          .header-contents__lower__item-search__list.right
+            = icon('fas', 'tag',  class: "header-contents__lower__item-search__list__icon")
+            .header-contents__lower__item-search__list__text ブランドから探す    
 
-    .header-contents__lower__mypage
-      = link_to root_path, class:'menu-link' do
-        .header-contents__lower__mypage__list
-          = icon('far', 'heart',  class: "header-contents__lower__mypage__list__icon")
-          .header-contents__lower__mypage__list__text いいね！一覧
-      = link_to root_path, class:'menu-link' do
-        .header-contents__lower__mypage__list
-          = icon('far', 'bell',  class: "header-contents__lower__mypage__list__icon")
-          .header-contents__lower__mypage__list__text お知らせ
-      = link_to root_path, class:'menu-link' do
-        .header-contents__lower__mypage__list
-          = icon('fas', 'check',  class: "header-contents__lower__mypage__list__icon")
-          .header-contents__lower__mypage__list__text やることリスト
-      = link_to users_path, class:'menu-link' do
-        .header-contents__lower__mypage__list
-          = image_tag 'fmarket_logo_red.svg', alt: 'mercari',  class: "header-contents__lower__mypage__list__icon"
-          .header-contents__lower__mypage__list__text マイページ
+      .header-contents__lower__mypage
+        = link_to root_path, class:'menu-link' do
+          .header-contents__lower__mypage__list
+            = icon('far', 'heart',  class: "header-contents__lower__mypage__list__icon")
+            .header-contents__lower__mypage__list__text いいね！一覧
+        = link_to root_path, class:'menu-link' do
+          .header-contents__lower__mypage__list
+            = icon('far', 'bell',  class: "header-contents__lower__mypage__list__icon")
+            .header-contents__lower__mypage__list__text お知らせ
+        = link_to root_path, class:'menu-link' do
+          .header-contents__lower__mypage__list
+            = icon('fas', 'check',  class: "header-contents__lower__mypage__list__icon")
+            .header-contents__lower__mypage__list__text やることリスト
+        = link_to users_path, class:'menu-link' do
+          .header-contents__lower__mypage__list
+            = image_tag 'fmarket_logo_red.svg', alt: 'mercari',  class: "header-contents__lower__mypage__list__icon"
+            .header-contents__lower__mypage__list__text マイページ
