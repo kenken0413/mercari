@@ -1,13 +1,12 @@
 .wrapper{
-  background: $main-background;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-
 
   .user-header{
     background-image:url("mercari_header.png");
     background-size:cover;
     height:149px;
   }
+
+  .user-main-box{background-color:$main-background;}
 
   .userpage-main{
     margin: 0 auto;
@@ -172,7 +171,6 @@
 
                 &__time{
                   height:17.42px;
-                  width:82.72px;
                   float:left;
                   padding-left:20px;
                   padding-top:8px;
