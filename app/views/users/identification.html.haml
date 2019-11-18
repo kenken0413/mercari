@@ -1,0 +1,50 @@
+.identification-wrapper
+  = render "items/header"
+  .wrapper
+    .userpage-main
+      = render "side-list"
+      .identification-main__right
+        %h1 本人情報の登録
+        .identification-main__right__form
+          =form_tag do
+            .identification-main__right__form__title
+              %p お客さまの本人情報をご登録ください。
+              %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+              = link_to "本人確認書類のアップロードについて　＞", "#"
+            .identification-main__right__form__content
+              = label_tag :お名前
+              %p 昭和太郎
+            .identification-main__right__form__content
+              = label_tag :お名前カナ
+              %p ショウワ　タロウ
+            .identification-main__right__form__content
+              = label_tag :生年月日
+              %p 1984/01/12
+            .identification-main__right__form__content
+              = label_tag :郵便番号
+              %span#optional 任意
+              %input(placeholder="例）1234567")
+            .identification-main__right__form__content
+              = label_tag :都道府県
+              %span#optional 任意
+              %select
+                =render 'shared/prefectures'
+            .identification-main__right__form__content
+              = label_tag :市区町村
+              %span#optional 任意
+              %input(placeholder="例）横浜市緑区")
+            .identification-main__right__form__content
+              = label_tag :番地
+              %span#optional 任意
+              %input(placeholder="例）青山1-1-1")
+            .identification-main__right__form__content
+              = label_tag :建物名
+              %span#optional 任意
+              %input(placeholder="例）柳ビル103")
+            %button.identification-main__right__form__content
+              登録する
+            .identification-main__right__form__content.link
+              = link_to "本人情報の登録について　＞", "#"
+  .app-info
+  = render "items/sell-icon"
+  = render "items/footer"
