@@ -1,35 +1,8 @@
-// mixinは重複のため後ほど削除
-
-@mixin clearfix {
-  zoom: 1;
-  &:before,
-  &:after {
-    content: "";
-    display: table;
-  }
-  &:after {
-    clear: both;
-  }
-}
-
-@mixin input {
-  height:48px;
-  width:100%;
-  border-radius:4px;
-  border:gainsboro solid 1px;
-  padding-left:20px;
-}
-
-.must__tag{
-  @include must;
-}
-
 .form-group{
   margin-top:32px;
   &:first-child{margin:0;}
   &:nth-child(4){font-size:14px;}
   .profile-form-title{font-size:14px;font-weight:bold;}
-  .must__red{@include must}
   input{
     @include input;
     @include clearfix;

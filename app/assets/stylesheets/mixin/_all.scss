@@ -1,0 +1,150 @@
+@mixin form-content-set{
+  border-bottom-color: $main-background;  
+  border-bottom-style: solid;
+}
+
+@mixin price-content-underline{
+  border-bottom-color:#ccc;;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+ }
+
+@mixin form-content-title-font{
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@mixin form-content-title-left{
+  float: left;
+  font-size: 14px;
+  color: #888;
+  font-weight: bold;
+}
+
+@mixin form-content-title-right{
+float: right;
+width: 400px;
+}
+
+@mixin form-box-position{
+  position: relative;
+  margin: 8px 0 0;
+}
+
+@mixin select-box{
+  width:100%;
+  position: relative;
+  z-index: 1;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+@mixin price-content-underline{
+  border-bottom-color:#ccc;  
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+}
+
+@mixin question{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #0099e8;
+    color: #fff;
+    line-height: 14px;
+    font-size: 12px;
+    text-align: center;
+}
+
+@mixin clearfix{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+@mixin content-background-width{
+  width:700px;
+  background: $main-content;
+}
+
+@mixin content-no-border-background-width{
+  width:700px;
+  background: $main-background;
+}
+
+@mixin related-products-title{
+  font-size: 22px;
+  margin: 24px 0 8px;
+  line-height: 1.4;
+  font-weight: bold;
+  color:#0099E8;
+}
+
+@mixin link-font-color-and-size{
+  color:#0099E8;
+  font-size:14px;
+}
+
+@mixin images-box{
+  &__item{
+    float: left;
+    margin-bottom: 40px;
+    width: 220px;
+    margin: 0 20px 20px 0;
+    &--photo{
+    }
+    &--body{
+      background: $main-content;
+      color: #333333;
+      height: 110px;
+      padding:16px;
+      &--info{
+        display: flex;
+        justify-content: space-between;
+        margin: 8px 0 0;
+        font-size: 16px;
+        &--like{
+          padding-top: 4px;
+        }
+      }
+    }
+  }
+  &__item:nth-child(3n){
+    margin-right: 0;
+  }
+}
+
+@mixin input {
+  height:48px;
+  width:100%;
+  border-radius:4px;
+  border:gainsboro solid 1px;
+  padding-left:20px;
+}
+
+@mixin must{
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+@mixin bar{
+  .progress-status {
+    background: #ea352d;
+  }
+  .progress-status_bar{
+    background: #ea352d;
+  }
+}
+
+@mixin btn{border-radius:4px;height:50px;color:white;font-size:15px;}
+@mixin sns{text-align:center;line-height:50px;}

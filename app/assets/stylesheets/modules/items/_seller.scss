@@ -1,107 +1,3 @@
-* {
-  box-sizing: border-box;
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-}
-
-@mixin form-content-set{
-  border-bottom-color: $main-background;  
-  border-bottom-style: solid;
-}
-
-@mixin form-content-set-with-text-align{
-  border-bottom-color: $main-background;  
-  border-bottom-style: solid;
-  text-align: left;
-}
-
-@mixin form-content-set-with-padding_{
-  border-bottom-color: $main-background;  
-  border-bottom-style: solid;
-  padding: 40px;
-}
-
-@mixin form-content-set-with-text-align_and_padding{
-  border-bottom-color: $main-background;  
-  border-bottom-style: solid;
-  text-align: left;
-  padding: 40px;
-}
-
-@mixin form-content-title-font{
-  font-size: 14px;
-  font-weight: 600;
-}
-
-@mixin form-content-title-left{
-  float: left;
-  font-size: 14px;
-  color: #888;
-  font-weight: bold;
-}
-
-@mixin form-content-title-right{
-float: right;
-width: 400px;
-}
-
-@mixin form-box-position{
-  position: relative;
-  margin: 8px 0 0;
-}
-
-@mixin select-box{
-  width:100%;
-  position: relative;
-  z-index: 1;
-  height: 48px;
-  padding: 0 16px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: 0;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-@mixin select-box-margin-not-first{
-  margin:40px 0 0;
-}
-
-@mixin price-content-underline{
-  border-bottom-color:#ccc;;  
-  border-bottom-style: solid;
-  border-bottom-width: thin;
-}
-
-@mixin must{
-  background: #ea352d;
-  margin: 0 0 0 8px;
-  padding: 2px 4px;
-  border-radius: 2px;
-  color: #fff;
-  font-size: 12px;
-  vertical-align: top;
-  font-weight: bold;
-}
-
-@mixin question{
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #0099e8;
-    color: #fff;
-    line-height: 14px;
-    font-size: 12px;
-    text-align: center;
-    text-decoration: none;
-}
-
-@mixin clearfix{
-  content: '';
-  display: block;
-  clear: both;
-}
-
 .sell-wrapper{
   background-color: $main-background;
   color: #333;
@@ -129,15 +25,14 @@ header.sell-header{
   }
   .sell-main-form{
     &__images{
-      padding: 40px 2.5%;
-      @include form-content-set-with-text-align;
+      padding: 40px;
+      @include form-content-set;
+      text-align: left;
+
       h3{
         .image-title{
           font-size: 16px;
           font-weight: bold;
-        }
-        .must__tag{
-          @include must;
         }
       }
       p{
@@ -166,14 +61,13 @@ header.sell-header{
       }
     }
     &__descriptions{
-      @include form-content-set-with-text-align_and_padding; 
+      @include form-content-set; 
+      text-align: left;
+      padding: 40px;
       &__name{
         h4{
           .item-name{
             @include form-content-title-font;
-          }
-          .must__tag{
-            @include must;
           }
         }
         input{
@@ -194,9 +88,6 @@ header.sell-header{
           .item-comment{
             @include form-content-title-font;
           }
-          .must__tag{
-            @include must;
-          }
         }
         textarea{
           margin: 8px 0 0;
@@ -215,7 +106,9 @@ header.sell-header{
       @include clearfix;
     }
     &__content{
-      @include form-content-set-with-text-align_and_padding;
+      @include form-content-set;
+      text-align: left;
+      padding: 40px;
       p{
         @include form-content-title-left;
       }
@@ -226,9 +119,6 @@ header.sell-header{
             @include form-content-title-font;
             .category-choice{
             }
-            .must__tag{
-              @include must;
-            }
           }
           &__box{
             @include form-box-position;
@@ -238,13 +128,10 @@ header.sell-header{
           }
         }
         &__status{
-          @include select-box-margin-not-first;
+          margin:40px 0 0;
           h7{
             @include form-content-title-font;
             .item-status{
-            }
-            .must__tag{
-              @include must;
             }
           }
           &__box{
@@ -265,9 +152,6 @@ header.sell-header{
             @include form-content-title-font;
             .delivery-fee-choice{
             }
-            .must__tag{
-              @include must;
-            }
           }
           &__box{
             @include form-box-position;
@@ -277,13 +161,10 @@ header.sell-header{
           }
         }
         &__region{
-          @include select-box-margin-not-first;
+          margin:40px 0 0;
           h9{
             @include form-content-title-font;
             .delivery-region-choice{
-            }
-            .must__tag{
-              @include must;
             }
           }
           &__box{
@@ -294,13 +175,10 @@ header.sell-header{
           }
         }
         &__delay{
-          @include select-box-margin-not-first;
+          margin:40px 0 0;
           h10{
             @include form-content-title-font;
             .delivery-delay-choice{
-            }
-            .must__tag{
-              @include must;
             }
           }
           &__box{
@@ -326,9 +204,6 @@ header.sell-header{
               line-height: 48px;
               .price-choice{
               }
-              .must__tag{
-              @include must;
-              }
             }
             &__input{
               float: right;
@@ -353,7 +228,7 @@ header.sell-header{
           li.sell-main-form__content__price__charge.clearfix:after{
             @include clearfix;
           }
-          li.sell-main-form__content__price__charge{
+          .sell-main-form__content__price__charge{
             @include price-content-underline;
             padding: 24px 0;
             font-size: 14px;
@@ -362,12 +237,13 @@ header.sell-header{
             }
             &__auto{
               float:right;
+              margin-right:50px;
             }
           }
           li.sell-main-form__content__price__profit.clearfix:after{
             @include clearfix;
           }
-          li.sell-main-form__content__price__profit{
+          .sell-main-form__content__price__profit{
             padding: 24px 0;
             font-size: 16px;
             font-weight: 600;
@@ -376,6 +252,7 @@ header.sell-header{
             }
             &__auto{
               float:right;
+              margin-right:50px;
             }
           }
         }
@@ -390,7 +267,6 @@ header.sell-header{
           line-height: 1.5;
           a{
             color: #0099e8;
-            text-decoration: none;
           }
         }
       }
@@ -416,7 +292,6 @@ header.sell-header{
         text-align: center;
         a{
           color: #fff;
-          text-decoration: none;
         }
       }
     }
@@ -428,7 +303,6 @@ header.sell-header{
   margin:0 auto;
   width: 456px;
   height: 220px;
-  text-decoration: none;
   padding: 40px 0;
   text-align: center;
   &__link-boxes{
@@ -436,7 +310,6 @@ header.sell-header{
     font-size: 12px;
     justify-content: space-around;
     a{
-      text-decoration: none;
       color: #333333!important;
     }
   }

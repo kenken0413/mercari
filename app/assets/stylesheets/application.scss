@@ -1,31 +1,33 @@
- @import "reset";
- @import "config/color";
- @import "./config/variable";
- @import "font-awesome-sprockets";
- @import "font-awesome";
- @import "seller";
- @import "font-awesome-sprockets";
- @import "font-awesome";
  @import "./reset";
- @import "modules/body";
- @import "modules/footer";
- @import "modules/header";
- @import "modules/parts";
- @import "./modules/users/users";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
+ @import "./mixin/all";
+ @import "./mixin/color";
+ @import "./mixin/variable";
+ @import "./mixin/parts";
+
+ @import "./modules/items/header";
+ @import "./modules/items/body";
+ @import "./modules/items/footer";
+ @import "./modules/items/item-detail";
+ @import "./modules/items/seller";
+ @import "./modules/items/buy-confirmation";
+
  @import "./modules/users/login";
- @import "./modules/registrations/registration";
+ @import "./modules/users/users";
+ @import "./modules/users/create";
+ @import "./modules/users/index";
+ @import "./modules/users/edit-user";
+ @import "./modules/users/logout";
+ @import "./modules/users/identification"
+
+
  @import "./modules/registrations/SignUp-header";
- @import "./modules/progress";
- @import "./modules/registrations/content";
+ @import "./modules/registrations/registration";
+ @import "./modules/registrations/progress";
  @import "./modules/registrations/n1";
  @import "./modules/registrations/n2";
  @import "./modules/registrations/n3";
  @import "./modules/registrations/n4";
  @import "./modules/registrations/end";
- @import "modules/edit-user";
- @import "item-detail";
- @import "card/index";
- @import "card/create";
- @import "buy-confirmation";
- @import "./modules/users/logout";
- @import "./modules/users/identification"
