@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191118102900) do
+ActiveRecord::Schema.define(version: 20191120080812) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",     null: false
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20191118102900) do
     t.string   "category",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
 
   create_table "category_brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -92,10 +94,10 @@ ActiveRecord::Schema.define(version: 20191118102900) do
     t.integer  "state",                     null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.string   "seller_id",                 null: false
-    t.string   "buyer_id"
     t.integer  "category_id",               null: false
     t.integer  "brand_id"
+    t.integer  "seller_id",                 null: false
+    t.integer  "buyer_id"
     t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
     t.index ["name"], name: "index_items_on_name", using: :btree
