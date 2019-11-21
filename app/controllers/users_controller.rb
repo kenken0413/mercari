@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def show
     render "login.html.haml" if params[:id] == "login"
     render "logout.html.haml" if params[:id] =="logout"
+    render "identification.html.haml" if params[:id] =="identification"
   end
 
   def card_index

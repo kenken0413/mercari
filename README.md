@@ -18,7 +18,7 @@
 |:---------------- |------------:|:------------------------------:|
 | user_id          | integer     | null: false, foreign_key: true |
 | postal_code      | integer     | null: false                    |
-| prefectures      | string      | null: false                    |
+| prefectures      | integer     | null: false                    |
 | city             | string      | null: false                    |
 | house            | string      | null: false                    |
 | building         | string      |                                |
@@ -88,7 +88,7 @@
 ## items table
 | column     | type        | options                    |
 |:-----------|------------:|:--------------------------:|
-| name       | text        | index: true, null: false   |
+| name       | string      | index: true, null: false   |
 | description| text        | null: false                |
 | price      | integer     | index: true, null: false   |
 | state      | integer     | null: false                |

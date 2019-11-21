@@ -7,9 +7,7 @@
  @import "./mixin/variable";
  @import "./mixin/parts";
 
- @import "./modules/items/header";
- @import "./modules/items/body";
- @import "./modules/items/footer";
+ @import "./modules/items/toppage";
  @import "./modules/items/item-detail";
  @import "./modules/items/seller";
  @import "./modules/items/buy-confirmation";
@@ -20,6 +18,7 @@
  @import "./modules/users/index";
  @import "./modules/users/edit-user";
  @import "./modules/users/logout";
+ @import "./modules/users/identification";
 
 
  @import "./modules/registrations/SignUp-header";
