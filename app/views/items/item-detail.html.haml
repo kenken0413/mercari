@@ -1,7 +1,6 @@
 .detail-wrapper
-  .to-render-header
-    = image_tag 'mercari_header.png', alt: '', height: '100px', width: '100%', class: ''
-  -# =render partial "header"
+  .detail-header
+    = render partial: "header"
   .detail-main
     .detail-main__item
       %h1 CHANEL マトラッセ ショルダーバッグ
@@ -136,6 +135,5 @@
         %p CHANEL マトラッセ ショルダーバッグ
         -# .detail-main__item h1の内容
 
-  .to-render-footer
-    = image_tag 'mercari_footer.png', alt: '', height: '300px', width: '100%', class: ''
-  -# =render partial "footer"
+  .detail-footer
+    = render partial: "footer"
