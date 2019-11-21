@@ -8,4 +8,10 @@ class UsersController < ApplicationController
     render "logout.html.haml" if params[:id] =="logout"
   end
 
+  def card_index
+  end
+
+  def card_registrations
+  end
+
   end

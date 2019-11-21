@@ -49,5 +49,6 @@
             電話
             %span#must__red.must__tag 必須
           %input{placeholder: "例）09012345678"}
-        %input.next-btn#n3-next{type:"button",value:"次へ進む"}
+        =link_to n4_registrations_path do
+          %input.next-btn#n3-next{type:"button",value:"次へ進む"}
   =render "items/sell-footer"
