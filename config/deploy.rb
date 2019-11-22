@@ -77,3 +77,8 @@ set :default_env, {
   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
 }
+
+require 'seed-fu/capistrano'
+
+# Trigger the task after update_code
+after 'deploy:update_code', 'db:seed_fu'
