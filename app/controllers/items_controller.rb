@@ -8,6 +8,8 @@ class ItemsController < ApplicationController
     @delivery = Delivery.new
     @parents = Category.all.order("ancestry ASC").limit(13)
 
+
+
     render "sell.html.haml"if params[:id] == "sell"
     render "item-detail.html.haml" if params[:id] =="detail"
     render "buy-confirmation.html.haml" if params[:id] =="buy"
@@ -22,10 +24,13 @@ class ItemsController < ApplicationController
     @delivery = Delivery.new(delivery_params)
 
     if @item.save && @image.save
+
       redirect_to root_path
     else
       render :sell
     end
+
+    @image.save
 
   end
 
@@ -40,6 +45,7 @@ private
 
   def delivery_params
     params.require(:delivery).permit(:postage_method,:postage_detail,:region,:shipping_date)
+
   end
 
   def image_params
