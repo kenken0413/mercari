@@ -3,12 +3,6 @@
   .sell-main
     %h2
       商品の情報を入力
-
-
-    =image_tag @item1.images.first.image.url
-    -# - binding.pry
-
-
     = form_for(@item, html: {multipart: true}) do |f|
       .sell-main-form
         .sell-main-form__images
@@ -24,7 +18,7 @@
                 %ul
                   %li ドラッグアンドドロップ
                   %li またはクリックしてファイルをアップロード
-            -# = i.submit"仮ボタン" class:'botton-sample'
+
         .sell-main-form__descriptions
           .sell-main-form__descriptions__name
             %h4
@@ -47,7 +41,8 @@
                 %span カテゴリー 
                 %span.must__tag 必須
               .sell-main-form__content__detail__category__box
-                = f.select:category_id,options_from_collection_for_select(@parents.all,:id,:category)
+                = f.select:category_id,options_from_collection_for_select(@parents.all,:id,:category),prompt: "---"
+
               -# 　セレクトの中にーーー　NULLを追加する
               .sell-main-form__content__detail__category__box
                 = f.select:category,['category1','category2','category3'],{class: 'select-box',prompt: '---'}
@@ -57,7 +52,7 @@
               %h4
                 %span ブランド 
                 %span.brand__tag 任意
-                -# 色変える
+
               .sell-main-form__content__detail__brand__box
                 = f.text_field:brand,{class: 'select-box',prompt: '---' }          
             .sell-main-form__content__detail__status
@@ -66,38 +61,40 @@
                 %span.must__tag 必須
               .sell-main-form__content__detail__status__box
                 = f.select:state,['state1','state2','state3'],{class: 'select-box',prompt: '---'}
-                -# %select#select-box(name="status")
-                  -# %option{value: ""} ---
+
         .sell-main-form__content.clearfix
           %p 配送について
           %a#question{href: ''} ?
-          -# = fields_for :delivary
-          .sell-main-form__content__delivery
-            .sell-main-form__content__delivery__fee
-              %h4
-                %span 配送料の負担 
-                %span.must__tag 必須
-              .sell-main-form__content__delivery__fee__box
-                -# = f.select:state,['method1','method2','method3'],{class: 'select-box',prompt: '---'}
-            .sell-main-form__content__delivery__detail
-              %h4
-                %span 配送の方法 
-                %span.must__tag 必須
-              .sell-main-form__content__delivery__detail__box
-                -# = f.select:state,['method1','method2','method3'],{class: 'select-box',prompt: '---'}
-            .sell-main-form__content__delivery__region
-              %h4
-                %span 配送元の地域
-                %span.must__tag 必須
-              .sell-main-form__content__delivery__region__box
-                -# = f.select:state,['method1','method2','method3'],{class: 'select-box',prompt: '---'}
-            .sell-main-form__content__delivery__delay
-              %h4
-                %span 発送までの日数
-                %span.must__tag 必須
-              .sell-main-form__content__delivery__delay__box
-                %select#select-box(name="delay")
-                  %option{value: ""} ---
+          = fields_for @delivery do |d|
+            .sell-main-form__content__delivery
+              .sell-main-form__content__delivery__fee
+                %h4
+                  %span 配送料の負担 
+                  %span.must__tag 必須
+                .sell-main-form__content__delivery__fee__box
+                  = d.select:postage_method,['送料込み(出品者負担)','着払い(購入者負担)'],{class: "select-box",prompt: "---"}
+                  -# データ挿入必要
+              .sell-main-form__content__delivery__detail
+                %h4
+                  %span 配送の方法 
+                  %span.must__tag 必須
+                .sell-main-form__content__delivery__detail__box
+                  = d.select:postage_detail,['送料込み(出品者負担)','着払い(購入者負担)'],{class: "select-box",prompt: "---"}
+                  -# データ挿入必要
+              .sell-main-form__content__delivery__region
+                %h4
+                  %span 配送元の地域
+                  %span.must__tag 必須
+                .sell-main-form__content__delivery__region__box
+                  = d.select:region,['1','2','3'],{class: "select-box",prompt: "---"}
+                  -# データ挿入必要
+
+              .sell-main-form__content__delivery__delay
+                %h4
+                  %span 発送までの日数
+                  %span.must__tag 必須
+                .sell-main-form__content__delivery__delay__box
+                  = d.select:shipping_date,['1~2日で発送','2~3日で発送','4~7日で発送'],{class: "select-box",prompt: "---"}
 
         .sell-main-form__content.clearfix
           %p 販売価格（300~9,999,999)
