@@ -1,14 +1,13 @@
 .detail-wrapper
-  .to-render-header
-    = image_tag 'mercari_header.png', alt: '', height: '100px', width: '100%', class: ''
-  -# =render partial "header"
+  =render partial: "header"
   .detail-main
     .detail-main__item
-      %h1 CHANEL マトラッセ ショルダーバッグ
+      %h1 
+        = @item.name
       .detail-main__item__content.clearfix
         .detail-main__item__content__images
           .detail-main__item__content__images--main
-            = image_tag "bag-photo", alt: 'バッグ',height: '300px', width: '300px', class: '.detail-main__item__content__images--main__photo'
+            = image_tag @item.images.first.image, height: '300px', width: '300px', class: '.detail-main__item__content__images--main__photo'
           .detail-main__item__content__images--subs
             = image_tag "bag-photo", alt: 'バッグ',height: '60px', width: '60px', class: '.detail-main__item__content__images--main__photo'
             -# この写真のスライド部分は今のところ全くやり方がわからないので、後回し。
@@ -16,7 +15,7 @@
           %tr
             %th 出品者
             %td
-              = link_to "ユーザー名", users_path
+              = link_to "#{@item.seller.nickname}", users_path
               .detail-user__rating
                 %i.fas.fa-laugh.fapink
                 %span 100
@@ -29,7 +28,9 @@
           %tr
             %th カテゴリー
             %td
-              = link_to "レディース", items_path
+              - @parents.each do |parent|
+                =parent.name
+              = link_to "#{@item.category.category}", items_path
               = link_to "＞バッグ", items_path
               = link_to "＞ショルダーバッグ", items_path
           %tr
@@ -136,6 +137,4 @@
         %p CHANEL マトラッセ ショルダーバッグ
         -# .detail-main__item h1の内容
 
-  .to-render-footer
-    = image_tag 'mercari_footer.png', alt: '', height: '300px', width: '100%', class: ''
-  -# =render partial "footer"
+  =render partial: "footer"
