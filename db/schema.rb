@@ -94,10 +94,10 @@ ActiveRecord::Schema.define(version: 20191120080812) do
     t.integer  "state",                     null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "seller_id",                 null: false
+    t.string   "buyer_id"
     t.integer  "category_id",               null: false
     t.integer  "brand_id"
-    t.integer  "seller_id",                 null: false
-    t.integer  "buyer_id"
     t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
     t.index ["name"], name: "index_items_on_name", using: :btree

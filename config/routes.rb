@@ -9,7 +9,10 @@ Rails.application.routes.draw do
       get :card_registrations
     end
   end
-  resources :items, only: [:index, :show] 
+  resources :items, only: [:index, :show, :create ] do
+    # resources :
+  end
+
 
   resources :registrations, only: [:index] do
     collection do
