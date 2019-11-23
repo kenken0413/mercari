@@ -75,3 +75,5 @@ gem 'devise'
 gem 'seed-fu'
 gem 'payjp'
 gem 'ancestry'
+gem 'active_hash'
+
