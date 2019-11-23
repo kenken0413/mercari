@@ -44,7 +44,8 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
-  gem 'pry-rails'
+  gem "pry-rails"
+
 end
 
 group :development do
@@ -73,3 +74,5 @@ gem 'devise'
 gem 'seed-fu'
 gem 'payjp'
 gem 'ancestry'
+gem 'active_hash'
+

@@ -7,12 +7,13 @@ class ItemsController < ApplicationController
     @item = Item.new
     @delivery = Delivery.new
     @parents = Category.all.order("ancestry ASC").limit(13)
-
-
+    @item1= Item.find(1) 
 
     render "sell.html.haml"if params[:id] == "sell"
     render "item-detail.html.haml" if params[:id] =="detail"
     render "buy-confirmation.html.haml" if params[:id] =="buy"
+    # @user= User.find(paramas[:id])
+    # (@item = Item.find(params[:id]))
   end
 
   def new
