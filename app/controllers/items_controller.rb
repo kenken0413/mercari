@@ -5,8 +5,10 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.new
+    @delivery = Delivery.new
     @parents = Category.all.order("ancestry ASC").limit(13)
     @item1= Item.find(1) 
+
     render "sell.html.haml"if params[:id] == "sell"
     render "item-detail.html.haml" if params[:id] =="detail"
     render "buy-confirmation.html.haml" if params[:id] =="buy"
@@ -20,13 +22,15 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @image = Image.new(image_params)
-    # binding.pry
+    @delivery = Delivery.new(delivery_params)
 
-    if @item.save
+    if @item.save && @image.save
+
       redirect_to root_path
     else
       render :sell
     end
+
     @image.save
 
   end
@@ -40,8 +44,9 @@ private
     @category = Category.find(1)
   end
 
-  def delivary_params
-    params.require(:delivary).permit(:postage_method,:postage_detail)
+  def delivery_params
+    params.require(:delivery).permit(:postage_method,:postage_detail,:region,:shipping_date)
+
   end
 
   def image_params
