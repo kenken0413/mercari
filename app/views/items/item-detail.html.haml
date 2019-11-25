@@ -3,7 +3,8 @@
     = render partial: "header"
   .detail-main
     .detail-main__item
-      %h1 CHANEL マトラッセ ショルダーバッグ
+      %h1 
+        = @item1.name
       .detail-main__item__content.clearfix
         .detail-main__item__content__images
           %table
@@ -18,7 +19,7 @@
           %tr
             %th 出品者
             %td
-              = link_to "ユーザー名", users_path
+              = link_to "#{@item1.seller.nickname}", users_path
               .detail-user__rating
                 %i.fas.fa-laugh.fapink
                 %span 100
@@ -31,26 +32,26 @@
           %tr
             %th カテゴリー
             %td
-              = link_to "レディース", items_path
-              = link_to "＞バッグ", items_path
-              = link_to "＞ショルダーバッグ", items_path
+              = link_to "#{@item1.category.root.category}", items_path
+              = link_to "#{@item1.category.parent.category}", items_path
+              = link_to "#{@item1.category.category}", items_path
           %tr
             %th ブランド
             %td
-              = link_to "フルラ", items_path
+              = link_to "#{@item1.brand.brand}", items_path
           %tr
             %th 商品の状態
-            %td 目立った傷や汚れなし
+            %td #{@item1.state.name}
           %tr
             %th 配送料の負担
-            %td 送料込み(出品者負担)
+            %td #{@item1.delivery.postage_method.name}
           %tr
             %th 配送の方法
-            %td クロネコヤマト
+            %td #{@item1.delivery.postage_detail.name}
           %tr
             %th 配送元地域
-            %td 
-              = link_to "奈良県", items_path
+            %td
+              = link_to "#{@item1.delivery.prefecture.name}", items_path
           %tr
             %th 配送日の目安
             %td #{@item1.delivery.shipping_date.name}

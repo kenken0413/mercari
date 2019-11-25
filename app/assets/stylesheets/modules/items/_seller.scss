@@ -12,84 +12,103 @@ header.sell-header{
   }
 }
 
+h2{
+  padding: 32px 16px;
+  font-size: 22px;
+  font-weight: bold;
+  @include form-content-set;
+}
+
+h3{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+h4{
+  @include form-content-title-font;
+}
+
+.brand__tag{
+  background: gray;  
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;       
+} 
+
 .sell-main {
   width: 700px;
   margin: 0 auto;
   background: #fff;
   text-align: center;
-  h2{
-    padding: 32px 16px;
-    font-size: 22px;
-    font-weight: bold;
-    @include form-content-set;
-  }
   .sell-main-form{
     &__images{
       padding: 40px;
       @include form-content-set;
       text-align: left;
-
-      h3{
-        .image-title{
-          font-size: 16px;
-          font-weight: bold;
-        }
-      }
       p{
         font-size: 13px;
         margin-top: 8px;
         line-height: 1.5;
       }
       .sell-main-form__images__photos{
-        width:620px;
-        margin:16px auto 0;
+        position: relative;
+        width: 100%;
+        min-height: 162px;
+        background: $main-background;
+        border: 1px dashed #ccc;
+        cursor: pointer;
+        -webkit-appearance: none;
+        text-align: center;
+        padding: 40px;
         &__update{
-          min-height: 162px;
-          background: $main-background;
-          border: 1px dashed #ccc;
-          text-align: center;
-          ul{
-            list-style: none;
-            font-size: 14px;
-            padding: 60px 40px 40px 40px;
-            min-height: 162px;
-            li{
-              line-height: 1.5;
-            } 
-          }
+          // display: none;
         }
+        .placeholder{
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 16px;
+          right: 16px;
+          word-wrap: break-word;
+          text-align: center;
+        }
+        //   min-height: 162px;
+        //   background: $main-background;
+        //   border: 1px dashed #ccc;
+        //   text-align: center;
+          // ul{
+          //   list-style: none;
+          //   font-size: 14px;
+          //   padding: 60px 40px 40px 40px;
+          //   min-height: 162px;
+          //   li{
+          //     line-height: 1.5;
+          //   } 
+          // }
+        // }
       }
     }
     &__descriptions{
       @include form-content-set; 
       text-align: left;
       padding: 40px;
-      &__name{
-        h4{
-          .item-name{
-            @include form-content-title-font;
-          }
-        }
-        input{
-          width: 100%;
-          margin: 8px 0 0;
-          height: 48px;
-          padding: 10px 16px 8px;
-          border-radius: 4px;
-          border: 1px solid #ccc;
-          background: #fff;
-          font-size: 16px;
-          line-height: 1.5;
-        }
+      input{
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-size: 16px;
+        line-height: 1.5;
       }
       &__comment{
         margin: 40px 0 0;
-        h5{
-          .item-comment{
-            @include form-content-title-font;
-          }
-        }
-        textarea{
+        .textarea-comment{
           margin: 8px 0 0;
           width: 100%;
           max-width: 100%;
@@ -115,11 +134,7 @@ header.sell-header{
       &__detail{
         @include form-content-title-right;
         &__category{
-          h6{
-            @include form-content-title-font;
-            .category-choice{
-            }
-          }
+
           &__box{
             @include form-box-position;
             select{
@@ -127,13 +142,17 @@ header.sell-header{
             } 
           }
         }
-        &__status{
-          margin:40px 0 0;
-          h7{
-            @include form-content-title-font;
-            .item-status{
-            }
+        &__brand{
+          padding-top: 40px;
+          &__box{
+            @include form-box-position;
+            input{
+              @include select-box;
+            } 
           }
+        }
+        &__status{
+          padding-top: 40px;
           &__box{
             @include form-box-position;
             select{
@@ -147,45 +166,33 @@ header.sell-header{
       }
       &__delivery{
         @include form-content-title-right;
-        &__fee{
-          h8{
-            @include form-content-title-font;
-            .delivery-fee-choice{
-            }
-          }
-          &__box{
-            @include form-box-position;
-            select{
-              @include select-box;
-            } 
+        &__fee__box{
+          @include form-box-position;
+          select{
+            @include select-box;
           }
         }
-        &__region{
+        &__detail{
           margin:40px 0 0;
-          h9{
-            @include form-content-title-font;
-            .delivery-region-choice{
-            }
-          }
           &__box{
             @include form-box-position;
             select{
               @include select-box;
             } 
+          }
+        }        
+        &__region{
+          margin:40px 0 0;
+          &__box{
+            @include form-box-position;
+            select{ @include select-box; } 
           }
         }
         &__delay{
           margin:40px 0 0;
-          h10{
-            @include form-content-title-font;
-            .delivery-delay-choice{
-            }
-          }
           &__box{
             @include form-box-position;
-            select{
-              @include select-box;
-            } 
+            select{ @include select-box; } 
           }
         }
       }
@@ -198,12 +205,9 @@ header.sell-header{
           .sell-main-form__content__price__total{
             @include price-content-underline;
             padding: 0 0 24px;
-            h11{
-              @include form-content-title-font;
+            h4{
               float:left;
               line-height: 48px;
-              .price-choice{
-              }
             }
             &__input{
               float: right;
@@ -225,9 +229,7 @@ header.sell-header{
               }
             }
           }
-          li.sell-main-form__content__price__charge.clearfix:after{
-            @include clearfix;
-          }
+          li.sell-main-form__content__price__charge.clearfix:after{ @include clearfix; }
           .sell-main-form__content__price__charge{
             @include price-content-underline;
             padding: 24px 0;
@@ -240,9 +242,7 @@ header.sell-header{
               margin-right:50px;
             }
           }
-          li.sell-main-form__content__price__profit.clearfix:after{
-            @include clearfix;
-          }
+          li.sell-main-form__content__price__profit.clearfix:after{ @include clearfix; }
           .sell-main-form__content__price__profit{
             padding: 24px 0;
             font-size: 16px;
@@ -270,7 +270,7 @@ header.sell-header{
           }
         }
       }
-      button.sell-main-form__btn-box__submit-btn{
+      .sell-main-form__btn-box__submit-btn.button{
         margin: 40px 0 0;
         background: #ea352d;
         border: 1px solid #ea352d;
@@ -298,8 +298,11 @@ header.sell-header{
   }
 }
 
-.sell-footer{
+.sell-footer-wrapper{
   background: $main-background;
+}
+
+.sell-footer{
   margin:0 auto;
   width: 456px;
   height: 220px;
@@ -321,7 +324,41 @@ header.sell-header{
   }
 }
 
+.image-preview-wrapper{
+  float: left;
+  margin-top: 16px;
+  ul{
+    width: 100%;
+  }
+}
 
+.image-preview{
+  width: 112px;
+  margin: 0 0 10px 10px;
+  display:inline-block;
+  background: #f5f5f5;
 
-
-
+  &:first-child{
+    margin-left:0 ;
+  }
+  &:nth-child(6n){
+    margin-left:0 ;
+  }
+  &__upper{
+    line-height: 116px;
+    width: auto;
+    height: auto;
+    padding: 0;
+    height: 116px;
+  }
+  &__lower{
+    font-size: 14px;
+    &__btn{
+      display: inline-block;
+      width: 48%;
+      background: #f5f5f5;
+      line-height: 44px;
+      text-align: center;
+    }
+  }
+}

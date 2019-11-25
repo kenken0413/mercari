@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191120080812) do
+ActiveRecord::Schema.define(version: 20191123040849) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",     null: false
-    t.integer  "postal_code", null: false
-    t.integer  "prefectures", null: false
-    t.string   "city",        null: false
-    t.string   "house",       null: false
+    t.integer  "user_id",       null: false
+    t.integer  "postal_code",   null: false
+    t.integer  "prefecture_id", null: false
+    t.string   "city",          null: false
+    t.string   "house",         null: false
     t.string   "building"
     t.string   "telephone"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
 
@@ -69,13 +69,13 @@ ActiveRecord::Schema.define(version: 20191120080812) do
   end
 
   create_table "deliveries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "item_id",        null: false
-    t.integer  "postage_method", null: false
-    t.integer  "postage_detail", null: false
-    t.string   "region",         null: false
-    t.integer  "shipping_date",  null: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "item_id",           null: false
+    t.integer  "postage_method_id", null: false
+    t.integer  "postage_detail_id", null: false
+    t.integer  "prefecture_id",     null: false
+    t.integer  "shipping_date_id",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.index ["item_id"], name: "index_deliveries_on_item_id", using: :btree
   end
 
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20191120080812) do
     t.string   "name",                      null: false
     t.text     "description", limit: 65535, null: false
     t.integer  "price",                     null: false
-    t.integer  "state",                     null: false
+    t.integer  "state_id",                  null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "category_id",               null: false

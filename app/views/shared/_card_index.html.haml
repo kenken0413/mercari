@@ -4,7 +4,7 @@
     .credit-top__main
       .credit-top__main__title クレジットカード一覧
       .credit-top__main__card-add
-        = link_to root_path ,class:'credit-top__main__card-add__btn btn-red btn-default' do
+        = link_to card_registrations_users_path ,class:'credit-top__main__card-add__btn btn-red btn-default' do
           = icon('fas', 'credit-card',  class: "icon-card")
           クレジットカードを追加する
       = link_to root_path,class:'credit-top__main__link-guide' do
