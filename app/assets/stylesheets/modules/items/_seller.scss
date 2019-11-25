@@ -54,23 +54,41 @@ h4{
         line-height: 1.5;
       }
       .sell-main-form__images__photos{
-        width:620px;
-        margin:16px auto 0;
+        position: relative;
+        width: 100%;
+        min-height: 162px;
+        background: $main-background;
+        border: 1px dashed #ccc;
+        cursor: pointer;
+        -webkit-appearance: none;
+        text-align: center;
+        padding: 40px;
         &__update{
-          min-height: 162px;
-          background: $main-background;
-          border: 1px dashed #ccc;
-          text-align: center;
-          ul{
-            list-style: none;
-            font-size: 14px;
-            padding: 60px 40px 40px 40px;
-            min-height: 162px;
-            li{
-              line-height: 1.5;
-            } 
-          }
+          // display: none;
         }
+        .placeholder{
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 16px;
+          right: 16px;
+          word-wrap: break-word;
+          text-align: center;
+        }
+        //   min-height: 162px;
+        //   background: $main-background;
+        //   border: 1px dashed #ccc;
+        //   text-align: center;
+          // ul{
+          //   list-style: none;
+          //   font-size: 14px;
+          //   padding: 60px 40px 40px 40px;
+          //   min-height: 162px;
+          //   li{
+          //     line-height: 1.5;
+          //   } 
+          // }
+        // }
       }
     }
     &__descriptions{
@@ -303,5 +321,44 @@ h4{
   }
   &__copyright{
     font-size: 13px;
+  }
+}
+
+.image-preview-wrapper{
+  float: left;
+  margin-top: 16px;
+  ul{
+    width: 100%;
+  }
+}
+
+.image-preview{
+  width: 112px;
+  margin: 0 0 10px 10px;
+  display:inline-block;
+  background: #f5f5f5;
+
+  &:first-child{
+    margin-left:0 ;
+  }
+  &:nth-child(6n){
+    margin-left:0 ;
+  }
+  &__upper{
+    line-height: 116px;
+    width: auto;
+    height: auto;
+    padding: 0;
+    height: 116px;
+  }
+  &__lower{
+    font-size: 14px;
+    &__btn{
+      display: inline-block;
+      width: 48%;
+      background: #f5f5f5;
+      line-height: 44px;
+      text-align: center;
+    }
   }
 }
