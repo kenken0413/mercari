@@ -44,7 +44,7 @@ private
 # user.idは全て１を仮入力しているため、修正が必要
 
   def item_params
-    params.require(:item).permit(:name, :description, :state, :price, :seller_id, :category_id).merge(seller_id: "1")
+    params.require(:item).permit(:name, :description, :state_id, :price, :seller_id, :category_id).merge(seller_id: "1")
   end
 
   def set_category
