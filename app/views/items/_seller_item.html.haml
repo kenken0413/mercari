@@ -1,12 +1,12 @@
 .detail-main__related-products__seller__images-box__item
   = link_to item_path do
     .detail-main__related-products__seller__images-box__item--photo
-      = image_tag 'bag-photo', alt: 'photo', height: '220px', width: '220px', class: '.detail-main__related-products__seller__images-box__item--photo--1'
+      -# = image_tag src: "#{seller_item.images.first.image.url}", alt: 'photo', height: '220px', width: '220px', class: '.detail-main__related-products__seller__images-box__item--photo--1'
     .detail-main__related-products__seller__images-box__item--body
-      %h3 T123 良品☆ フルラ ショルダーバック ベージュ
+      %h3 #{seller_item.name}
       .detail-main__related-products__seller__images-box__item--body--info
         .detail-main__related-products__seller__images-box__item--body--info--price
-          %span 3000円
+          %span #{seller_item.price}
         .detail-main__related-products__seller__images-box__item--body--info--like
           %i.far.fa-heart.grey
-          %span 10
+          %span #{seller_item.likes.count}

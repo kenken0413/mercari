@@ -12,6 +12,101 @@
         .sell-main-form__images__photos
           .sell-main-form__images__photos__update
             %input.sell-upload-drop-file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}/
+
+    = form_for(@item, html: {multipart: true}) do |f|
+      .sell-main-form
+        .sell-main-form__images
+          %h3
+            %span 出品画像
+            %span.must__tag.bold 必須
+          %p 最大10枚までアップロードできます
+          = fields_for Image do |i|
+            .sell-main-form__images__photos
+              .sell-main-form__images__photos__update
+                = i.file_field :image
+                -# %input.sell-upload-drop-file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}/
+                %ul
+                  %li ドラッグアンドドロップ
+                  %li またはクリックしてファイルをアップロード
+            -# = i.submit"仮ボタン" class:'botton-sample'
+        .sell-main-form__descriptions
+          .sell-main-form__descriptions__name
+            %h4
+              %span 商品名
+              %span.must__tag 必須
+            = f.text_field:name,{placeholder: "商品名（必須 40文字まで)", value: ""}
+            
+          .sell-main-form__descriptions__comment
+            %h4 
+              %span 商品の説明
+              %span.must__tag 必須
+            -# %textarea.textarea-comment{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: " "}
+            = f.text_field:description,{class: 'textarea-comment', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: " "}
+
+        .sell-main-form__content.clearfix
+          %p 商品の詳細
+          .sell-main-form__content__detail
+            .sell-main-form__content__detail__category
+              %h4
+                %span カテゴリー 
+                %span.must__tag 必須
+              .sell-main-form__content__detail__category__box
+                = f.select:category_id,options_from_collection_for_select(@parents.all,:id,:category)
+              -# 　セレクトの中にーーー　NULLを追加する
+              .sell-main-form__content__detail__category__box
+                = f.select:category,['category1','category2','category3'],{class: 'select-box',prompt: '---'}
+              .sell-main-form__content__detail__category__box
+                = f.select:category,['category1','category2','category3'],{class: 'select-box',prompt: '---'}
+            .sell-main-form__content__detail__brand
+              %h4
+                %span ブランド 
+                %span.brand__tag 任意
+                -# 色変える
+              .sell-main-form__content__detail__brand__box
+                = f.text_field:brand,{class: 'select-box',prompt: '---' }          
+            .sell-main-form__content__detail__status
+              %h4
+                %span 商品の状態 
+                %span.must__tag 必須
+              .sell-main-form__content__detail__status__box
+                = f.select:state,['state1','state2','state3'],{class: 'select-box',prompt: '---'}
+                -# %select#select-box(name="status")
+                  -# %option{value: ""} ---
+        .sell-main-form__content.clearfix
+          %p 配送について
+          %a#question{href: ''} ?
+          -# = fields_for :delivary
+          .sell-main-form__content__delivery
+            .sell-main-form__content__delivery__fee
+              %h4
+                %span 配送料の負担 
+                %span.must__tag 必須
+              .sell-main-form__content__delivery__fee__box
+                -# = f.select:state,['method1','method2','method3'],{class: 'select-box',prompt: '---'}
+            .sell-main-form__content__delivery__detail
+              %h4
+                %span 配送の方法 
+                %span.must__tag 必須
+              .sell-main-form__content__delivery__detail__box
+                -# = f.select:state,['method1','method2','method3'],{class: 'select-box',prompt: '---'}
+            .sell-main-form__content__delivery__region
+              %h4
+                %span 配送元の地域
+                %span.must__tag 必須
+              .sell-main-form__content__delivery__region__box
+                -# = f.select:state,['method1','method2','method3'],{class: 'select-box',prompt: '---'}
+            .sell-main-form__content__delivery__delay
+              %h4
+                %span 発送までの日数
+                %span.must__tag 必須
+              .sell-main-form__content__delivery__delay__box
+                %select#select-box(name="delay")
+                  %option{value: ""} ---
+
+        .sell-main-form__content.clearfix
+          %p 販売価格（300~9,999,999)
+          %a#question{href: ''} ?
+          .sell-main-form__content__price
             %ul
               %li ドラッグアンドドロップ
               %li またはクリックしてファイルをアップロード
