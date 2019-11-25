@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
   def index
   end
@@ -7,7 +8,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @delivery = Delivery.new
     @parents = Category.all.order("ancestry ASC").limit(13)
-
+    @image = Image.new
 
 
     render "sell.html.haml"if params[:id] == "sell"
@@ -23,18 +24,23 @@ class ItemsController < ApplicationController
     @image = Image.new(image_params)
     @delivery = Delivery.new(delivery_params)
 
-    if @item.save && @image.save
-
+    if @item.save && @delivery.save && @image.save
       redirect_to root_path
     else
       render :sell
     end
-
-    @image.save
+    # if @image.save
+    #   render json: { message: "success", fileID: @image.id }, :status => 200
+    # else
+    #   render json: { error: @image.errors.full_messages.join(',')}, :status => 400
+    # end
 
   end
 
 private
+
+# user.idは全て１を仮入力しているため、修正が必要
+
   def item_params
     params.require(:item).permit(:name, :description, :state, :price, :seller_id, :category_id).merge(seller_id: "1")
   end
@@ -44,7 +50,7 @@ private
   end
 
   def delivery_params
-    params.require(:delivery).permit(:postage_method,:postage_detail,:region,:shipping_date)
+    params.require(:delivery).permit(:postage_method,:postage_detail,:region,:shipping_date).merge(item_id: "1" )
 
   end
 
