@@ -26,11 +26,15 @@ class ItemsController < ApplicationController
     @image = Image.new(image_params)
     @delivery = Delivery.new(delivery_params)
 
-    if @item.save && @delivery.save && @image.save
+    if @item.save
       redirect_to root_path
     else
       render :sell
     end
+
+    @delivery.save
+    @image.save
+
     # if @image.save
     #   render json: { message: "success", fileID: @image.id }, :status => 200
     # else
@@ -44,7 +48,7 @@ private
 # user.idは全て１を仮入力しているため、修正が必要
 
   def item_params
-    params.require(:item).permit(:name, :description, :state_id, :price, :seller_id, :category_id).merge(seller_id: "1")
+    params.require(:item).permit(:name, :description, :state_id, :price, :seller_id, :category_id).merge(seller_id: 1)
   end
 
   def set_category
@@ -52,12 +56,12 @@ private
   end
 
   def delivery_params
-    params.require(:delivery).permit(:postage_method,:postage_detail,:region,:shipping_date).merge(item_id: "1" )
+    params.require(:delivery).permit(:postage_method_id,:postage_detail_id,:prefecture_id,:shipping_date_id).merge(item_id: 1 )
 
   end
 
   def image_params
-    params.require(:image).permit(:image).merge(item_id: "1" )
+    params.require(:image).permit(:image).merge(item_id: 1 )
   end
 
 end
