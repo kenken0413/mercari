@@ -14,6 +14,8 @@ class ItemsController < ApplicationController
     render "sell.html.haml"if params[:id] == "sell"
     render "item-detail.html.haml" if params[:id] =="detail"
     render "buy-confirmation.html.haml" if params[:id] =="buy"
+    # @user= User.find(paramas[:id])
+    # (@item = Item.find(params[:id]))
   end
 
   def new

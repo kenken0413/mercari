@@ -4,8 +4,8 @@ Item.seed do |s|
   s.description = "いい商品です。"
   s.price = 12000
   s.state = 1
-  s.seller_id = 1
-  s.buyer_id = 2
+  s.seller = User.find(1)
+  s.buyer = User.find(2)
   s.category = Category.find(96)
   s.brand = Brand.find(2006)
 end
@@ -16,7 +16,7 @@ Item.seed do |s|
   s.description = "売れてる商品です。"
   s.price = 18000
   s.state = 2
-  s.seller_id = 1
+  s.seller = User.find(1)
   s.category = Category.find(96)
   s.brand = Brand.find(4721)
 end
@@ -27,8 +27,8 @@ Item.seed do |s|
   s.description = "よく飛びます。"
   s.price = 50000
   s.state = 3
-  s.seller_id = 4
-  s.buyer_id = 5
+  s.seller = User.find(4)
+  s.buyer = User.find(5)
   s.category = Category.find(985)
   s.brand = Brand.find(167)
 end
@@ -39,7 +39,7 @@ Item.seed do |s|
   s.description = "快適です。"
   s.price = 7000
   s.state = 4
-  s.seller_id = 1
+  s.seller = User.find(1)
   s.category = Category.find(211)
 end
 
@@ -49,7 +49,7 @@ Item.seed do |s|
   s.description = "珍しいカードです。"
   s.price = 800
   s.state = 5
-  s.seller_id = 1
-  s.buyer_id = 3
-  s.category = Category.find(2045)
+  s.seller = User.find(1)
+  s.buyer = User.find(3)
+  s.category = Category.find(707)
 end
