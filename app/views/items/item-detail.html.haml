@@ -7,11 +7,14 @@
         = @item1.name
       .detail-main__item__content.clearfix
         .detail-main__item__content__images
-          .detail-main__item__content__images--main
-            = image_tag @item1.images.first.image.url, height: '300px', width: '300px', class: 'detail-main__item__content__images--main__photo'
-          .detail-main__item__content__images--subs
-            = image_tag "bag-photo", alt: 'バッグ',height: '60px', width: '60px', class: 'detail-main__item__content__images--main__photo'
-            -# この写真のスライド部分は今のところ全くやり方がわからないので、後回し。
+          %table
+            %tr.detail-main__item__content__images--main
+              %td{:align => "left", :colspan => "5"}
+                %img#big-image{:height => "300", :src => "#{@item1.images.first.image.url}", :width => "300"}
+            %tr
+              %td.detail-main__item__content__images--main__photo
+                - @item1.images.each do |photo|
+                  %img#selected-image{:height => "60", :src => photo.image.url, :width => "60"}            
         %table.detail-main__item__content__table
           %tr
             %th 出品者
@@ -51,31 +54,21 @@
               = link_to "#{@item1.delivery.prefecture.name}", items_path
           %tr
             %th 配送日の目安
-            %td 1~2日で発送
+            %td #{@item1.delivery.shipping_date.name}
       .detail-main__item__price
-        %span.detail-main__item__price--number ¥4,700 
+        %span.detail-main__item__price--number ¥#@price1
         %span.detail-main__item__price--tax (税込) 
         %span.detail-main__item__price--charge 送料込み
       .detail-main__item__link-buy
         = link_to('購入画面に進む', class: 'detail-main__item__link-buy__btn')
       .detail-main__item__description
-        %p　ご覧いただきありがとうございます。
-        %p　フルラショルダーバックの出品です
-        %p【ブランド】
-        %p　フルラ 
-        %p【コンディション】
-        %p　外観
-        %p　少し傷や汚れありますが、比較的綺麗です
-        %p　中身
-        %p　未使用品だと思いますので、非常に綺麗です
-        %p　ベージュで凄くオシャレな商品です(^^)
-        %p　詳細は画像にてご確認ください。
+        %p #{@item1.description}
       .detail-main__item__button-container.clearfix
         .detail-main__item__button-container__left
           %button.item-button--like{:name => "like!", :type => "button"}
             %i.far.fa-heart.grey
             %span いいね!
-            %span 13
+            %span #{@like1}
           %button.item-button--report{:name => "report", :type => "button"}
             %i.far.fa-flag
             %span 不適切な商品の報告
@@ -83,16 +76,16 @@
           %i.fas.fa-lock
           %span あんしん・あんぜんへの取り組み
     .detail-main__message
-      = form_tag do
+      = form_for [@item1, @comment] do |f|
         %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        = text_area_tag :message
-        = submit_tag 'コメントする'
+        = f.text_area :comment
+        = f.submit 'コメントする'
     .detail-main__prev-next-items
       %ul
         %li.link-prev-left
-          =link_to('＜海外限定フィギュア ワンピース 白ひげ',class: "detail-main__prev-next-items__link-prev")
+          =link_to("#{@item_prev.name}",class: "detail-main__prev-next-items__link-prev")
         %li.link-prev-left
-          =link_to('X1 ポーチ＞',class: "detail-main__prev-next-items__link-next")
+          =link_to("#{@item_next.name}",class: "detail-main__prev-next-items__link-next")
     .detail-main__social-media-box
       %ul.detail-main__social-media-box__icons
         %li.detail-main__social-media-box__icons__facebook
@@ -110,31 +103,21 @@
     .detail-main__related-products
       .detail-main__related-products__seller
         = link_to users_path do
-          %h2 けーんさんのその他の出品
+          %h2 #{@item1.seller.nickname}さんのその他の出品
           -# items.sellerのパス
         .detail-main__related-products__seller__images-box.clearfix
-          = render partial: "detail-main__related-products__seller__images-box__item"
-          = render partial: "detail-main__related-products__seller__images-box__item"
-          = render partial: "detail-main__related-products__seller__images-box__item"
-          = render partial: "detail-main__related-products__seller__images-box__item"
-          = render partial: "detail-main__related-products__seller__images-box__item"
-          = render partial: "detail-main__related-products__seller__images-box__item"
+          - if @seller_items.present?
+            = render partial: "seller_item", collection: @seller_items
       .detail-main__related-products__brand
         = link_to users_path do
-          %h4 フルラのショルダーバッグ その他の商品
+          %h4 #{@item1.brand.brand}の#{@item1.category.category} その他の商品
           -# items.brandのパス
         .detail-main__related-products__brand__images-box.clearfix
-          = render partial: "detail-main__related-products__brand__images-box__item"
-          = render partial: "detail-main__related-products__brand__images-box__item"
-          = render partial: "detail-main__related-products__brand__images-box__item"
-          = render partial: "detail-main__related-products__brand__images-box__item"
-          = render partial: "detail-main__related-products__brand__images-box__item"
-          = render partial: "detail-main__related-products__brand__images-box__item"
+          = render partial: "brand_item"
     %ul.detail-main__bottom-title
       = link_to 'メルカリ  ＞', 'https://www.mercari.com/jp/' 
       %li.detail-main__bottom-title__item-name 
-        %p CHANEL マトラッセ ショルダーバッグ
-        -# .detail-main__item h1の内容
+        %p #{@item1.name}
 
   .detail-footer
     = render partial: "footer"

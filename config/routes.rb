@@ -14,6 +14,17 @@ Rails.application.routes.draw do
   end
 
 
+  resources :users, only: [:index]
+  resources :users, only: [:show] do
+    collection do
+      get :card_index
+      get :card_registrations
+    end
+  end
+  resources :items, only: [:index, :show, :create ] do
+    resources :comments, only: [:create ]
+  end
+
   resources :registrations, only: [:index] do
     collection do
       get :n1

@@ -29,8 +29,11 @@
         &--main{
           min-height: 300px; 
           background-size: cover;
-          background-repeat: no-repeat;    
+          background-repeat: no-repeat;   
           &__photo{
+            display:flex;
+            flex-wrap: wrap;
+            max-width: 300px;
           }
         }
       }
@@ -75,21 +78,25 @@
               }
             }
           }
+          td.detail-main__item__content__images--main__photo{
+            width: 100%;
+            padding: 0px;
+          }
         }
       }
     }
     &__price{
       text-align: center;
       margin: 24px 0 0;
-      &__number{
+      &--number{
         margin: 0 16px 0 0;
         font-size: 50px;
         font-weight: 600px;
       }
-      &__tax{
+      &--tax{
         font-size: 10px
       }
-      &__charge{
+      &--charge{
         font-size: 16px;
       }
     }
