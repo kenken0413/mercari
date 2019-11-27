@@ -6,9 +6,22 @@ class ItemsController < ApplicationController
     
   end
 
-  def show
-
+  def new
     @item = Item.new
+    @delivery = Delivery.new
+    @image = Image.new
+    # カテゴリーの親要素を呼び出し
+    @parents = Category.all.order("ancestry ASC").limit(13)
+  end
+
+  def edit
+    @item = Item.new
+    @delivery = Delivery.new
+    @image = Image.new
+    @parents = Category.all.order("ancestry ASC").limit(13)    
+  end
+
+  def show
     @parents = Category.all.order("ancestry ASC").limit(13)
     @item1= Item.find(2)
     # @item1 = Item.find(params[:id])
@@ -21,14 +34,10 @@ class ItemsController < ApplicationController
     @seller_items = @item1.seller.selling_items.order("id DESC").limit(6)
 
     @comment= Comment.new
-    render "sell.html.haml"if params[:id] == "sell"
     render "item-detail.html.haml" if params[:id] =="detail"
     render "buy-confirmation.html.haml" if params[:id] =="buy"
     # @user= User.find(paramas[:id])
     # (@item = Item.find(params[:id]))
-  end
-
-  def new
   end
 
   def create
@@ -36,44 +45,40 @@ class ItemsController < ApplicationController
     @image = Image.new(image_params)
     @delivery = Delivery.new(delivery_params)
 
-    if @item.save
+    @item.save
+    # @image.save  
+
+    if  @delivery.save
       redirect_to root_path
     else
       render :sell
     end
+    
+  end
 
-    @delivery.save
-    @image.save
-
-    # if @image.save
-    #   render json: { message: "success", fileID: @image.id }, :status => 200
-    # else
-    #   render json: { error: @image.errors.full_messages.join(',')}, :status => 400
-    # end
-
+  # 子を取得
+  def category_children
+    @children = Category.find("#{params[:parent_id]}").children
+  end
+  
+  # 孫を取得
+  def category_grandchildren
+    @grandchildren = Category.find("#{params[:child_id]}").children
   end
 
 private
-
 # user.idは全て１を仮入力しているため、修正が必要
-
   def item_params
     params.require(:item).permit(:name, :description, :state_id, :price, :seller_id, :category_id).merge(seller_id: "1")
   end
 
-  def set_category
-    @category = Category.find(1)
-  end
-
   def delivery_params
     params.require(:delivery).permit(:postage_method_id,:postage_detail_id,:prefecture_id,:shipping_date_id).merge(item_id: "1")
-
   end
 
   def image_params
     params.require(:image).permit(:image).merge(item_id:"1" )
   end
-
 end
 
 
