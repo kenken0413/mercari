@@ -10,14 +10,15 @@
             %span 出品画像
             %span.must__tag.bold 必須
           %p 最大10枚までアップロードできます
+          .image-preview-wrapper
+            %ul.image-preview-list            
+         
           = fields_for Image do |i|
             .sell-main-form__images__photos
-              .sell-main-form__images__photos__update
-                = i.file_field :image
-                -# %input.sell-upload-drop-file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}/
-                %ul
-                  %li ドラッグアンドドロップ
-                  %li またはクリックしてファイルをアップロード
+              = i.file_field :image, {class: "sell-main-form__images__photos__update" }
+              %pre.placeholder
+                ファイルをドラッグアンドドロップ
+                \またはクリックしてファイルをアップロード
 
         .sell-main-form__descriptions
           .sell-main-form__descriptions__name
@@ -30,7 +31,6 @@
             %h4 
               %span 商品の説明
               %span.must__tag 必須
-            -# %textarea.textarea-comment{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: " "}
             = f.text_field:description,{class: 'textarea-comment', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: " "}
 
         .sell-main-form__content.clearfix
@@ -54,13 +54,13 @@
                 %span.brand__tag 任意
 
               .sell-main-form__content__detail__brand__box
-                = f.text_field:brand,{class: 'select-box',prompt: '---' }          
+                = f.text_field:brand_id,{class: 'select-box',prompt: '---' }          
             .sell-main-form__content__detail__status
               %h4
                 %span 商品の状態 
                 %span.must__tag 必須
               .sell-main-form__content__detail__status__box
-                = f.select:state,['state1','state2','state3'],{class: 'select-box',prompt: '---'}
+                = f.select:state_id,['1','2','3'],{class: 'select-box',prompt: '---'}
 
         .sell-main-form__content.clearfix
           %p 配送について
@@ -72,21 +72,21 @@
                   %span 配送料の負担 
                   %span.must__tag 必須
                 .sell-main-form__content__delivery__fee__box
-                  = d.select:postage_method,['送料込み(出品者負担)','着払い(購入者負担)'],{class: "select-box",prompt: "---"}
+                  = d.select:postage_method_id,['1','2'],{class: "select-box",prompt: "---"}
                   -# データ挿入必要
               .sell-main-form__content__delivery__detail
                 %h4
                   %span 配送の方法 
                   %span.must__tag 必須
                 .sell-main-form__content__delivery__detail__box
-                  = d.select:postage_detail,['送料込み(出品者負担)','着払い(購入者負担)'],{class: "select-box",prompt: "---"}
+                  = d.select:postage_detail_id,['1','2'],{class: "select-box",prompt: "---"}
                   -# データ挿入必要
               .sell-main-form__content__delivery__region
                 %h4
                   %span 配送元の地域
                   %span.must__tag 必須
                 .sell-main-form__content__delivery__region__box
-                  = d.select:region,['1','2','3'],{class: "select-box",prompt: "---"}
+                  = d.select:prefecture_id,['1','2','3'],{class: "select-box",prompt: "---"}
                   -# データ挿入必要
 
               .sell-main-form__content__delivery__delay
@@ -94,7 +94,7 @@
                   %span 発送までの日数
                   %span.must__tag 必須
                 .sell-main-form__content__delivery__delay__box
-                  = d.select:shipping_date,['1~2日で発送','2~3日で発送','4~7日で発送'],{class: "select-box",prompt: "---"}
+                  = d.select:shipping_date_id,['1','2','3'],{class: "select-box",prompt: "---"}
 
         .sell-main-form__content.clearfix
           %p 販売価格（300~9,999,999)
@@ -107,16 +107,16 @@
                   %span.must__tag 必須
                 .sell-main-form__content__price__total__input
                   %p ¥
-                  = f.text_field:price,{placeholder: "商品名（必須 40文字まで)", value: ""}
+                  %input#calc{placeholder: "商品名（必須 40文字まで)", value: ""}
+                  = f.number_field:price, style: "display: none", id: "price"
 
 
-                  -# %input.input-price{placeholder: "例）300", value: ""}
               %li.sell-main-form__content__price__charge.clearfix
                 .sell-main-form__content__price__charge__title 販売手数料(10%)
-                .sell-main-form__content__price__charge__auto -
+                #fee.sell-main-form__content__price__charge__auto -
               %li.sell-main-form__content__price__profit.clearfix
                 .sell-main-form__content__price__profit__title 販売利益
-                .sell-main-form__content__price__profit__auto -
+                #profit.sell-main-form__content__price__profit__auto -
 
         .sell-main-form__btn-box
           .sell-main-form__btn-box__caution
@@ -136,11 +136,5 @@
           = f.submit'出品する', class:'sell-main-form__btn-box__submit-btn button', text: "出品する"
           .sell-main-form__btn-box__back-btn
             =link_to "もどる"
-
-    -# Jクエリ動作実験用
-    .form-group
-      %textarea{id:"keyword" ,placeholder:"入力"}
-      %button{id:"submit"}送信する
-      %p#result
 
     = render partial:"sell-footer"

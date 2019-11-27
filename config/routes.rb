@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
   resources :credits, only: [:new,:create]
 
+  resources :items, only: [:index, :show, :create ] do
+    resources :comments, only: [:create ]
+  end
 
   resources :registrations do
     collection do
