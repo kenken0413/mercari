@@ -6,31 +6,31 @@
       発送元、お届け先住所入力
     .addless-content.signup-height
       .addless-form.signup-margin
-        = form_for @user, url: n4_registrations_path, method: :get do |f|
-          .form-group
-            .profile-form-title
-              お名前
-              %span#must__red.must__tag 必須
-            %input{placeholder: "例）山田", value: session[:family_name_zen]}
-            %input.last-name-form{placeholder: "例）彩",value: session[:first_name_zen]}
-          .form-group
-            .profile-form-title
-              お名前カナ
-              %span#must__red.must__tag 必須
-            %input{placeholder: "例）ヤマダ",value: session[:family_name_kana]}
-            %input.last-name-form{placeholder: "例）アヤ",value: session[:first_name_kana]}
+        = form_for @user, url: '/registrations', method: :post do |f|
+          = f.fields_for :profile, @user.build_profile do |p|
+            .form-group
+              .profile-form-title
+                お名前
+                %span#must__red.must__tag 必須
+              = p.text_field :family_name_zen, placeholder: '例) 山田', value: session[:family_name_zen]
+              = p.text_field :first_name_zen, placeholder: '例) 彩',value: session[:first_name_zen]
+            .form-group
+              .profile-form-title
+                お名前カナ
+                %span#must__red.must__tag 必須
+              = p.text_field :family_name_kana, placeholder: '例) ヤマダ',value: session[:family_name_kana]
+              = p.text_field :first_name_kana, placeholder: '例) アヤ',value: session[:first_name_kana]
           = f.fields_for :addresses, @user.addresses.build do |a|
             .form-group
               .profile-form-title
                 郵便番号
                 %span#must__red.must__tag 必須
-              = a.text_field :postal_code, placeholder: "例）123-4567"
+              = a.text_field :postal_code, placeholder: "例）123-4567", maxlength: '7'
             .form-group
               .profile-form-title
                 都道府県
                 %span#must__red.must__tag 必須
-              %select
-                =render "/shared/prefectures"
+              = a.collection_select :prefecture_id, Prefecture.all, :id, :name
             .form-group
               .profile-form-title
                 市区町村

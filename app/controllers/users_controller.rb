@@ -9,10 +9,7 @@ class UsersController < ApplicationController
     render "identification.html.haml" if params[:id] =="identification"
   end
 
-  def card_index
+  def sign_out
+    redirect_to '/items/index'
   end
-
-  def card_registrations
-  end
-
-  end
+end

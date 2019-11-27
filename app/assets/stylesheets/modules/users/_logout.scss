@@ -3,12 +3,11 @@
   width:700px;
   margin-top: 40px;
   background: $main-content;
-  form{
+  .logout-box{
     max-width: 320px;
     padding: 64px 0;
     margin:0 auto;
-    border: 1px solid #ea352d;
-    input{
+    a{
     width:100%;
     line-height: 48px;
     text-align: center;
@@ -19,3 +18,4 @@
     }
   }
 }
+.wrapper{background-color: $main-background;}

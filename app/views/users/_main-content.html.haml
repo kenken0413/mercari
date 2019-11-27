@@ -4,7 +4,7 @@
       .user-content-box__user-icon__box
         = image_tag 'user_icon.png', alt: 'logo', height: '60', width: '60', class: 'user-content-box__user-icon__box__circle-user'
         .user-content-box__user-icon__box__name
-          メルカリ太郎
+          = current_user.nickname
         .user-content-box__user-icon__box__number-box
           .user-content-box__user-icon__box__number-box__review
             評価

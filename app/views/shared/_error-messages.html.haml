@@ -1,0 +1,14 @@
+- if user.errors.any?
+  - unless user.valid?
+    - if errors = user.errors.full_messages_for(column.to_sym)
+      %ul
+        - errors.each do |error|
+          %li.error-messages-signup=error
+
+:css
+  .error-messages-signup{
+    color:#ea352d;
+    margin-top:2px;
+    }
+
+  .field_with_errors{border:#ea352d solid 1px; border-radius:4px;}

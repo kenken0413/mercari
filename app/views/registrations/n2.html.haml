@@ -8,7 +8,8 @@
       .tellnum-form.signup-margin
         = form_for @user, url: n3_registrations_path, method: :get do |f|
           %h1 携帯電話の番号
-          = f.telephone_field :tel, placeholder: '携帯電話の番号を入力'
+          = f.telephone_field :tel, placeholder: '例）09012345678', maxlength: '11'
+          = render partial: '/shared/error-messages', locals: {user: @user, column: "tel"}
           %p ※本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
           .next-box
             =f.submit value: 'SMSを送信する', class: 'next-btn'
