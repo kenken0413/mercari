@@ -1,0 +1,64 @@
+.registration-wrapper
+  .n4
+    = render "/shared/SignUp-header"
+  .registration-content
+    .profile-head
+      支払い方法
+    = form_tag('/credits',name: 'inputForm', method: :post) do
+      .credit-new
+        .credit-new__create
+          .form-group
+            .profile-form-title
+              カード番号
+              %span#must__red.must__tag 必須
+            %input.number.input-default{maxlength: "16", name: "number", placeholder: "カード番号", type: "text", id: "card_number"}
+            = image_tag 'card-logo.png', alt: 'logo', height: '20', width: '343', class: 'card-logo'
+          .form-group
+            .profile-form-title
+              有効期限
+              %span#must__red.must__tag 必須
+            .credit-new__create__limit
+              %select.exp_month.default-select.month#exp_month{maxlength: "2", name: "exp_month", type: "text"}
+                %option{value: "1"}01
+                %option{value: "2"}02
+                %option{value: "3"}03
+                %option{value: "4"}04
+                %option{value: "5"}05
+                %option{value: "6"}06
+                %option{value: "7"}07
+                %option{value: "8"}08
+                %option{value: "9"}09
+                %option{value: "10"}10
+                %option{value: "11"}11
+                %option{value: "12"}12
+              = icon('fas', 'chevron-down',  class: "default-select__chevron")
+              月
+
+            .credit-new__create__limit
+              %select.exp_year.default-select.year#exp_year{maxlength: "4", name: "exp_year", type: "text"}
+                %option{value: "2019"}19
+                %option{value: "2020"}20
+                %option{value: "2021"}21
+                %option{value: "2022"}22
+                %option{value: "2023"}23
+                %option{value: "2024"}24
+                %option{value: "2025"}25
+                %option{value: "2026"}26
+                %option{value: "2027"}27
+                %option{value: "2028"}28
+                %option{value: "2029"}29
+              = icon('fas', 'chevron-down',  class: "default-select__chevron")
+              年
+
+          .form-group
+            .profile-form-title
+              セキュリティコード
+              %span#must__red.must__tag 必須
+            %input.cvc.input-default{maxlength: "3", name: "cvc", placeholder: "カード背面４桁もしくは３桁の番号", type: "text", id: "cvc"}
+            .credit-new__create__question
+              %span.credit-new__create__question__icon ?
+              カード裏面の番号とは？
+          .form-group#card_token
+            %button.credit-new__create__btn.btn-red.btn-default#token_submit{type: "submit"}
+              .icon-card 次へ進む
+  = render "items/sell-footer"

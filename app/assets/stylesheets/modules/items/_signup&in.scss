@@ -1,0 +1,29 @@
+.header-contents__lower__sign{
+  float:right;
+  width:190px;
+  height:36px;
+  display:flex;
+  line-height:32px;
+  text-align:center;
+
+  &__up{
+    height:32px;
+    width:106px;
+    background-color:#ea352d;
+    color:white;
+    border-radius:4px;
+    font-size:14px;
+    &:hover{opacity:0.8;}
+  }
+
+  &__in{
+    height:32px;
+    width:76.25px;
+    color:#0095ee;
+    border:#0095ee solid 1px;
+    border-radius:4px;
+    margin-left:10px;
+    font-size:14px;
+    &:hover{background-color:#0095ee;color:white;transition:0.8s;}
+  }
+}

@@ -4,8 +4,9 @@
     .userpage-main
       = render "side-list"
       .logout-main__right
-        =form_tag do
-          = submit_tag "ログアウト"
+        .logout-box
+          = link_to '/users/sign_out', method: :delete do
+            ログアウト
           = hidden_field_tag(name: "", value: "")  
   .app-info
   = render "items/sell-icon"
