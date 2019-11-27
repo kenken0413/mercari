@@ -9,11 +9,8 @@ Rails.application.routes.draw do
       get :card_registrations
     end
   end
-  resources :items, only: [:index, :new, :edit, :show, :create ,:destroy] do
-    collection do
-      get 'category_children', defaults: { format: 'json' }
-      get 'category_grandchildren', defaults: { format: 'json' }
-    end
+  resources :items, only: [:index, :show, :create ] do
+    # resources :
   end
 
 
