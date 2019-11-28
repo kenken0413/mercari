@@ -3,7 +3,19 @@ class ItemsController < ApplicationController
 
   def index
     @parents = Category.all.order("ancestry ASC").limit(13)
+    @popular_categories = Category.find(1,200,898,685)
     
+    @all_brands = Brand.all
+    @popular_brands = Brand.find(2447,3813,4818,1854)
+    
+    @lady_items = Item.where(category_id: 1).limit(10).order(id: "DESC")
+    @man_items = Item.where(category_id: 200).limit(10).order(id: "DESC")
+    @electronic_items = Item.where(category_id: 898).limit(10).order(id: "DESC")
+    @toy_items = Item.where(category_id: 685).limit(10).order(id: "DESC")
+    @chanel_items = Item.where(brand_id: 2447).limit(10).order(id: "DESC")
+    @nike_items = Item.where(brand_id: 3813).limit(10).order(id: "DESC")
+    @gucci_items = Item.where(brand_id: 4818).limit(10).order(id: "DESC")
+    @prada_items = Item.where(brand_id: 1854).limit(10).order(id: "DESC")
   end
 
   def new
@@ -23,6 +35,10 @@ class ItemsController < ApplicationController
 
   def show
     @parents = Category.all.order("ancestry ASC").limit(13)
+    @popular_brands = Brand.find(2447,3813,4818,1854,219)
+    @all_brands = Brand.all
+    @popular_brands = Brand.find(2447,3813,4818,1854,219)
+
     @item1= Item.find(2)
     # @item1 = Item.find(params[:id])
     @price1 = @item1.price.to_s(:delimited)
@@ -38,6 +54,10 @@ class ItemsController < ApplicationController
     render "buy-confirmation.html.haml" if params[:id] =="buy"
     # @user= User.find(paramas[:id])
     # (@item = Item.find(params[:id]))
+    
+     @item = Item.new
+    @image = Image.new
+    @delivery = Delivery.new
   end
 
   def create

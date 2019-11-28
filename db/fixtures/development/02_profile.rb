@@ -47,3 +47,23 @@ Profile.seed do |s|
   s.first_name_kana = 'ウケゾウ'
   s.birthday = '2000-01-05'
 end
+
+Profile.seed do |s|
+  s.id = 6
+  s.user = User.find(6)
+  s.family_name_zen = 'てすと'
+  s.first_name_zen = 'うけ子'
+  s.family_name_kana = 'テスト'
+  s.first_name_kana = 'ウケコ'
+  s.birthday = '2000-01-06'
+end
+
+Profile.seed do |s|
+  s.id = 7
+  s.user = User.find(7)
+  s.family_name_zen = ''
+  s.first_name_zen = 'うけ美'
+  s.family_name_kana = 'テスト'
+  s.first_name_kana = 'ウケミ'
+  s.birthday = '2000-01-07'
+end

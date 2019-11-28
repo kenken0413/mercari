@@ -1,0 +1,8 @@
+.header-contents__lower__item-search__list__text#brand-search
+  %p ブランドから探す  
+  %ul.brand-drop-main-category
+    - popular_brands.each do |popular_brand|
+      %li.brand__name
+        = link_to "#{popular_brand.brand}" 
+    %li.brand__name
+      その他一覧

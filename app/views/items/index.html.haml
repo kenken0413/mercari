@@ -1,7 +1,90 @@
-= render partial: 'header', locals: {parent_item: @parents}
+= render partial: 'header', locals: {parent_category: @parents, popular_brands: @popular_brands}
 
 .body
   .body-wrapper
-    = render 'items/body'
+    .slick-box
+      %figure
+        = image_tag 'mercari_camp', height: '390px', width: '100%', class: 'slick-1'
+      %figure
+        = image_tag 'root-photo1', height: '390px', width: '100%', class: 'slick-2'
+      %figure
+        = image_tag 'root-photo2', height: '390px', width: '100%', class: 'slick-3'
+    .body-contents
+      .popular
+        %h2.popular__title 人気のカテゴリー
+        %ul.popular__category
+          %li.polular__category.lists #{@popular_categories.first.category}
+          %li.polular__category.lists #{@popular_categories.second.category}
+          %li.polular__category.lists #{@popular_categories.third.category}
+          %li.polular__category.lists #{@popular_categories.fourth.category}
+      .popular-index
+        .popular-index__header
+          %h3.popular-index__header__title #{@popular_categories.first.category}新着アイテム 
+          = link_to root_path,class:'link-more' do
+            .popular-index__header__link-more もっと見る
+            = icon('fas', 'chevron-right', class: "popular-index__header__link-more")
+        =render partial: 'category', collection: @lady_items
 
+      .popular-index
+        .popular-index__header
+          %h3.popular-index__header__title #{@popular_categories.second.category}新着アイテム 
+          = link_to root_path,class:'link-more' do
+            .popular-index__header__link-more もっと見る
+            = icon('fas', 'chevron-right', class: "popular-index__header__link-more")
+        =render partial: 'category', collection: @man_items
+
+      .popular-index
+        .popular-index__header
+          %h3.popular-index__header__title #{@popular_categories.third.category}新着アイテム 
+          = link_to root_path,class:'link-more' do
+            .popular-index__header__link-more もっと見る
+            = icon('fas', 'chevron-right', class: "popular-index__header__link-more")
+        =render partial: 'category', collection: @electronic_items
+
+        .popular-index
+          .popular-index__header
+            %h3.popular-index__header__title #{@popular_categories.fourth.category}新着アイテム 
+            = link_to root_path,class:'link-more' do
+              .popular-index__header__link-more もっと見る
+              = icon('fas', 'chevron-right', class: "popular-index__header__link-more")
+          =render partial: 'category', collection: @toy_items
+
+      .popular
+        %h2.popular__title 人気のブランド
+        %ul.popular__category
+          %li.polular__category.lists #{@popular_brands.first.brand}
+          %li.polular__category.lists #{@popular_brands.second.brand}
+          %li.polular__category.lists #{@popular_brands.third.brand}
+          %li.polular__category.lists #{@popular_brands.fourth.brand}
+      .popular-index
+        .popular-index__header
+          %h3.popular-index__header__title #{@popular_brands.first.brand}新着アイテム 
+          = link_to root_path,class:'link-more' do
+            .popular-index__header__link-more もっと見る
+            = icon('fas', 'chevron-right', class: "popular-index__header__link-more")
+        =render partial: 'category', collection: @chanel_items
+      .popular-index
+        .popular-index__header
+          %h3.popular-index__header__title #{@popular_brands.second.brand}新着アイテム 
+          = link_to root_path,class:'link-more' do
+            .popular-index__header__link-more もっと見る
+            = icon('fas', 'chevron-right', class: "popular-index__header__link-more")
+        =render partial: 'category', collection: @nike_items
+      .popular-index
+        .popular-index__header
+          %h3.popular-index__header__title #{@popular_brands.third.brand}新着アイテム 
+          = link_to root_path,class:'link-more' do
+            .popular-index__header__link-more もっと見る
+            = icon('fas', 'chevron-right', class: "popular-index__header__link-more")
+        =render partial: 'category', collection: @gucci_items
+      .popular-index
+        .popular-index__header
+          %h3.popular-index__header__title #{@popular_brands.fourth.brand}新着アイテム 
+          = link_to root_path,class:'link-more' do
+            .popular-index__header__link-more もっと見る
+            = icon('fas', 'chevron-right', class: "popular-index__header__link-more")
+        =render partial: 'category', collection: @prada_items
+    .icon
+      =render'items/sell-icon'
+  .app-info
 = render 'items/footer'

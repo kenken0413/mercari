@@ -7,12 +7,16 @@
  @import "./mixin/variable";
  @import "./mixin/parts";
 
+ @import "slick-theme"; 
+ @import "slick";
+
  @import "./modules/items/toppage";
  @import "./modules/items/item-detail";
  @import "./modules/items/seller";
  @import "./modules/items/buy-confirmation";
  @import "./modules/items/signup&in";
  @import "./modules/items/category-drop-menu";
+ @import "./modules/items/brand-drop-menu";
 
  @import "./modules/users/login";
  @import "./modules/users/users";
@@ -31,3 +35,5 @@
  @import "./modules/registrations/n3";
  @import "./modules/registrations/n4";
  @import "./modules/registrations/end";
+
+ 
