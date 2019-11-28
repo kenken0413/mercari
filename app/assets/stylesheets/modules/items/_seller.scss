@@ -44,7 +44,7 @@ h4{
 }
 
 .hidden{
-  display: none;
+  opacity: 0;
 }
 
 
@@ -91,43 +91,6 @@ h4{
         white-space: pre-wrap;
         word-wrap: break-word;
       }
-      // .sell-main-form__images__photos{
-      //   position: relative;
-      //   width: 100%;
-      //   min-height: 162px;
-      //   background: $main-background;
-      //   border: 1px dashed #ccc;
-      //   cursor: pointer;
-      //   -webkit-appearance: none;
-      //   text-align: center;
-      //   padding: 40px;
-      //   &__update{
-      //     // display: none;
-      //   }
-      //   .placeholder{
-      //     display: block;
-      //     position: absolute;
-      //     top: 50%;
-      //     left: 16px;
-      //     right: 16px;
-      //     word-wrap: break-word;
-      //     text-align: center;
-      //   }
-        //   min-height: 162px;
-        //   background: $main-background;
-        //   border: 1px dashed #ccc;
-        //   text-align: center;
-          // ul{
-          //   list-style: none;
-          //   font-size: 14px;
-          //   padding: 60px 40px 40px 40px;
-          //   min-height: 162px;
-          //   li{
-          //     line-height: 1.5;
-          //   } 
-          // }
-        // }
-      // }
     }
     &__descriptions{
       @include form-content-set; 
