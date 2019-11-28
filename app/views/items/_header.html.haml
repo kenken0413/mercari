@@ -13,7 +13,7 @@
         .header-contents__lower__item-search__list
           = icon('fas', 'list-ul',  class: "header-contents__lower__item-search__list__icon")
           .header-contents__lower__item-search__list__text#category-search カテゴリーから探す
-          =render partial: 'category-drop-menu', locals: {parent_item: parent_item}
+          =render partial: '/items/category-drop-menu', locals: {parent_item: parent_item}
         = link_to root_path, class:'menu-link' do
           .header-contents__lower__item-search__list.right
             = icon('fas', 'tag',  class: "header-contents__lower__item-search__list__icon")

@@ -52,9 +52,9 @@ width: 100px;
 }
 .n1{
   #through{
-    color: #ea352d;
+    color: $red;
     .progress-status {
-      background: #ea352d;
+      background: $red;
     }
   }
 } 
@@ -64,9 +64,9 @@ width: 100px;
 @include bar
   }
   #active{
-    color: #ea352d;
+    color: $red;
     .progress-status {
-      background: #ea352d;
+      background: $red;
     }
   }
 }
@@ -79,9 +79,9 @@ width: 100px;
 @include bar
   }
   #address{
-    color: #ea352d;
+    color: $red;
     .progress-status {
-      background: #ea352d;
+      background: $red;
     }
   }
 }
@@ -96,9 +96,9 @@ width: 100px;
 @include bar
   }
   #payment{
-    color:#ea352d;
+    color:$red;
     .progress-status {
-      background: #ea352d;
+      background: $red;
     }
   }
 }
@@ -116,9 +116,9 @@ width: 100px;
 @include bar
   }
   #end{
-    color:#ea352d;
+    color:$red;
     .progress-status {
-      background: #ea352d;
+      background: $red;
     }
   }
 }

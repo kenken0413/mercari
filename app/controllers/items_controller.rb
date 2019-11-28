@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
   def show
     @parents = Category.all.order("ancestry ASC").limit(13)
     @item1= Item.find(2)
+    @item3= Item.find(3)
     # @item1 = Item.find(params[:id])
     @price1 = @item1.price.to_s(:delimited)
     @like1= @item1.likes.count

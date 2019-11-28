@@ -58,11 +58,12 @@
         font-weight: 600;
         line-height: 36px;
         &__icon{
-          color: rgb(234, 53, 45);
+          color: $red;
           line-height: 36px;
         }
         &__text{
           padding-left: 5px;
+          &:hover{color:$blue;}
         }
       }
     }
@@ -83,6 +84,7 @@
         }
         &__text{
           font-weight: 1;
+          &:hover{color:$blue;}
         }
       }
     }
@@ -152,7 +154,7 @@
       font-weight: 600;
     }
     .link-more{
-      color: rgb(0, 149, 238);
+      color: $blue;
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -226,7 +228,7 @@
   right: 32px;
   width: 160px;
   position: fixed;
-  background-color: rgb(234, 53, 45);
+  background-color: $red;
   border-radius: 50%;
   &__btn{
     color: white;
@@ -241,7 +243,7 @@
 
 .footer{
   background-color: rgb(34, 34, 34);
-  color: rgb(255, 255, 255);
+  color: white;
   font-size: 12px;
   padding: 0px 20px 10px;
   &__upper{

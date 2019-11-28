@@ -1,5 +1,5 @@
 .wrapper
-  =render "items/header"
+  =render partial: "items/header", locals: {parent_item: @parents}
   .user-main-box
     .userpage-main
       =render "side-list"

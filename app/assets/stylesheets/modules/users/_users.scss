@@ -140,7 +140,7 @@
 
         .mypage-tabs input:checked + .tab1{
           background-color: $main-content;
-          border-top: 2px solid #ea352d;
+          border-top: 2px solid $red;
         }
 
 
@@ -238,8 +238,6 @@
         width:100%;
 
         &__head{
-          font-weight:bold;
-          line-height:80px;
           height:80px;
           padding-left:20px;
         }
@@ -272,7 +270,7 @@
 
         .user-content-box__mypage-tab-container__tabs input:checked + .tab2{
           background-color:$main-content;
-          border-top: 2px solid #ea352d;
+          border-top: 2px solid $red;
         }
 
         &__content{
@@ -287,7 +285,6 @@
           }
 
           &__text{
-            padding-top:160px;
             padding-left:250px;
             color:gainsboro;
             font-weight:bold;

@@ -75,8 +75,8 @@
     }
     button{
       @include identification-content-minibox;
-      background: #ea352d;
-      border: 1px solid #ea352d;
+      background: $red;
+      border: 1px solid $red;
       color: #fff;
       cursor: pointer;
     }
