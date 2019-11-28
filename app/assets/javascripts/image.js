@@ -1,9 +1,3 @@
-$(function(){
-
-  //   return html;
-  // };
-});
-
 $(function() {
   var uploadImage =  ` <li class = "image-preview" >
                          <div class = "image-preview__upper">
@@ -35,10 +29,4 @@ $(function() {
     // ('.image-preview-wrapper').append(html)
     reader.readAsDataURL(file);
   });
-// });
-
-$(function(){
-  var input = document.querySelector('#image_image');
-  var preview = document.querySelector('.preview');
-
 });
