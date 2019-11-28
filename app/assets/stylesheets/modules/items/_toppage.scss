@@ -64,7 +64,7 @@
         &__text{
           padding-left: 5px;
           line-height: 36px;
-          &:hover{color:$blue;}
+          &:hover{color:$blue;li{color:#333;}}
           p{
             font-size: 14px;
             font-weight: 600;
@@ -89,7 +89,7 @@
         }
         &__text{
           font-weight: 1;
-          &:hover{color:$blue;}
+          // &:hover{color:$blue;}
         }
       }
     }
