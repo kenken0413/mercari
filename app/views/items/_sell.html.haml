@@ -13,7 +13,7 @@
             %ul.image-preview-list            
             = i.label :image, class: 'sell-main-form__images__photos' do
               .form-image
-                = i.file_field :image, class: 'hidden'
+                = i.file_field :image,{type:'file', class: 'hidden', accept: ".jpg, .jpeg, .png"}
                 %pre.placeholder
                   ファイルをドラッグアンドドロップ
                   \またはクリックしてファイルをアップロード
