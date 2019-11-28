@@ -12,10 +12,10 @@
       .header-contents__lower__item-search
         .header-contents__lower__item-search__list
           = icon('fas', 'list-ul',  class: "header-contents__lower__item-search__list__icon")
-          =render partial: 'category-drop-menu', locals: {parent_category: parent_category}
+          =render partial: '/items/category-drop-menu', locals: {parent_category: parent_category}
         .header-contents__lower__item-search__list.right
           = icon('fas', 'tag',  class: "header-contents__lower__item-search__list__icon")
-          =render partial: 'brand-drop-menu', locals: {popular_brands: popular_brands}
+          =render partial: '/items/brand-drop-menu', locals: {popular_brands: popular_brands} 
       - if user_signed_in?
         .header-contents__lower__mypage
           = link_to root_path, class:'menu-link' do

@@ -60,34 +60,34 @@
           %span.detail-main__item__price--number ¥#@price1
           %span.detail-main__item__price--tax (税込) 
           %span.detail-main__item__price--charge 送料込み
-        -if current_user.id == @item3.seller.id
-          .detail-main__item__description
-            %p #{@item1.description}
-          .seller-function-box
-            =link_to '/items/edit' do
-              .seller-function-box__edit 商品の編集
-            .seller-function-box__or or
-            =link_to root_path do
-              .seller-function-box__back 出品を再開する
-            -# =link_to , method: :delete do
-            .seller-function-box__delete#item-delete この商品を削除する
-        -else
-          .detail-main__item__link-buy
-            = link_to('購入画面に進む', class: 'detail-main__item__link-buy__btn')
-          .detail-main__item__description
-            %p #{@item1.description}
-          .detail-main__item__button-container.clearfix
-            .detail-main__item__button-container__left
-              %button.item-button--like{:name => "like!", :type => "button"}
-                %i.far.fa-heart.grey
-                %span いいね!
-                %span #{@like1}
-              %button.item-button--report{:name => "report", :type => "button"}
-                %i.far.fa-flag
-                %span 不適切な商品の報告
-            .detail-main__item__button-container__right
-              %i.fas.fa-lock
-              %span あんしん・あんぜんへの取り組み
+      -if current_user.id == @item3.seller.id
+        .detail-main__item__description
+          %p #{@item1.description}
+        .seller-function-box
+          =link_to '/items/edit' do
+            .seller-function-box__edit 商品の編集
+          .seller-function-box__or or
+          =link_to root_path do
+            .seller-function-box__back 出品を再開する
+          -# =link_to , method: :delete do
+          .seller-function-box__delete#item-delete この商品を削除する
+      -else
+        .detail-main__item__link-buy
+          = link_to('購入画面に進む', class: 'detail-main__item__link-buy__btn')
+        .detail-main__item__description
+          %p #{@item1.description}
+        .detail-main__item__button-container.clearfix
+          .detail-main__item__button-container__left
+            %button.item-button--like{:name => "like!", :type => "button"}
+              %i.far.fa-heart.grey
+              %span いいね!
+              %span #{@like1}
+            %button.item-button--report{:name => "report", :type => "button"}
+              %i.far.fa-flag
+              %span 不適切な商品の報告
+          .detail-main__item__button-container__right
+            %i.fas.fa-lock
+            %span あんしん・あんぜんへの取り組み
       .detail-main__message
         = form_for [@item1, @comment] do |f|
           %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。

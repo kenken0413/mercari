@@ -113,14 +113,14 @@ ActiveRecord::Schema.define(version: 20191123081850) do
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",          null: false
-    t.string   "family_name_zen",  null: false
-    t.string   "first_name_zen",   null: false
-    t.string   "family_name_kana", null: false
-    t.string   "first_name_kana",  null: false
-    t.date     "birthday",         null: false
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "user_id",                       null: false
+    t.string   "family_name_zen",               null: false
+    t.string   "first_name_zen",   default: "", null: false
+    t.string   "family_name_kana",              null: false
+    t.string   "first_name_kana",               null: false
+    t.date     "birthday",                      null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
