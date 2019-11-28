@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
     @popular_brands = Brand.find(2447,3813,4818,1854,219)
 
     @item1= Item.find(2)
-    # @item1 = Item.find(params[:id])
+    @item1 = Item.find(params[:id])
     @price1 = @item1.price.to_s(:delimited)
     @like1= @item1.likes.count
     @item_next= Item.find(2+1)
@@ -66,7 +66,7 @@ class ItemsController < ApplicationController
     @delivery = Delivery.new(delivery_params)
 
     @item.save
-    # @image.save  
+    @image.save  
 
     if  @delivery.save
       redirect_to root_path
@@ -89,7 +89,7 @@ class ItemsController < ApplicationController
 private
 # user.idは全て１を仮入力しているため、修正が必要
   def item_params
-    params.require(:item).permit(:name, :description, :state_id, :price, :seller_id, :category_id).merge(seller_id: "1")
+    params.require(:item).permit(:name, :description, :state_id, :price, :seller_id, :category_id).merge(seller_id: current_user.id)
   end
 
   def delivery_params

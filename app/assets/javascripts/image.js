@@ -1,49 +1,39 @@
-// $(function(){
-//   function uploadImage(img){
-//     var html =  ` <li class = "image-preview" >
-//                     ${img}
-//                     <div class = "image-preview__lower">
-//                       <div class = "image-preview__lower__btn"> 編集
-//                       </div>
-//                       <div class = "image-preview__lower__btn edit"> 削除
-//                       </div>
-//                     </div>
-//                   </li> `
-//     return html;
-//   };
+$(function(){
 
-  // ファイルを変更したら発火
-  $('#image_image').change(function(){
+  //   return html;
+  // };
+});
 
-    // 画像のデータを取得。ここでconsole.logをすると画像が取得できている
-		var file = $('input[name = "image[image]"]').prop('files')[0];
+$(function() {
+  var uploadImage =  ` <li class = "image-preview" >
+                         <div class = "image-preview__upper">
+                         <div class = "image-preview__lower">
+                           <div class = "image-preview__lower__btn"> 編集
+                           </div>
+                           <div class = "image-preview__lower__btn edit"> 削除
+                           </div>
+                         </div>
+                       </li> `
 
-    // if (! file.type.match('image.*')) {
-		// 	$(this).val('');
-		// 	$('#image_image').html('');
-		// 	return;
-    // }
-    
-    // FileReaderを使用する記述。console.logで空のFileReaderが確認された
-    // var fileReader = new FileReader();
-    // test = fileReader.readAsDataURL(file);
+  $('input[type=file]').change(function() {
+    $('.image-preview-list').append(uploadImage)
 
-    // console.log(test);
+    var file = $(this).prop('files')[0];
+    // 画像以外は処理を停止
+    if (! file.type.match('image.*')) {
+      // クリア
+      $(this).val('');
+      return;
+    }
 
-
-    // ここ以降の記述がおかしいと思われる。２行目のvar srcの値をconsole.logで確認しても表示されない。
-    // reader.onload = function (e) {
-
-    //  var src = reader.result;
-
-
-    // };
-
-      var html = uploadImage(img_src);
-
-      $('.image-preview-list').append(html);
- 
- 
+    // 画像表示
+    var reader = new FileReader();
+    reader.onload = function() {
+      var img_src = $('<img>').attr('src', reader.result);
+      $('.image-preview__upper').html(img_src);
+    }
+    // ('.image-preview-wrapper').append(html)
+    reader.readAsDataURL(file);
   });
 // });
 
