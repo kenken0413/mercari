@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
     @popular_brands = Brand.find(2447,3813,4818,1854,219)
 
     @item1= Item.find(2)
+    @item3= Item.find(3)
     # @item1 = Item.find(params[:id])
     @price1 = @item1.price.to_s(:delimited)
     @like1= @item1.likes.count

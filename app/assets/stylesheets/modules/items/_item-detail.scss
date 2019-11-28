@@ -1,11 +1,13 @@
-.detail-wrapper{
+.detail-box{
   background-color: $main-background;
+  padding-top:40px;
 }
 
 .detail-main{
   &__item{
     padding: 24px 40px 40px;
-    margin: 40px auto 0;
+    margin:0  auto;
+    position:relative;
     @include content-background-width;
     h1{
       font-size: 24px;
@@ -100,12 +102,49 @@
         font-size: 16px;
       }
     }
+    .seller-function-box{
+      width:100%;
+      &__edit{
+        width:100%;
+        height:60px;
+        background-color:$red;
+        line-height: 60px;
+        color:white;
+        text-align:center;
+        margin-top:20px;
+        &:hover{opacity:0.8;}
+      }
+
+      &__or{text-align:center;margin:20px 0;}
+
+      &__back{
+        width:100%;
+        height:60px;
+        background-color:$red;
+        line-height: 60px;
+        color:white;
+        text-align:center;
+        &:hover{opacity:0.8;}
+      }
+
+      &__delete{
+        width:100%;
+        height:60px;
+        background-color:darkgray;
+        line-height: 60px;
+        color:white;
+        text-align:center;
+        margin:20px 0;
+        &:hover{opacity:0.8;}
+      }
+
+    }
     &__link-buy{
       font-size: 24px;
       line-height: 60px;
       display: block;
       margin-top: 16px;
-      background: #ea352d;
+      background: $red;
       text-align: center;
       a{
         font-weight: 600;
@@ -113,7 +152,7 @@
       }
     }
     &__description{
-      padding: 32px 0 0;
+      padding: 32px 0 16px;
       line-height: 1.5;
       p{
       font-size: 18px;
@@ -124,7 +163,6 @@
       @include clearfix;
     }
     &__button-container{
-      margin: 16px 0 0;
       &__left{
         float:left;
         button{
@@ -158,6 +196,7 @@
   }
   &__message{
     @include content-background-width;
+    @include clearfix;
     margin: 8px auto;
     padding: 24px;
     form{
