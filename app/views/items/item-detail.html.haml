@@ -15,6 +15,7 @@
               %td.detail-main__item__content__images--main__photo
                 - @item1.images.each do |photo|
                   %img#selected-image{:height => "60", :src => photo.image.url, :width => "60"}            
+
         %table.detail-main__item__content__table
           %tr
             %th 出品者
@@ -44,14 +45,14 @@
             %td #{@item1.state.name}
           %tr
             %th 配送料の負担
-            %td #{@item1.delivery.postage_method.name}
+            -# %td #{@item1.delivery.postage_method.name}
           %tr
             %th 配送の方法
-            %td #{@item1.delivery.postage_detail.name}
+            -# %td #{@item1.delivery.postage_detail.name}
           %tr
             %th 配送元地域
             %td
-              = link_to "#{@item1.delivery.prefecture.name}", items_path
+              -# = link_to "#{@item1.delivery.prefecture.name}", items_path
           %tr
             %th 配送日の目安
             %td #{@item1.delivery.shipping_date.name}

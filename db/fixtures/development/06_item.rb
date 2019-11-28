@@ -3,7 +3,7 @@ Item.seed do |s|
   s.name = "カバン白"
   s.description = "いい商品です。"
   s.price = 12000
-  s.state = 1
+  s.state = State.find(1)
   s.seller = User.find(1)
   s.buyer = User.find(2)
   s.category = Category.find(96)
@@ -15,7 +15,7 @@ Item.seed do |s|
   s.name = "カバンベージュ"
   s.description = "売れてる商品です。"
   s.price = 18000
-  s.state = 2
+  s.state = State.find(1)
   s.seller = User.find(1)
   s.category = Category.find(96)
   s.brand = Brand.find(4721)
@@ -26,7 +26,7 @@ Item.seed do |s|
   s.name = "ゴルフクラブ"
   s.description = "よく飛びます。"
   s.price = 50000
-  s.state = 3
+  s.state = State.find(1)
   s.seller = User.find(4)
   s.buyer = User.find(5)
   s.category = Category.find(985)
@@ -38,7 +38,7 @@ Item.seed do |s|
   s.name = "メンズジャージ"
   s.description = "快適です。"
   s.price = 7000
-  s.state = 4
+  s.state = State.find(4)
   s.seller = User.find(1)
   s.category = Category.find(211)
 end
@@ -48,7 +48,7 @@ Item.seed do |s|
   s.name = "ポケモンカード"
   s.description = "珍しいカードです。"
   s.price = 800
-  s.state = 5
+  s.state = State.find(5)
   s.seller = User.find(1)
   s.buyer = User.find(3)
   s.category = Category.find(707)
