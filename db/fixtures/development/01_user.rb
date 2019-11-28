@@ -3,4 +3,7 @@ User.create(email: 'satou@test.com', password: 'password', nickname: 'satou', te
 User.create(email: 'suzuki@test.com', password: 'password', nickname: 'suzuki', tel: '000-0000-0003')
 User.create(email: 'tanaka@test.com', password: 'password', nickname: 'tanaka', tel: '000-0000-0004')
 User.create(email: 'test@test.com', password: 'password', nickname: 'test', tel: '000-0000-0005')
-
+User.create(email: 'goto@test.com', password: 'password', nickname: 'goto', tel: '')
+User.create(email: 'ito@test.com', password: 'password', nickname: '', tel: '000-0000-0006')
+User.create(email: 'kato@test.com', password: '', nickname: 'kato', tel: '000-0000-0006')
+User.create(email: 'endo@test.com', password: 'password', nickname: 'endo', tel: '000-0000-0007')

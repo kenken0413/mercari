@@ -9,18 +9,7 @@ Rails.application.routes.draw do
       get :card_registrations
     end
   end
-  resources :items, only: [:index, :show, :create ] do
-    # resources :
-  end
-
-
-  resources :users, only: [:index]
-  resources :users, only: [:show] do
-    collection do
-      get :card_index
-      get :card_registrations
-    end
-  end
+  
   resources :items, only: [:index, :show, :create ] do
     resources :comments, only: [:create ]
   end

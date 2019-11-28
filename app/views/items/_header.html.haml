@@ -12,12 +12,11 @@
       .header-contents__lower__item-search
         .header-contents__lower__item-search__list
           = icon('fas', 'list-ul',  class: "header-contents__lower__item-search__list__icon")
-          .header-contents__lower__item-search__list__text#category-search カテゴリーから探す
-          =render partial: 'category-drop-menu', locals: {parent_item: parent_item}
+        =render partial: 'category-drop-menu', locals: {parent_category: parent_category}
         = link_to root_path, class:'menu-link' do
           .header-contents__lower__item-search__list.right
             = icon('fas', 'tag',  class: "header-contents__lower__item-search__list__icon")
-            .header-contents__lower__item-search__list__text ブランドから探す    
+            =render partial: 'brand-drop-menu', locals: {popular_brands: popular_brands}  
 
       .header-contents__lower__mypage
         = link_to root_path, class:'menu-link' do

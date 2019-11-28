@@ -1,6 +1,6 @@
 .detail-wrapper
   .detail-header
-    = render partial: "header"
+    =render partial: 'header', locals: {parent_category: @parents, popular_brands: @popular_brands}
   .detail-main
     .detail-main__item
       %h1 

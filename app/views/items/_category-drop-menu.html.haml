@@ -1,13 +1,14 @@
-%ul.category-drop-main-category.hidden#category-dropdown-parent
-  - parent_item.each do |category|
-    -# %li.main-category__list{id: "category_id_#{category.id}"}
-    -#   = link_to category_path(category.id),class: "lists-menu__categories--category-link" do
-    %h1.main-category__name
-      = category.category
+.header-contents__lower__item-search__list__text#category-search 
+  %p カテゴリーから探す
+  %ul.category-drop-main-category#category-dropdown-parent
+    - parent_category.each do |category|
+      %li.main-category__name
+        = category.category
+
+        -# # %li.main-category__list{id: "category_id_#{category.id}"}
+      -#   = link_to category_path(category.id),class: "lists-menu__categories--category-link" do
     -# 子カテゴリーul
-    %ul.child-category.hidden
-    
-    
+      -# %ul.child-category.hidden
     -# {id: "child_category_ul_#{category.id}"}
     -#   - @child_category[category.id - 1].each do |child_category|
     -#     %li.child-category__list{id: "child_category_li_#{child_category.id}"}

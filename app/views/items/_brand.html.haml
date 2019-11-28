@@ -1,0 +1,19 @@
+.popular-index__header
+  %h3.popular-index__header__title
+    -# - console
+    -# - binding.pry
+    = brand.brand
+    新着アイテム 
+  = link_to root_path,class:'link-more' do
+    .popular-index__header__link-more もっと見る
+    = icon('fas', 'chevron-right', class: "popular-index__header__link-more")
+
+%ul.popular-index__card
+  %li.popular-index__card__wrapper
+    .popular-index__card__field
+      .popular-index__card__field__upper
+        =link_to '/items/detail' do
+          =image_tag 'sample1.jpg', alt: 'image',class: 'popular-index__card__field__upper__image'
+          %span.popular-index__card__field__upper__price ¥2,200-
+      .popular-index__card__field__bottom
+        %span.popular-index__card__field__bottom__text サンプルサンプルサンプルサンプルサンプルサンプルサンプルsasasasasasasasasasasasasasasasasasa    %h1.popular__title 人気のカテゴリー
