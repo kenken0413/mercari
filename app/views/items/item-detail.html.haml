@@ -1,21 +1,20 @@
 .detail-wrapper
   .detail-header
-    = render partial: "header", locals: {parent_item: @parents}
-  .detail-box
-    .detail-main
-      .detail-main__item
-        %h1 
-          = @item1.name
-        .detail-main__item__content.clearfix
-          .detail-main__item__content__images
-            %table
-              %tr.detail-main__item__content__images--main
-                %td{:align => "left", :colspan => "5"}
-                  -# %img#big-image{:height => "300", :src => "#{@item1.images.first.image.url}", :width => "300"}
-              %tr
-                %td.detail-main__item__content__images--main__photo
-                  - @item1.images.each do |photo|
-                    %img#selected-image{:height => "60", :src => photo.image.url, :width => "60"}            
+    =render partial: 'header', locals: {parent_category: @parents, popular_brands: @popular_brands}
+  .detail-main
+    .detail-main__item
+      %h1 
+        = @item1.name
+      .detail-main__item__content.clearfix
+        .detail-main__item__content__images
+          %table
+            %tr.detail-main__item__content__images--main
+              %td{:align => "left", :colspan => "5"}
+                %img#big-image{:height => "300", :src => "#{@item1.images.first.image.url}", :width => "300"}
+            %tr
+              %td.detail-main__item__content__images--main__photo
+                - @item1.images.each do |photo|
+                  %img#selected-image{:height => "60", :src => photo.image.url, :width => "60"}            
 
           %table.detail-main__item__content__table
             %tr

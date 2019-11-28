@@ -1,0 +1,21 @@
+ul.brand-drop-main-category{
+  display: inline-block;
+  position: absolute;
+  z-index: 3;
+  background-color: $main-content;
+  margin-top:8px;
+  display: none;
+  width: 244px;
+  li{
+    padding-left: 10px;
+    font-weight: normal;
+    &:hover{
+      background-color: red;
+      color:white;
+      a{color:white}}
+    a{
+      color: $main-font;
+      font-weight: normal;
+    }
+  }
+}
