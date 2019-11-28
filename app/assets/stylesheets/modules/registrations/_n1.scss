@@ -20,7 +20,7 @@
 .signup-margin{max-width:343px;margin:0 auto;}
 
 .next-btn{
-  background-color:#ea352d;
+  background-color:$red;
   color:white;
   margin-top:40px;
   height:48px;
@@ -50,7 +50,7 @@
           @include input;
           @include clearfix;
         }
-        .next-btn{border: #ea352d solid 1px;border-radius:0;}
+        .next-btn{border: $red solid 1px;border-radius:0;}
         .birthday-form{
           height:48px;
           width:76px;

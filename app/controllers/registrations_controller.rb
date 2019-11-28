@@ -101,7 +101,9 @@ class RegistrationsController < ApplicationController
       postal_code: session[:addresses_attributes]["postal_code"],
       prefecture_id: session[:addresses_attributes]["prefecture_id"],
       city: session[:addresses_attributes]["city"],
-      house: session[:addresses_attributes]["house"]
+      house: session[:addresses_attributes]["house"],
+      building: session[:addresses_attributes]["building"],
+      telephone: session[:addresses_attributes]["telephone"]
     )
     if @user.save
       session[:id] = @user.id
