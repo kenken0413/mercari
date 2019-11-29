@@ -1,7 +1,7 @@
 .detail-main__related-products__seller__images-box__item
-  = link_to item_path do
+  = link_to item_path(id:seller_item.id) do
     .detail-main__related-products__seller__images-box__item--photo
-      -# = image_tag src: "#{seller_item.images.first.image.url}", alt: 'photo', height: '220px', width: '220px', class: '.detail-main__related-products__seller__images-box__item--photo--1'
+      %img{src:"#{seller_item.images.first.image.url}", alt: 'photo', height: '220px', width: '220px', class: '.detail-main__related-products__seller__images-box__item--photo--1'}
     .detail-main__related-products__seller__images-box__item--body
       %h3 #{seller_item.name}
       .detail-main__related-products__seller__images-box__item--body--info
