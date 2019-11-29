@@ -42,7 +42,7 @@
               = f.select :category_id, options_for_select(@parents.map{|c|[c[:category], c[:id]]}), {prompt:"---"}, {class: 'sell-main-form__content__detail__category__box__parent', id: 'parent_category'}
               = icon('fas', 'chevron-down',  class: "chevron")
 
-          .sell-main-form__content__detail__brand
+          .sell-main-form__content__detail__brand#hidden
             %h4
               %span ブランド
               %span.brand__tag 任意

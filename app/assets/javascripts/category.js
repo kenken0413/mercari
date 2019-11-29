@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load',function(){
   // セレクトボックスの中身
   function select_box(category){
     var html = `<option value="${category.id}" data-category="${category.id}">${category.category}</option>`;
@@ -9,7 +9,7 @@ $(function(){
   function child_box(insertHTML){
     var childHTML = '';
     childHTML     = `<div class='sell-main-form__content__detail__category__box' id= 'insert-child'>
-                      <select class="sell-main-form__content__detail__category__box__child" id="child_category" name="item[category_id]">
+                      <select class="sell-main-form__content__detail__category__box__child" id="child_category" >
                         <option value="---" data-category="---">---</option>
                         ${insertHTML}
                       </select>
@@ -21,7 +21,7 @@ $(function(){
   function grandchild_box(insertHTML){
     var grandchildHTML = '';
     grandchildHTML     = `<div class='sell-main-form__content__detail__category__box' id= 'insert-grandchild'>
-                      <select class="sell-main-form__content__detail__category__box__grandchild" id="grandchild_category" name="item[category_id]">
+                      <select class="sell-main-form__content__detail__category__box__grandchild" id="grandchild_category" >
                         <option value="---" data-category="---">---</option>
                         ${insertHTML}
                       </select>
@@ -79,6 +79,7 @@ $(function(){
             insertHTML += select_box(grand);
           });
           grandchild_box(insertHTML);
+          $('#child_category').attr('name','item[category_id]');
           $('.sell-main-form__content__detail__brand').remove('.hidden')
         }
       })
@@ -89,5 +90,11 @@ $(function(){
       $('#insert-grandchild').remove();
       $('#insert-brand').remove();
     }
+  });
+
+  $('.sell-main-form__content__detail__category').on('change', '#grandchild_category', function(){
+    if (childId != "---"){
+    $('#grandchild_category').attr('name','item[category_id]');
+    }else{ ; }
   });
 });
