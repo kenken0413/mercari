@@ -60,7 +60,7 @@
           %span.detail-main__item__price--number ¥#@price1
           %span.detail-main__item__price--tax (税込) 
           %span.detail-main__item__price--charge 送料込み
-      -if current_user.id == @item3.seller.id
+      -if user_signed_in? && current_user.id == @item3.seller.id
         .detail-main__item__description
           %p #{@item1.description}
         .seller-function-box

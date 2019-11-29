@@ -7,7 +7,6 @@ class ItemsController < ApplicationController
     
     @all_brands = Brand.all
     @popular_brands = Brand.find(2447,3813,4818,1854)
-    
     @lady_items = Item.where(category_id: 1).limit(10).order(id: "DESC")
     @man_items = Item.where(category_id: 200).limit(10).order(id: "DESC")
     @electronic_items = Item.where(category_id: 898).limit(10).order(id: "DESC")

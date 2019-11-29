@@ -1,6 +1,17 @@
 - if user.errors.any?
   - unless user.valid?
-    - if errors = user.errors.full_messages_for(column.to_sym)
-      %ul
-        - errors.each do |error|
-          %li.error-messages-signup=error
+    - if errors_user = user.errors.full_messages_for(column.to_sym)
+      - errors_user.each do |message|
+        .error-messages-signup=message
+
+- if profile.errors.any?
+  - unless profile.valid?
+    -if errors_profile = profile.errors.full_messages_for(column.to_sym)
+      - errors_profile.each do |message|
+        .error-messages-signup=message
+
+- if address.errors.any?
+  - unless address.valid?
+    -if errors_address = address.errors.full_messages_for(column.to_sym)
+      - errors_address.each do |message|
+        .error-messages-signup=message

@@ -14,33 +14,41 @@
                 %span#must__red.must__tag 必須
               = p.text_field :family_name_zen, placeholder: '例) 山田', value: session[:family_name_zen]
               = p.text_field :first_name_zen, placeholder: '例) 彩',value: session[:first_name_zen]
+              = render partial: '/shared/error-messages', locals: {user: @user, profile: @user.build_profile, address: @address, column: "family_name_zen"}
+              = render partial: '/shared/error-messages', locals: {user: @user, profile: @user.build_profile, address: @address, column: "first_name_zen"}
             .form-group
               .profile-form-title
                 お名前カナ
                 %span#must__red.must__tag 必須
               = p.text_field :family_name_kana, placeholder: '例) ヤマダ',value: session[:family_name_kana]
               = p.text_field :first_name_kana, placeholder: '例) アヤ',value: session[:first_name_kana]
-          = f.fields_for :addresses, @user.addresses.build do |a|
+              = render partial: '/shared/error-messages', locals: {user: @user, profile: @user.build_profile, address: @address, column: "family_name_kana"}
+              = render partial: '/shared/error-messages', locals: {user: @user, profile: @user.build_profile, address: @address, column: "family_name_kana"}
+          = f.fields_for :addresses, @address do |a|
             .form-group
               .profile-form-title
                 郵便番号
                 %span#must__red.must__tag 必須
               = a.text_field :postal_code, placeholder: "例）1234567", maxlength: '7'
+              = render partial: '/shared/error-messages', locals: {user: @user, profile: @user.build_profile, address: @address, column: "postal_code"}
             .form-group
               .profile-form-title
                 都道府県
                 %span#must__red.must__tag 必須
               = a.collection_select :prefecture_id, Prefecture.all, :id, :name
+              = render partial: '/shared/error-messages', locals: {user: @user, profile: @user.build_profile, address: @address, column: "prefecture_id"}
             .form-group
               .profile-form-title
                 市区町村
                 %span#must__red.must__tag 必須
               = a.text_field :city, placeholder: "例）横浜市緑区"
+              = render partial: '/shared/error-messages', locals: {user: @user, profile: @user.build_profile, address: @address, column: "city"}
             .form-group
               .profile-form-title
                 番地
                 %span#must__red.must__tag 必須
               = a.text_field :house, placeholder: "例）青山1-1-1"
+              = render partial: '/shared/error-messages', locals: {user: @user, profile: @user.build_profile, address: @address, column: "house"}
             .form-group
               .profile-form-title
                 建物名
