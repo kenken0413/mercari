@@ -1,5 +1,5 @@
 // 手数料・利益自動計算
-$(function(){
+$(document).on('turbolinks:load',function(){
   $('#calc').on('input', function(){
     var data = $('#calc').val() ;
     // 値を取得

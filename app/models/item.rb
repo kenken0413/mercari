@@ -11,5 +11,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :state
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  accepts_nested_attributes_for :delivery
+  accepts_nested_attributes_for :images
+
 end
 

@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load',function(){
   var uploadImage =  ` <li class = "image-preview" >
                          <div class = "image-preview__upper">
                          <div class = "image-preview__lower">
@@ -24,6 +24,7 @@ $(function() {
     var reader = new FileReader();
     reader.onload = function() {
       var img_src = $('<img>').attr('src', reader.result);
+      
       $('.image-preview__upper').html(img_src);
     }
     // ('.image-preview-wrapper').append(html)
