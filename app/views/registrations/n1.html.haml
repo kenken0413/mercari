@@ -12,7 +12,7 @@
             .profile-form-title
               ニックネーム
               %span#must__red.must__tag 必須
-            = f.text_field :nickname, placeholder: '例) メルカリ太郎'
+            = f.text_field :nickname, placeholder: '例) メルカリ太郎',autofocus: true
             = render partial: '/shared/error-messages', locals: {user: @user, profile: @user.build_profile, address: @user.addresses.build, column: "nickname"}
           .form-group
             .profile-form-title

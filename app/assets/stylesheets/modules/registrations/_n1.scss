@@ -39,7 +39,8 @@
   
     .profile-form{
       .name-form{display:flex;}
-      .namae{width:165px;&:first-child{margin-right:10px;}}
+      #user_profile_attributes_family_name_zen,#user_profile_attributes_family_name_kana{margin-right:15px;}
+      
       .form-group{
         margin-top:32px;
         &:first-child{margin:0;}
@@ -62,7 +63,10 @@
           height:48px;
           padding:0 20px;
           background-color:$main-content;
+          font-size:14px;
+          margin-right:8px;
         }
+        .month,.day{margin-left:10px;}
       }
     }
   }

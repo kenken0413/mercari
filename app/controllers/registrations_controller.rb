@@ -3,8 +3,6 @@ class RegistrationsController < ApplicationController
   before_action :save_n1_to_session, only: :n2
   before_action :save_n2_to_session, only: :n3
   before_action :save_n3_to_session, only: :create
-  # prepend_before_action :check_captcha, only: [:create]
-  # prepend_before_action :customize_sign_up_params, only: [:create]
 
 
   def index
@@ -58,6 +56,7 @@ class RegistrationsController < ApplicationController
   def n3
     @user = User.new
     @user.addresses.build
+    @address = Address.new
   end
 
   def save_n3_to_session
@@ -132,17 +131,5 @@ class RegistrationsController < ApplicationController
       profile_attributes: [:id, :family_name_zen, :first_name_zen, :family_name_kana, :first_name_kana, :birthday],
       addresses_attributes: [:id, :postal_code, :prefecture_id, :city, :house, :building, :telephone]
     )
-  end
-
-  def customize_sign_up_params
-    devise_parameter_sanitizer.permit :sign_up, keys: [:username, :email, :password, :password_confirmation, :remember_me]
-  end
-
-  def check_captcha
-    self.resource = resource_class.new sign_up_params
-    resource.validate
-    unless verify_recaptcha(model: resource)
-      respond_with_navigational(resource) { render :new }
-    end
   end
 end

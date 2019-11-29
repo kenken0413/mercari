@@ -33,6 +33,11 @@ ja:
         family_name_kana: お名前カナ(姓)
         first_name_kana: お名前カナ(名)
         birthday: 生年月日
+      address:
+        postal_code: 郵便番号
+        prefecture_id: 県名
+        city: 市区町村
+        house: 番地
     models:
       user: ユーザ
   devise:
