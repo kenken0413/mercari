@@ -4,7 +4,7 @@
   = form_for(@item, html: {multipart: true}) do |f|
     .sell-main-form
       .sell-main-form__images
-        = fields_for @image do |i|
+        = f.fields_for :images, @item.images.build do |i|
           %h3
             %span 出品画像
             %span.must__tag.bold 必須
@@ -42,7 +42,7 @@
               = f.select :category_id, options_for_select(@parents.map{|c|[c[:category], c[:id]]}), {prompt:"---"}, {class: 'sell-main-form__content__detail__category__box__parent', id: 'parent_category'}
               = icon('fas', 'chevron-down',  class: "chevron")
 
-          .sell-main-form__content__detail__brand.hidden
+          .sell-main-form__content__detail__brand
             %h4
               %span ブランド
               %span.brand__tag 任意
@@ -60,7 +60,7 @@
       .sell-main-form__content.clearfix
         %p 配送について
         %a#question{href: ''} ?
-        = fields_for @delivery do |d|
+        = f.fields_for :delivery, @item.build_delivery do |d|
           .sell-main-form__content__delivery
             .sell-main-form__content__delivery__fee
               %h4
