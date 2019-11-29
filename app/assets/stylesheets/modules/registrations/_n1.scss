@@ -11,7 +11,6 @@
 
 .next-box{
   max-width:343px;
-  padding-top:50px;
   padding-bottom:60px;
   position:relative;
   p{margin:0 auto;font-size:14px;text-align:center;}
@@ -58,6 +57,12 @@
         }
         .birthday-text{margin-top:8px;color:gray;font-size:14px;}
         .terms{margin-top:40px;}
+        .year,.month,.day{
+          width:76px;
+          height:48px;
+          padding:0 20px;
+          background-color:$main-content;
+        }
       }
     }
   }

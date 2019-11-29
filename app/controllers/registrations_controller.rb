@@ -3,6 +3,9 @@ class RegistrationsController < ApplicationController
   before_action :save_n1_to_session, only: :n2
   before_action :save_n2_to_session, only: :n3
   before_action :save_n3_to_session, only: :create
+  # prepend_before_action :check_captcha, only: [:create]
+  # prepend_before_action :customize_sign_up_params, only: [:create]
+
 
   def index
   end
@@ -34,7 +37,7 @@ class RegistrationsController < ApplicationController
       first_name_kana: session[:first_name_kana],
       birthday:  session[:birthday]
     )
-    render '/registrations/n1' unless @user.valid? && @profile.valid?
+    render '/registrations/n1' unless verify_recaptcha(model: @user) && @user.valid? && @profile.valid?
   end 
 
   def n2
@@ -129,5 +132,17 @@ class RegistrationsController < ApplicationController
       profile_attributes: [:id, :family_name_zen, :first_name_zen, :family_name_kana, :first_name_kana, :birthday],
       addresses_attributes: [:id, :postal_code, :prefecture_id, :city, :house, :building, :telephone]
     )
+  end
+
+  def customize_sign_up_params
+    devise_parameter_sanitizer.permit :sign_up, keys: [:username, :email, :password, :password_confirmation, :remember_me]
+  end
+
+  def check_captcha
+    self.resource = resource_class.new sign_up_params
+    resource.validate
+    unless verify_recaptcha(model: resource)
+      respond_with_navigational(resource) { render :new }
+    end
   end
 end
