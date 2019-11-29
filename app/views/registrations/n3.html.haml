@@ -25,7 +25,7 @@
               .profile-form-title
                 郵便番号
                 %span#must__red.must__tag 必須
-              = a.text_field :postal_code, placeholder: "例）123-4567", maxlength: '7'
+              = a.text_field :postal_code, placeholder: "例）1234567", maxlength: '7'
             .form-group
               .profile-form-title
                 都道府県
@@ -44,12 +44,12 @@
             .form-group
               .profile-form-title
                 建物名
-                %span#must__red.must__tag 必須
+                %span#optional 任意
               = a.text_field :building, placeholder: "例）柳ビル103"
             .form-group
               .profile-form-title
                 電話
-                %span#must__red.must__tag 必須
+                %span#optional 任意
               = a.text_field :telephone, placeholder: "例）09012345678"
             = f.submit value: '次へ進む', class: 'next-btn', id: '#n3-next'
   =render "items/sell-footer"
