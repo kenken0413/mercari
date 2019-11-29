@@ -78,3 +78,5 @@ gem 'ancestry'
 gem 'active_hash'
 gem 'rails-i18n'
 gem 'gretel'
+gem 'recaptcha', require: "recaptcha/rails"
+gem 'dotenv-rails'

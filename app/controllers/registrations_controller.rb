@@ -4,6 +4,7 @@ class RegistrationsController < ApplicationController
   before_action :save_n2_to_session, only: :n3
   before_action :save_n3_to_session, only: :create
 
+
   def index
   end
 
@@ -34,7 +35,7 @@ class RegistrationsController < ApplicationController
       first_name_kana: session[:first_name_kana],
       birthday:  session[:birthday]
     )
-    render '/registrations/n1' unless @user.valid? && @profile.valid?
+    render '/registrations/n1' unless verify_recaptcha(model: @user) && @user.valid? && @profile.valid?
   end 
 
   def n2
@@ -55,6 +56,7 @@ class RegistrationsController < ApplicationController
   def n3
     @user = User.new
     @user.addresses.build
+    @address = Address.new
   end
 
   def save_n3_to_session

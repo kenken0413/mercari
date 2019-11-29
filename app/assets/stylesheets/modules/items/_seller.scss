@@ -43,11 +43,17 @@ h4{
   right: 15px;
 }
 
-.hidden{
-  opacity: 0;
+カテゴリー消したり用
+#hidden{
+  // opacity: 0;
+  display: none;
 }
 
-
+// 画像ボックス用
+.hidden{
+  // opacity: 0;
+  display: none;
+}
 
 .sell-main {
   width: 700px;
