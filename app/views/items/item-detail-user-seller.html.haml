@@ -1,0 +1,11 @@
+      -# -if current_user.id == @item.seller.id
+      -#   .detail-main__item__description
+      -#     %p #{@item.description}
+      -#   .seller-function-box
+      -#     =link_to '/items/edit' do
+      -#       .seller-function-box__edit 商品の編集
+      -#     .seller-function-box__or or
+      -#     =link_to root_path do
+      -#       .seller-function-box__back 出品を再開する
+      -#     -# =link_to , method: :delete do
+      -#     .seller-function-box__delete#item-delete この商品を削除する
