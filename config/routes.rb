@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     collection do
       get :card_index
       get :card_registrations
+      get :identification
+      get :logout
     end
   end
 

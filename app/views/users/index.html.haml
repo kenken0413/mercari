@@ -1,6 +1,8 @@
 .wrapper
   =render partial: "/items/header", locals: {parent_category: @parents, popular_brands: @popular_brands }
   .user-main-box
+    - breadcrumb :mypage
+    = breadcrumbs separator: " &rsaquo; "
     .userpage-main
       =render "side-list"
       =render "main-content"
