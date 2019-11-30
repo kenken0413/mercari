@@ -43,8 +43,8 @@ class ItemsController < ApplicationController
     @item= Item.find(params[:id])
     @price = @item.price.to_s(:delimited)
     @like= @item.likes.count
-    @item_next= Item.find(params[:id].to_i+1) if Item.find(params[:id].to_i+1).present?
-    @item_prev= Item.find(params[:id].to_i-1) if Item.find(params[:id].to_i-1).present?
+    @item_next= Item.where("id >?", params[:id]).order("id DESC").last
+    @item_prev= Item.where("id <  ?", params[:id]).order("id ASC").last
     @seller_items = @item.seller.selling_items.where.not(id:params[:id]).order("id DESC").limit(6)
     category_item= @item.category
     @related_category = category_item.items.where.not(id:params[:id]).order("id DESC").limit(6)
@@ -57,6 +57,7 @@ class ItemsController < ApplicationController
       render "item-detail.html.haml"
     end
     
+
     @item = Item.new
     @image = Image.new
     @delivery = Delivery.new
