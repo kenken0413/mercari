@@ -1,11 +1,117 @@
-      -# -if current_user.id == @item.seller.id
-      -#   .detail-main__item__description
-      -#     %p #{@item.description}
-      -#   .seller-function-box
-      -#     =link_to '/items/edit' do
-      -#       .seller-function-box__edit 商品の編集
-      -#     .seller-function-box__or or
-      -#     =link_to root_path do
-      -#       .seller-function-box__back 出品を再開する
-      -#     -# =link_to , method: :delete do
-      -#     .seller-function-box__delete#item-delete この商品を削除する
+.detail-wrapper
+  .detail-header
+    =render partial: 'header', locals: {parent_category: @parents, popular_brands: @popular_brands}
+  .detail-main
+    .detail-main__item
+      %h1 
+        = @item.name
+      .detail-main__item__content.clearfix
+        .detail-main__item__content__images
+          %table
+            %tr.detail-main__item__content__images--main
+              %td.detail-main__item__content__images--main__photo{:align => "left", :colspan => "5"}
+                %img#big-image{:height => "300", :src => "#{@item.images.first.image.url}", :width => "300"}
+            %tr
+              %td.detail-main__item__content__images--main__photo
+                - @item.images.each do |photo|
+                  %img#selected-image{:height => "60", :src => photo.image.url, :width => "60"}            
+
+        %table.detail-main__item__content__table
+          %tr
+            %th 出品者
+            %td
+              = link_to "#{@item.seller.nickname}", users_path
+              .detail-user__rating
+                %i.fas.fa-laugh.fapink
+                %span 100
+              .detail-user__rating
+                %i.fas.fa-meh.faorange
+                %span 50
+              .detail-user__rating
+                %i.fas.fa-frown.fablue
+                %span 30
+          %tr
+            %th カテゴリー
+            %td
+              = link_to "#{@item.category.root.category}", items_path if @item.category.parent.present? && @item.category.parent.parent.present?
+              = link_to "#{@item.category.parent.category}", items_path if @item.category.parent.present? && @item.category.parent.children.present?
+              = link_to "#{@item.category.category}", items_path
+
+          %tr
+            %th ブランド
+            %td
+              = link_to "#{@item.brand.brand}", items_path if @item.brand.present?
+          %tr
+            %th 商品の状態
+            %td #{@item.state.name}
+          %tr
+            %th 配送料の負担
+            %td #{@item.delivery.postage_method.name}
+          %tr
+            %th 配送の方法
+            %td #{@item.delivery.postage_detail.name}
+          %tr
+            %th 配送元地域
+            %td
+              = link_to "#{@item.delivery.prefecture.name}", items_path
+          %tr
+            %th 配送日の目安
+            %td #{@item.delivery.shipping_date.name}
+        .detail-main__item__price
+          %span.detail-main__item__price--number ¥#@price
+          %span.detail-main__item__price--tax (税込) 
+          %span.detail-main__item__price--charge 送料込み
+      .detail-main__item__description
+        %p #{@item.description}
+      #seller-function-box
+        =link_to "/items/#{@item.id}/edit" do
+          #seller-function-box__edit 商品の編集
+        #seller-function-box__or or
+        =link_to root_path do
+          #seller-function-box__back 出品を再開する
+        =link_to "/items/#{@item.id}",id: "item-delete", method: :delete do
+          #item-delete この商品を削除する
+    .detail-main__message
+      = form_for [@item, @comment] do |f|
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = f.text_area :comment
+        = f.submit 'コメントする'
+    .detail-main__prev-next-items
+      %ul
+        %li.link-prev-left
+          = link_to("#{@item_prev.name}", item_path(id:@item_prev.id)) if @item_prev.present?
+        %li.link-prev-left
+          = link_to("#{@item_next.name}",item_path(id:@item_next.id)) if @item_next.present?
+    .detail-main__social-media-box
+      %ul.detail-main__social-media-box__icons
+        %li.detail-main__social-media-box__icons__facebook
+          = link_to(href="http://www.facebook.com") do
+            %i.fab.fa-facebook-square.logosize#facebookcolor
+        %li.detail-main__social-media-box__icons__tweeter
+          = link_to(href="http://twetter.com") do
+            %i.fab.fa-twitter-square.logosize#tweetercolor
+        %li.detail-main__social-media-box__icons__line
+          = link_to(href="http://www.line.me") do
+            %i.fab.fa-line.logosize#linecolor
+        %li.detail-main__social-media-box__icons__pinterest
+          = link_to(href="http://www.pinterest.com") do
+            %i.fab.fa-pinterest-square.logosize#pinterestcolor
+    .detail-main__related-products
+      .detail-main__related-products__seller
+        = link_to users_path do
+          %h2 #{@item.seller.nickname}さんのその他の出品 
+        .detail-main__related-products__seller__images-box.clearfix
+          - if @seller_items.present?
+            = render partial: "seller_item", collection: @seller_items
+      .detail-main__related-products__brand 
+        = link_to users_path do
+          %h4 #{@item.category.category} その他の商品
+        .detail-main__related-products__brand__images-box.clearfix
+          = render partial: "category_item", collection:  @related_category 
+    %ul.detail-main__bottom-title
+      = link_to 'メルカリ  ＞', 'https://www.mercari.com/jp/' 
+      %li.detail-main__bottom-title__item-name 
+        %p #{@item.name}
+
+  .detail-footer
+    = render partial: "footer"

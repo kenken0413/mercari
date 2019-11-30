@@ -80,6 +80,12 @@ class ItemsController < ApplicationController
     @grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy if @item.seller.id == current_user.id
+    redirect_to root_path
+  end
+
 private
   def item_params
     params.require(:item).permit(
