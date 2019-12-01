@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :set_card, only: [:buy_confirmation, :purchase]
 
   def index
     @parents = Category.all.order("ancestry ASC").limit(13)
@@ -49,18 +50,45 @@ class ItemsController < ApplicationController
     category_item= @item.category
     @related_category = category_item.items.where.not(id:params[:id]).order("id DESC").limit(6)
     @comment= Comment.new
-    if params[:id] =="buy"
-      render "buy-confirmation.html.haml" 
-    elsif user_signed_in? && current_user.id == @item.seller.id
+    if user_signed_in? && current_user.id == @item.seller.id
       render "item-detail-user-seller.html.haml"
     else
       render "item-detail.html.haml"
     end
-    
-
     @item = Item.new
     @image = Image.new
     @delivery = Delivery.new
+  end
+
+  require 'payjp'
+
+  def buy_confirmation
+    @item= Item.find(params[:id])
+    if @credit.present?
+      Payjp.api_key = 'sk_test_9581dc90803e604af65e7f4c'
+      customer = Payjp::Customer.retrieve(@credit.customer_id)
+      @credit_information = customer.cards.retrieve(@credit.card_id)
+    end
+  end
+    
+  def purchase
+
+    @item= Item.find(params[:id])
+    @item.update(buyer_id: current_user.id)
+    if @credit.present?
+      Payjp.api_key = 'sk_test_9581dc90803e604af65e7f4c'
+      customer = Payjp::Customer.retrieve(@credit.customer_id)
+      @credit_information = customer.cards.retrieve(@credit.card_id)
+    end
+    
+    Payjp.api_key = 'sk_test_9581dc90803e604af65e7f4c'
+    @payjp_token = @credit.customer_id
+    Payjp::Charge.create(
+        amount: @item.price, # 決済する値段
+        card: params['payjp-token'],
+        currency: 'jpy'
+      )
+    redirect_to root_path
   end
 
   def create
@@ -100,4 +128,9 @@ private
       delivery_attributes:[:postage_method_id,:postage_detail_id,:prefecture_id,:shipping_date_id],
       ).merge(seller_id: current_user.id)
   end
+
+  def set_card
+    @credit = Credit.where(user_id: current_user.id).first if Credit.where(user_id: current_user.id).present?
+  end
+
 end
