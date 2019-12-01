@@ -87,6 +87,12 @@
           width: 19px;
           line-height: 36px;
         }
+        .user-circle-icon{
+          border-radius:50%;
+          height:20px;
+          width:20px;
+          margin-top:10px;
+        }
         &__text{
           font-weight: 1;
           &:hover{color:$blue;}
