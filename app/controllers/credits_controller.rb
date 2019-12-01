@@ -1,8 +1,7 @@
 class CreditsController < ApplicationController
   require "payjp"
   before_action :set_card
-  before_action :create, only: :redirect_registrations_end
-  before_action :create, only: :redirect_users_card_index
+  before_action :create, only: %i[redirect_users_card_index redirect_registrations_end]
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
     credit = Credit.where(user_id: current_user.id).first
   end
