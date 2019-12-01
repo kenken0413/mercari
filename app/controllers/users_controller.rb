@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   def card_registrations
     @parents = Category.all.order("ancestry ASC").limit(13)
     @popular_brands = Brand.find(2447,3813,4818,1854)
+    credit = Credit.where(user_id: current_user.id).first
   end
 
   def identification

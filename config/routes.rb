@@ -19,7 +19,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :credits, only: [:new,:create]
+  resources :credits, only: [:new,:create] do
+    collection do
+      get :redirect_users_card_index
+      get :redirect_registrations_end
+    end
+  end
   resources :items, only: [:index, :show, :create ] do
     resources :comments, only: [:create ]
     member do

@@ -4,7 +4,7 @@
   .registration-content
     .profile-head
       支払い方法
-    = form_tag('/credits',name: 'inputForm', method: :post) do
+    = form_tag('/credits/redirect_registrations_end',name: 'inputForm', method: :get) do
       .credit-new
         .credit-new__create
           .form-group
