@@ -24,8 +24,11 @@
             .profile-form-title
               パスワード
               %span#must__red.must__tag 必須
-            = f.password_field :password, placeholder: '7文字以上'
+            = f.password_field :password, placeholder: '7文字以上', id: "password"
             = render partial: '/shared/error-messages', locals: {user: @user, profile: @user.build_profile, address: @user.addresses.build, column: "password"}
+            .pwd_check_btn
+              %input#password-check{type: "checkbox"}
+              .pwd_check_btn_text パスワードを確認する
           = f.fields_for :profile, @user.build_profile do |p|
             .form-group
               .profile-form-title
