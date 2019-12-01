@@ -27,6 +27,11 @@ Rails.application.routes.draw do
   end
   resources :items, only: [:index, :show, :create ] do
     resources :comments, only: [:create ]
+    member do
+      get 'buy_confirmation'
+      post 'purchase'
+      get 'purchase_done'
+    end
   end
 
   resources :registrations do
