@@ -19,7 +19,7 @@
               支払金額
             .buy-main__content__final-price--right
               ¥#{@item.price.to_s(:delimited)}
-          = submit_tag '購入する'
+          = submit_tag '購入する', id: "item-buy"
           -# :plain
           -# <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_f9835d81893c0b819997cdd6"></script>
     %section.with_margin_top  
