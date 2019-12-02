@@ -29,6 +29,20 @@ class CreditsController < ApplicationController
   def redirect_users_card_index
     redirect_to '/users/card_index'
   end
+
+  def destroy
+    card = Credit.find(params[:id])
+    if card.blank?
+      redirect_to action: "new"
+    else
+      Payjp.api_key = 'sk_test_9581dc90803e604af65e7f4c'
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer.delete
+      card.delete
+      redirect_to '/users/card_index'
+    end
+  end
+
   private
   def set_card
     @credit = Credit.where(user_id: current_user.id).first if Credit.where(user_id: current_user.id).present?

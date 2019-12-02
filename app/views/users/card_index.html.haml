@@ -6,5 +6,5 @@
     .userpage-main
       =render "side-list"
       .credit-top
-        = render "shared/card_index", {credit_information: @credit_information}
+        = render partial: "shared/card_index", locals: {credit_informations: @credit_information}
   =render "items/footer"
