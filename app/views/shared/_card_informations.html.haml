@@ -1,0 +1,8 @@
+= link_to "削除する", credit_path(card), method: :delete, id: "credit-delete"
+%p
+  = "**** **** **** " + card_information.last4
+%p
+  - exp_month = card_information.exp_month.to_s
+  - exp_year = card_information.exp_year.to_s.slice(2,3)
+  = exp_month + " / " + exp_year
+  = brand = card_information.brand
