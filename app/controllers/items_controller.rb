@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_card, only: [:buy_confirmation, :purchase]
+  before_action :set_card, only: [:buy_confirmation, :purchase,:show]
+  before_action :user_signed_in_check, only: [:buy_confirmation]
 
   def index
     @parents = Category.all.order("ancestry ASC").limit(13)
@@ -82,13 +83,15 @@ class ItemsController < ApplicationController
     end
     
     Payjp.api_key = 'sk_test_9581dc90803e604af65e7f4c'
-    @payjp_token = @credit.customer_id
-    Payjp::Charge.create(
+    customer = Payjp::Customer.retrieve(@credit.customer_id)
+    @payjp_token = @credit.customer_id if @credit.present?
+      Payjp::Charge.create(
         amount: @item.price, # 決済する値段
-        card: params['payjp-token'],
-        currency: 'jpy'
+        customer: @payjp_token,
+        currency: 'jpy',
+        description: current_user.nickname
       )
-    redirect_to root_path
+      redirect_to root_path
   end
 
   def create
@@ -115,6 +118,15 @@ class ItemsController < ApplicationController
   end
 
 private
+
+  # def return_payjp_token(payjp_token)
+  #   if params['payjp-token'].present?
+  #     return params['payjp-token']
+  #   else
+  #     payjp_token
+  #   end
+  # end
+
   def item_params
     params.require(:item).permit(
       :name, 
@@ -130,7 +142,14 @@ private
   end
 
   def set_card
-    @credit = Credit.where(user_id: current_user.id).first if Credit.where(user_id: current_user.id).present?
+    if user_signed_in?
+      @credit = Credit.where(user_id: current_user.id).first if Credit.where(user_id: current_user.id).present? 
+    else
+      @credit = 'nil'
+    end
   end
 
+  def user_signed_in_check
+    redirect_to '/users/sign_in' unless user_signed_in?
+  end
 end
