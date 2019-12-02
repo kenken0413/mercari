@@ -119,14 +119,6 @@ class ItemsController < ApplicationController
 
 private
 
-  # def return_payjp_token(payjp_token)
-  #   if params['payjp-token'].present?
-  #     return params['payjp-token']
-  #   else
-  #     payjp_token
-  #   end
-  # end
-
   def item_params
     params.require(:item).permit(
       :name, 
