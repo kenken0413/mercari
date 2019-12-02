@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_card, only: [:buy_confirmation, :purchase,:show]
-  before_action :user_signed_in_check, only: [:buy_confirmation]
+  before_action :user_signed_in_check, only: %i[buy_confirmation new]
 
   def index
     @parents = Category.all.order("ancestry ASC").limit(13)
