@@ -61,8 +61,13 @@
           %span.detail-main__item__price--number ¥#@price
           %span.detail-main__item__price--tax (税込) 
           %span.detail-main__item__price--charge 送料込み
-      .detail-main__item__link-buy
-        = link_to('購入画面に進む', class: 'detail-main__item__link-buy__btn')
+      -if @credit.present? && @item.buyer_id.blank?
+        = link_to('購入画面に進む', buy_confirmation_item_path(@item),class: 'detail-main__item__link-buy__btn detail-main__item__link-buy')
+      -elsif @item.buyer_id.present?
+        .sold-out-btn 売り切れました
+      -else 
+        =  link_to('購入画面に進む', '/users/card_registrations',class: 'detail-main__item__link-buy__btn detail-main__item__link-buy',  data:{"turbolinks" => false})
+      -# .detail-main__item__link-buy
       .detail-main__item__description
         %p #{@item.description}
       .detail-main__item__button-container.clearfix

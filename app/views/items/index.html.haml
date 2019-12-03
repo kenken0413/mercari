@@ -41,13 +41,13 @@
             = icon('fas', 'chevron-right', class: "popular-index__header__link-more")
         =render partial: 'category', collection: @electronic_items
 
-        .popular-index
-          .popular-index__header
-            %h3.popular-index__header__title #{@popular_categories.fourth.category}新着アイテム 
-            = link_to root_path,class:'link-more' do
-              .popular-index__header__link-more もっと見る
-              = icon('fas', 'chevron-right', class: "popular-index__header__link-more")
-          =render partial: 'category', collection: @toy_items
+      .popular-index
+        .popular-index__header
+          %h3.popular-index__header__title #{@popular_categories.fourth.category}新着アイテム 
+          = link_to root_path,class:'link-more' do
+            .popular-index__header__link-more もっと見る
+            = icon('fas', 'chevron-right', class: "popular-index__header__link-more")
+        =render partial: 'category', collection: @toy_items
 
       .popular
         %h2.popular__title 人気のブランド
