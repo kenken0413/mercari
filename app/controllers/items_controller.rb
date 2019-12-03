@@ -20,17 +20,16 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @image = @item.images.build
-    # @delivery = Delivery.new
-    # @image = Image.new
+    @item.images.build
+
     # カテゴリーの親要素を呼び出し
     @parents = Category.all.order("ancestry ASC").limit(13)
   end
 
   def edit
-    @item = Item.new
-    @delivery = Delivery.new
-    @image = Image.new
+    @item = Item.find(params[:id])
+    @delivery = Delivery.find(params[:item_id])
+    @image = Image.find(params[:id])
     @parents = Category.all.order("ancestry ASC").limit(13)    
   end
 
@@ -64,9 +63,21 @@ class ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item = Item.new(item_params)
-    @item.save
-    redirect_to root_path
+    respond_to do |format|
+      if @item.save
+
+        params[:images][:image].each do |image|
+          @item.images.create(image: image, item_id: @item.id)
+        end
+        format.html{redirect_to root_path}
+      else
+
+        # @item.images.build
+        # format.html{render action: 'new'}
+      end
+    end
  
   end
 
@@ -90,8 +101,13 @@ private
       :seller_id, 
       :category_id,
       :brand_id,
-      images_attributes:[:image],    
+      images_attributes:[{image:[]}],    
       delivery_attributes:[:postage_method_id,:postage_detail_id,:prefecture_id,:shipping_date_id],
       ).merge(seller_id: current_user.id)
   end
+
+  # def image_params
+  #   # binding.pry
+  #   params.require(:image).permit(:image)
+  # end
 end
