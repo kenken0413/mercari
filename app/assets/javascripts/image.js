@@ -1,33 +1,55 @@
-$(document).on('turbolinks:load',function(){
-  var uploadImage =  ` <li class = "image-preview" >
-                         <div class = "image-preview__upper">
-                         <div class = "image-preview__lower">
-                           <div class = "image-preview__lower__btn"> 編集
-                           </div>
-                           <div class = "image-preview__lower__btn edit"> 削除
-                           </div>
-                         </div>
-                       </li> `
+$(document).on('turbolinks:load', function(){
+  // 変数定義
+  var images = [];
+  var inputs = [];
+  var form_image = $('.form_image');
+  var dropbox = $('.dropbox');
+  var preview = $('#preview');
+  const THUMBNAIL_WIDTH = 112;
+  const THUMBNAIL_HEIGHT = 112;
 
-  $('input[type=file]').change(function() {
-    $('.image-preview-list').append(uploadImage)
-
+//   // fileが変更された時のイベント
+  $(document).on('change', 'input[type= file].upload-image',function(event) {
     var file = $(this).prop('files')[0];
-    // 画像以外は処理を停止
-    if (! file.type.match('image.*')) {
-      // クリア
-      $(this).val('');
-      return;
-    }
-
-    // 画像表示
     var reader = new FileReader();
-    reader.onload = function() {
-      var img_src = $('<img>').attr('src', reader.result);
-      
-      $('.image-preview__upper').html(img_src);
-    }
-    // ('.image-preview-wrapper').append(html)
+    inputs.push($(this));
+    var img = $(`<div class= "img_view" width="0" height="0"><img></div>`);
+    reader.onload = function(e) {
+      var btn_wrapper = $('<div class="btn_wrapper"><div class="btn edit">編集</div><div class="btn delete">削除</div></div>');
+      img.append(btn_wrapper);
+      img.find('img').attr({ src: e.target.result })
+    };
     reader.readAsDataURL(file);
+    images.push(img);
+      $.each(images, function(i, image) {
+        image.attr('data-image', i);
+        preview.append(image);
+        console.log(preview)
+        // dropbox.css({ 'width': `calc(100% - (135px * ${images.length - 5}))` })
+      });
+    var new_image = $(`<input multiple= "multiple" name="images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
+    form_image.prepend(new_image);
+    if (images.length == 10) {
+      dropbox.css({
+        display: "none"
+      });
+    }
   });
+  $(document).on('click', '.delete', function() {
+    var target_image = $(this).parent().parent();
+    $.each(inputs, function(index, input){
+      if ($(this).data('image') == target_image.data('image')){
+        $(this).remove();
+        target_image.remove();
+        var num = $(this).data('image');
+        images.splice(num, 1);
+        inputs.splice(num, 1);
+        if(inputs.length == 0) {
+          $('input[type= "file"].upload-image').attr({ 'data-image': 0 })
+        }
+      }
+    });
+
+  });
+
 });

@@ -80,7 +80,6 @@ $(document).on('turbolinks:load',function(){
           });
           grandchild_box(insertHTML);
           $('#child_category').attr('name','item[category_id]');
-          $('.sell-main-form__content__detail__brand').remove('.hidden')
         }
       })
       .fail(function(){
@@ -93,8 +92,9 @@ $(document).on('turbolinks:load',function(){
   });
 
   $('.sell-main-form__content__detail__category').on('change', '#grandchild_category', function(){
-    if (childId != "---"){
+    if ('#grandchild_category' != "---"){
     $('#grandchild_category').attr('name','item[category_id]');
+    $('.sell-main-form__content__detail__brand').removeClass('hidden');
     }else{ ; }
   });
 });
