@@ -1,3 +1,143 @@
 .sell-wrapper
   = render partial: "sell-header"
-  = render partial: 'sell', locals: {item: @item}
+  .sell-main
+    %h2
+      商品の情報を入力
+    = form_for @item, url: "/items/#{@item.id}", method: :patch do |f|
+      .sell-main-form
+        .sell-main-form__images
+          = f.fields_for :images ,method: :patch do |i|
+            %h3
+              %span 出品画像
+              %span.must__tag.bold 必須
+            %p 最大10枚までアップロードできます
+            .image-preview-wrapper.clearfix
+              #preview
+              .dropbox
+                = i.label :image, class: 'field_label',for:'upload-image' do
+                  .form_image
+                    = i.file_field :image, type:'file', name: 'images[image][]', class: 'upload-image',multiple: true , accept: ".jpg, .jpeg, .png",id: 'upload-image'
+                    %pre.placeholder
+                      ファイルをドラッグアンドドロップ
+                      \またはクリックしてファイルをアップロード
+
+        .sell-main-form__descriptions
+          .sell-main-form__descriptions__name
+            %h4
+              %span 商品名
+              %span.must__tag 必須
+            = f.text_field :name,{placeholder: "商品名（必須 40文字まで)"}
+          .sell-main-form__descriptions__comment
+            %h4 
+              %span 商品の説明
+              %span.must__tag 必須
+            = f.text_area :description,{class: 'textarea-comment', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: " "}
+
+        .sell-main-form__content.clearfix
+          %p 商品の詳細
+          .sell-main-form__content__detail
+
+            .sell-main-form__content__detail__category
+              %h4
+                %span カテゴリー 
+                %span.must__tag 必須
+              .sell-main-form__content__detail__category__box#insert-item
+                = f.select :category_id, options_for_select(@parents.map{|c|[c[:category], c[:id]]}), {prompt:"---"}, {class: 'sell-main-form__content__detail__category__box__parent', id: 'parent_category'}
+                = icon('fas', 'chevron-down',  class: "chevron")
+
+            .sell-main-form__content__detail__brand.hidden
+              %h4
+                %span ブランド
+                %span.brand__tag 任意
+              .sell-main-form__content__detail__brand__box
+                = f.text_field:brand_id,{class: 'select-box',prompt: '---' }          
+
+            .sell-main-form__content__detail__status
+              %h4
+                %span 商品の状態 
+                %span.must__tag 必須
+              .sell-main-form__content__detail__status__box
+                = f.collection_select :state_id, State.all, :id, :name, class: 'select-box', prompt: '---'
+                = icon('fas', 'chevron-down',  class: "chevron")
+
+        .sell-main-form__content.clearfix
+          %p 配送について
+          %a#question{href: ''} ?
+          -# = f.fields_for :delivery, @item.build_delivery do |d|
+          = f.fields_for :delivery do |d|
+            .sell-main-form__content__delivery
+              .sell-main-form__content__delivery__fee
+                %h4
+                  %span 配送料の負担 
+                  %span.must__tag 必須
+                .sell-main-form__content__delivery__fee__box
+                  = d.collection_select :postage_method_id, PostageMethod.all, :id, :name, class: 'select-box', prompt: '---'
+                  = icon('fas', 'chevron-down',  class: "chevron")
+              .sell-main-form__content__delivery__detail
+                %h4
+                  %span 配送の方法 
+                  %span.must__tag 必須
+                .sell-main-form__content__delivery__detail__box
+                  = d.collection_select :postage_detail_id, PostageDetail.all, :id, :name, class: 'select-box', prompt: '---'
+                  = icon('fas', 'chevron-down',  class: "chevron")
+              .sell-main-form__content__delivery__region
+                %h4
+                  %span 配送元の地域
+                  %span.must__tag 必須
+                .sell-main-form__content__delivery__region__box
+                  = d.collection_select :prefecture_id, Prefecture.all, :id, :name, class: 'select-box', prompt: '---'
+                  = icon('fas', 'chevron-down',  class: "chevron")
+              .sell-main-form__content__delivery__delay
+                %h4
+                  %span 発送までの日数
+                  %span.must__tag 必須
+                .sell-main-form__content__delivery__delay__box
+                  = d.collection_select :shipping_date_id, ShippingDate.all, :id, :name, class: 'select-box', prompt: '---'
+                  = icon('fas', 'chevron-down',  class: "chevron")
+
+        .sell-main-form__content.clearfix
+          %p 販売価格（300~9,999,999)
+          %a#question{href: ''} ?
+          .sell-main-form__content__price
+            %ul
+              %li.sell-main-form__content__price__total.clearfix
+                %h4
+                  %span 価格 
+                  %span.must__tag 必須
+                .sell-main-form__content__price__total__input
+                  %p ¥
+                  %input#calc{placeholder: "例）300"}
+                  = f.number_field:price, style: "display: none", id: "price"
+
+              %li.sell-main-form__content__price__charge.clearfix
+                .sell-main-form__content__price__charge__title 販売手数料(10%)
+                #fee.sell-main-form__content__price__charge__auto -
+              %li.sell-main-form__content__price__profit.clearfix
+                .sell-main-form__content__price__profit__title 販売利益
+                #profit.sell-main-form__content__price__profit__auto -
+
+        - if request.path_info = new_item_path      
+          .sell-main-form__btn-box
+            .sell-main-form__btn-box__caution
+              %p
+                = link_to "禁止されている出品"
+                、
+                = link_to "行為"
+                を必ず確認ください。
+              %p
+                またブランド品でシリアルナンバー等がある場合はご記載ください。
+                = link_to"偽ブランドの販売"
+                は犯罪であり処罰される可能性があります。
+              %p
+                また、出品をもちまして
+                = link_to"加盟店規約"
+                に同意したことになります。
+            = f.submit'出品する', class:'sell-main-form__btn-box__submit-btn button', text: "出品する"
+            .sell-main-form__btn-box__back-btn
+              =link_to "もどる"
+        - else
+          .sell-main-form__btn-box
+            = f.submit'変更する', class:'sell-main-form__btn-box__submit-btn button', text: "する"
+            .sell-main-form__btn-box__back-btn
+              =link_to "もどる"
+      = render partial: "sell-footer"
