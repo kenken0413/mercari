@@ -9,6 +9,7 @@
 
  @import "slick-theme"; 
  @import "slick";
+ @import "breadcrumbs";
 
  @import "./modules/items/toppage";
  @import "./modules/items/item-detail";
@@ -17,10 +18,11 @@
  @import "./modules/items/signup&in";
  @import "./modules/items/category-drop-menu";
  @import "./modules/items/brand-drop-menu";
+ @import "./modules/items/item-detail-user-seller";
 
  @import "./modules/users/login";
  @import "./modules/users/users";
- @import "./modules/users/create";
+ @import "./modules/users/credits";
  @import "./modules/users/index";
  @import "./modules/users/edit-user";
  @import "./modules/users/logout";

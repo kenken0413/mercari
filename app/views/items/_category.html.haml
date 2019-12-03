@@ -2,6 +2,9 @@
   %li.popular-index__card__wrapper
     .popular-index__card__field
       .popular-index__card__field__upper
+        -if category.buyer_id.present?
+          .sold-out-label 
+          .sold-out-text SOLD
         =link_to item_path(id:category.id) do
           %img{src: "#{category.images.first.image.url}", alt: "image",class: "popular-index__card__field__upper__image"}
           %span.popular-index__card__field__upper__price 

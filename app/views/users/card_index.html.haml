@@ -1,8 +1,10 @@
 .wrapper
-  =render "items/header"
+  =render partial: "/items/header", locals: {parent_category: @parents, popular_brands: @popular_brands }
   .user-main-box
+    - breadcrumb :card
+    = breadcrumbs separator: " &rsaquo; "
     .userpage-main
       =render "side-list"
       .credit-top
-        = render "shared/card_index"
+        = render partial: "shared/card_index", locals: {credit_informations: @credit_information}
   =render "items/footer"

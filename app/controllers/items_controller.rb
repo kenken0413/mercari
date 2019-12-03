@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :set_card, only: [:buy_confirmation, :purchase,:show]
+  before_action :user_signed_in_check, only: %i[buy_confirmation new]
 
   def index
     @parents = Category.all.order("ancestry ASC").limit(13)
@@ -48,18 +50,47 @@ class ItemsController < ApplicationController
     category_item= @item.category
     @related_category = category_item.items.where.not(id:params[:id]).order("id DESC").limit(6)
     @comment= Comment.new
-    if params[:id] =="buy"
-      render "buy-confirmation.html.haml" 
-    elsif user_signed_in? && current_user.id == @item.seller.id
+    if user_signed_in? && current_user.id == @item.seller.id
       render "item-detail-user-seller.html.haml"
     else
       render "item-detail.html.haml"
     end
-    
-
     @item = Item.new
     @image = Image.new
     @delivery = Delivery.new
+  end
+
+  require 'payjp'
+
+  def buy_confirmation
+    @item= Item.find(params[:id])
+    if @credit.present?
+      Payjp.api_key = 'sk_test_9581dc90803e604af65e7f4c'
+      customer = Payjp::Customer.retrieve(@credit.customer_id)
+      @credit_information = customer.cards.retrieve(@credit.card_id)
+    end
+  end
+    
+  def purchase
+
+    @item= Item.find(params[:id])
+    @item.update(buyer_id: current_user.id)
+    if @credit.present?
+      Payjp.api_key = 'sk_test_9581dc90803e604af65e7f4c'
+      customer = Payjp::Customer.retrieve(@credit.customer_id)
+      @credit_information = customer.cards.retrieve(@credit.card_id)
+    end
+    
+    Payjp.api_key = 'sk_test_9581dc90803e604af65e7f4c'
+    customer = Payjp::Customer.retrieve(@credit.customer_id)
+    @payjp_token = @credit.customer_id if @credit.present?
+      Payjp::Charge.create(
+        amount: @item.price, # 決済する値段
+        customer: @payjp_token,
+        currency: 'jpy',
+        description: current_user.nickname
+      )
+      redirect_to root_path
   end
 
   def create
@@ -91,7 +122,14 @@ class ItemsController < ApplicationController
     @grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy if @item.seller.id == current_user.id
+    redirect_to root_path
+  end
+
 private
+
   def item_params
     params.require(:item).permit(
       :name, 
@@ -106,8 +144,15 @@ private
       ).merge(seller_id: current_user.id)
   end
 
-  # def image_params
-  #   # binding.pry
-  #   params.require(:image).permit(:image)
-  # end
+  def set_card
+    if user_signed_in?
+      @credit = Credit.where(user_id: current_user.id).first if Credit.where(user_id: current_user.id).present? 
+    else
+      @credit = 'nil'
+    end
+  end
+
+  def user_signed_in_check
+    redirect_to '/users/sign_in' unless user_signed_in?
+  end
 end
