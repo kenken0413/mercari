@@ -9,6 +9,12 @@
   }
 }
 
+.fab{font-size:28px;}
+.fa-cc-visa{color:dodgerblue;}
+.fa-cc-mastercard{color:darkblue;}
+.fa-cc-jcb{color:firebrick;}
+.fa-cc-amex{color:deepskyblue;}
+
 .credit_box{
   padding:20px 15px;
   border-top:3px solid gainsboro;
@@ -16,7 +22,7 @@
     border-bottom:3px solid gainsboro;
   }
   
-  #credit-delete{
+  .credit-delete{
     float:right;
     border-radius:4px;
     background-color:white;
