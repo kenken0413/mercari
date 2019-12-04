@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_card, only: [:buy_confirmation, :purchase,:show]
   before_action :user_signed_in_check, only: %i[buy_confirmation new]
+  before_action :set_parent_category,only:[:index,new,:edit,:create]
 
   def index
     @parents = Category.all.order("ancestry ASC").limit(13)
@@ -58,6 +59,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @image = Image.new
     @delivery = Delivery.new
+
   end
 
   require 'payjp'
@@ -94,22 +96,20 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     @item = Item.new(item_params)
-    respond_to do |format|
+    # respond_to do |format|
       if @item.save
 
         params[:images][:image].each do |image|
           @item.images.create(image: image, item_id: @item.id)
         end
-        format.html{redirect_to root_path}
+        redirect_to root_path
       else
-
-        # @item.images.build
-        # format.html{render action: 'new'}
+        @item.images.build
+        render '/items/new'
       end
-    end
- 
+    # end
+
   end
 
   # 子を取得
@@ -155,4 +155,9 @@ private
   def user_signed_in_check
     redirect_to '/users/sign_in' unless user_signed_in?
   end
+
+  def set_parent_category
+    @parents = Category.all.order("ancestry ASC").limit(13)
+  end
+
 end

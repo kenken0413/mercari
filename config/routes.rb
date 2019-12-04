@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
     end
+
   end
 
   resources :credits, only: [:new,:create, :destroy] do
@@ -32,6 +33,8 @@ Rails.application.routes.draw do
       post 'purchase'
       get 'purchase_done'
     end
+
+    
   end
 
   resources :registrations do

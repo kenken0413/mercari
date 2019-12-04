@@ -35,7 +35,7 @@ $(document).on('turbolinks:load',function(){
     var parent = document.getElementById('parent_category').value;
     if (parent != ""){ 
       $.ajax({
-        url: 'category_children',
+        url: '/items/category_children',
         type: 'GET',
         data: { parent_id: parent },
         dataType: 'json',
@@ -65,7 +65,7 @@ $(document).on('turbolinks:load',function(){
     var childId = $('#child_category option:selected').data('category');
     if (childId != "---"){
       $.ajax({
-        url: 'category_grandchildren',
+        url: '/items/category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'
