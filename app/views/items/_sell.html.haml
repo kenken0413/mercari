@@ -43,12 +43,13 @@
               = f.select :category_id, options_for_select(@parents.map{|c|[c[:category], c[:id]]}), {prompt:"---"}, {class: 'sell-main-form__content__detail__category__box__parent', id: 'parent_category'}
               = icon('fas', 'chevron-down',  class: "chevron")
 
-          .sell-main-form__content__detail__brand.hidden
+          .sell-main-form__content__detail__brand
             %h4
               %span ブランド
               %span.brand__tag 任意
             .sell-main-form__content__detail__brand__box
-              = f.text_field:brand_id,{class: 'select-box',prompt: '---' }          
+              = f.text_field:brand_id,{class: 'select-box brand-search',brand_id:"" ,val:"", type: "text" } 
+              .search-brand-list         
 
           .sell-main-form__content__detail__status
             %h4

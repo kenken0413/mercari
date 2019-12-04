@@ -1,8 +1,46 @@
-ul.category-drop-main-category{
-  display: inline-block;
+.category-drop-box{
+  position:absolute;
+  height:468px;
+  width:800px;
+  display:flex;
+}
+
+.category-drop-parent_list{
   position: absolute;
   z-index: 3;
   background-color: $main-content;
   margin-top:8px;
   display: none;
+  .category-drop-parent_category{
+    display:block;
+    padding: 0 20px;
+    color:black;
+  }
 }
+
+.category-drop-child_list{
+  position: absolute;
+  left:198px;
+  z-index: 3;
+  background-color: $main-content;
+  margin-top:8px;
+  .category-drop-child_category{
+    display:block;
+    padding: 0 20px;
+    color:black;
+  }
+}
+
+.category-drop-grandchild_list{
+  position: absolute;
+  left:400px;
+  z-index: 3;
+  background-color: $main-content;
+  margin-top:8px;
+  .category-drop-grandchild_category{
+    display:block;
+    padding:0 10px;
+    color:black;
+  }
+}
+
