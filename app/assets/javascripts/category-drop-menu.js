@@ -28,6 +28,9 @@ $(document).on('turbolinks:load', function(){
         var html = buildChildHTML(child);//HTMLにして
         $(".category-drop-child_list").append(html);
       })
+      $(document).on("mouseout", ".category-drop-parent_category", function () {
+          $(".category-drop-child_category").remove();
+        });
     });
   });
 
@@ -59,6 +62,11 @@ $(document).on('turbolinks:load', function(){
       $(document).on("mouseover", ".category-drop-parent_category", function () {
         $(".category-drop-grandchild_category").remove();
       });
+      $(document).on("mouseout", ".category-drop-grandchild_category", function () {
+        $(".category-drop-grandchild_category").remove();
+        $(".category-drop-child_category").remove();
+      });
+      
     });
   });  
 });
