@@ -13,20 +13,20 @@
   display: none;
   .category-drop-parent_category{
     display:block;
-    padding: 0 10px;
+    padding: 0 20px;
     color:black;
   }
 }
 
 .category-drop-child_list{
   position: absolute;
-  left:200px;
+  left:198px;
   z-index: 3;
   background-color: $main-content;
   margin-top:8px;
   .category-drop-child_category{
     display:block;
-    padding: 0 10px;
+    padding: 0 20px;
     color:black;
   }
 }
