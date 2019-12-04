@@ -14,5 +14,11 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :delivery
   accepts_nested_attributes_for :images
 
+  validates :name,        presence: true, length: {minimum: 1,maximum: 40}
+  validates :description, presence: true, length: {minimum: 1,maximum: 1000}
+  validates :price,       presence: true, length: {minimum: 3,maximum: 7}
+  validates :state_id,    presence: true
+  validates :category_id, presence: true
+
 end
 
