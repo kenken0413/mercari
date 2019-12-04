@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
   before_action :set_parent_category,only:[:index,new,:edit,:create]
 
   def index
-    @parents = Category.all.order("ancestry ASC").limit(13)
     @popular_categories = Category.find(1,200,898,685)
 
     @all_brands = Brand.all
@@ -149,7 +148,11 @@ private
       :seller_id,
       :category_id,
       :brand_id,
+<<<<<<< Updated upstream
       images_attributes:[{image:[]}],
+=======
+      images_attributes:[:image],    
+>>>>>>> Stashed changes
       delivery_attributes:[:postage_method_id,:postage_detail_id,:prefecture_id,:shipping_date_id],
       ).merge(seller_id: current_user.id)
   end
