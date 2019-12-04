@@ -49,12 +49,16 @@
       font-size:13px;
       height:180px;
       text-align:center;
-      
+
       .facebook-btn{
         background-color:#385185;
         height:50px;
         line-height:50px;
         color:white;
+
+        .facebook-logo{
+          @include sns-logo
+        }
       }
 
       .google-btn{
@@ -64,6 +68,10 @@
         color:$main-font;
         border:#979797 solid 1px;
         margin-top:16px;
+
+        .google-logo{
+          @include sns-logo
+        }
       }
 
 
@@ -74,7 +82,7 @@
       background-color: $main-content;
       .form-group{margin-top:24px;}
       a{color:white;}
-      
+
 
       .login-email,.login-password{
         height:42px;

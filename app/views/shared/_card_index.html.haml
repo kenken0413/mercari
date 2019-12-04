@@ -2,7 +2,7 @@
   .credit-top
     %h2.credit-top__upper 支払い方法
     .credit-top__main
-      .credit-top__main__title 
+      .credit-top__main__title
         クレジットカード一覧
         -if current_user.credits.present?
           -credit_informations.each do |credit_information|

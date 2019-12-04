@@ -19,7 +19,7 @@
       float: left;
       width: 280px;
       margin: 0 40px 0 0;
-      
+
       &__side-list{
 
         &__main-box{
@@ -30,7 +30,7 @@
           list-style: none;
           font-weight:bold;
           padding-top:50px;
-          
+
           a {
             color: $main-font;
 
@@ -45,7 +45,8 @@
               font-size: 14px;
               margin-bottom:1px;
               line-height: 15px;
-              &:hover{background-color: #fafafa; .list-box__arrow{color:$main-font;}}
+              .fa-chevron-right{font-size:15px;}
+              &:hover{background-color: #fafafa; .list-box__arrow{color:$main-font;transform: translate(5px,0);transition:.5s}}
 
               .list-box{
                 display:flex;
@@ -83,8 +84,7 @@
         background-image: url("https://st.depositphotos.com/1755195/3391/i/950/depositphotos_33919061-stock-photo-blurred-lights.jpg");
         background-size:cover;
         position: relative;
-        
-        
+
         &__box{
           height:111px;
           width:100%;
@@ -95,7 +95,7 @@
           text-align:center;
           font-size:14px;
           font-family:'icon-font';
-          &:hover{opacity: 0.6; text-decoration: underline;}
+          &:hover{opacity: 0.6;.user-content-box__user-icon__box__name{text-decoration: underline;}}
 
 
           &__circle-user{
@@ -106,7 +106,7 @@
 
           &__number-box{
             display:flex;
-            justify-content: center; 
+            justify-content: center;
             span{font-weight:bold;}
           }
         }
@@ -145,7 +145,6 @@
 
 
         .mypage-tabs{
-          
           .mypage-tab-notification{
 
             li{
@@ -197,16 +196,11 @@
                   width:48px;
                   float:right;
                   padding:5px;
-                  
-                  .arrow{
-                    height:38px;
-                    width:38px;
-                    font-weight:bold;
-                    color:black;
-                    font-family:'icon-font';
-                    padding-top:5px;
-                    padding-left:5px;
 
+                  .fa-chevron-right{
+                    color:$main-font;
+                    margin-top:10px;
+                    float:right;
                   }
                 }
               }

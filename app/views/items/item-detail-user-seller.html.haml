@@ -64,7 +64,7 @@
       .detail-main__item__description
         %p #{@item.description}
       #seller-function-box
-        =link_to "/items/#{@item.id}/edit" do
+        =link_to "/items/#{@item.id}/edit" , method: :get do
           #seller-function-box__edit 商品の編集
         #seller-function-box__or or
         =link_to root_path do
