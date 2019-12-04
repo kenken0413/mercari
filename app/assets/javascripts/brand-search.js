@@ -10,6 +10,9 @@ $(function() {
   // ブランドフォームに入力した時にインクリメンタルサーチを行う
   $(brand_input).on("keyup", function() {
     var input = $(brand_input).val();
+    if ( input === "" ){
+      $('.search-brand-list').remove();
+    }
     $.ajax({
       type: 'GET',
       url: '/brands/search',
@@ -17,16 +20,16 @@ $(function() {
       dataType: 'json'
     })
     .done(function(brands) {
-    $(brand_list).empty();
-      if (brands.length !== 0 ) {
-        brands.forEach(function(brand){
-          brandItem(brand);
-        });
-      }
-      else {
-        $('.li-item').remove();
-       }
-    })
+      $(brand_list).empty();
+        if (brands.length !== 0 ) {
+          brands.forEach(function(brand){
+            brandItem(brand);
+          });
+        }
+        else {
+          ;
+        }
+      })
     .fail(function() {
       alert('ブランド検索できませんでした');
     })
