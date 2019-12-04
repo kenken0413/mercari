@@ -20,9 +20,8 @@
             .buy-main__content__final-price--right
               ¥#{@item.price.to_s(:delimited)}
           = submit_tag '購入する', id: "item-buy"
-          -# :plain
-          -# <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_f9835d81893c0b819997cdd6"></script>
-    %section.with_margin_top  
+
+    %section.with_margin_top
       .buy-main__content
         %h3 配送先
         %p #{current_user.addresses.first.postal_code}
@@ -32,12 +31,23 @@
     %section.with_margin_top.and-bottom
       .buy-main__content
         %h3 支払方法
-        %p 
+        %p
           = "**** **** **** " + @credit_information.last4 if @credit.present?
-        %p 
+        %p
           - exp_month = @credit_information.exp_month.to_s if @credit.present?
           - exp_year = @credit_information.exp_year.to_s.slice(2,3) if @credit.present?
           = exp_month + " / " + exp_year if @credit.present?
-        %i.fab.fa-cc-visa.blue
+          - @brand = @credit_information.brand
+          - case @brand
+          - when "Visa"
+            %i.fab.fa-cc-visa
+          - when "MasterCard"
+            %i.fab.fa-cc-mastercard
+          - when "JCB"
+            %i.fab.fa-cc-jcb
+          - when "American Express"
+            %i.fab.fa-cc-amex
+          - when "Discover"
+            %i.fab.fa-cc-discover
         =link_to "変更する　＞"
   = render partial: "sell-footer"
