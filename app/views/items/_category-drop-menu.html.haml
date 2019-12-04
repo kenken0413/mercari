@@ -1,29 +1,9 @@
 .header-contents__lower__item-search__list__text#category-search 
   %p カテゴリーから探す
-  %ul.category-drop-main-category#category-dropdown-parent
-    - parent_category.each do |category|
-      %li.main-category__name
-        = category.category
+  .category-drop-box
+    .category-drop-parent_list
+      - parent_category.each do |category|
+        = link_to "#{category.category}", root_path, class: "category-drop-parent_category",id: "#{category.id}"
+    .category-drop-child_list
+    .category-drop-grandchild_list
 
-        -# # %li.main-category__list{id: "category_id_#{category.id}"}
-      -#   = link_to category_path(category.id),class: "lists-menu__categories--category-link" do
-    -# 子カテゴリーul
-      -# %ul.child-category.hidden
-    -# {id: "child_category_ul_#{category.id}"}
-    -#   - @child_category[category.id - 1].each do |child_category|
-    -#     %li.child-category__list{id: "child_category_li_#{child_category.id}"}
-    -#       = link_to category_path(child_category.id),class: "child-category__sub-category-link" do
-    -#         = child_category.name    
-  -#             / 孫カテゴリーul
-  -#             %ul.child-category.hidden{id: "grand_child_category_ul_#{child_category.id}"}
-  -#               - grand_child_category = Category.where(main_category_id: category.id).where(sub_category_id: child_category.id)
-  -#               - grand_child_category.each_with_index do |grand_child_category, i|
-  -#                 %li.child-category__list.grand-child-list-width
-  -#                   = link_to category_path(grand_child_category.id),class: "child-category__sub-category-link" do
-  -#                     = grand_child_category.name
-  -#                 - break if i == 19
-
-  -# %li.main-category__list
-  -#   = link_to all_categories_show_items_path,class: "lists-menu__categories--category-link" do
-  -#     %h3.main-category__name
-  -#       カテゴリー一覧

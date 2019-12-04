@@ -5,7 +5,7 @@
       .credit-top__main__title 
         クレジットカード一覧
         %p 
-          = "**** **** **** " + credit_information.last4
+          = "**** **** **** " + credit_information.last4 
         %p 
           - exp_month = @credit_information.exp_month.to_s
           - exp_year = @credit_information.exp_year.to_s.slice(2,3)
