@@ -42,4 +42,6 @@ Rails.application.routes.draw do
       get :end
     end
   end
+
+  get '/category/new' , to: 'categories#new'
 end
