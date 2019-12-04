@@ -1,7 +1,6 @@
 .category-drop-box{
   position:absolute;
-  height:468px;
-  width:800px;
+  width:600px;
   display:flex;
 }
 
@@ -15,19 +14,27 @@
     display:block;
     padding: 0 20px;
     color:black;
+    width:200px;
+    font-size:12px;
+    font-weight:lighter;
+    &:hover{background-color:$red;color:white;}
   }
 }
 
 .category-drop-child_list{
   position: absolute;
-  left:198px;
+  left:200px;
   z-index: 3;
   background-color: $main-content;
   margin-top:8px;
+  width:200px;
   .category-drop-child_category{
     display:block;
     padding: 0 20px;
     color:black;
+    font-size:12px;
+    font-weight:lighter;
+    &:hover{background-color:$red;color:white;}
   }
 }
 
@@ -37,10 +44,14 @@
   z-index: 3;
   background-color: $main-content;
   margin-top:8px;
+  width:200px;
   .category-drop-grandchild_category{
     display:block;
     padding:0 10px;
     color:black;
+    font-size:12px;
+    font-weight:lighter;
+    &:hover{background-color:$red;color:white;}
   }
 }
 
