@@ -4,13 +4,11 @@
     .credit-top__main
       .credit-top__main__title 
         クレジットカード一覧
-        %p 
-          = "**** **** **** " + credit_information.last4 
-        %p 
-          - exp_month = @credit_information.exp_month.to_s
-          - exp_year = @credit_information.exp_year.to_s.slice(2,3)
-          = exp_month + " / " + exp_year
-          %i.fab.fa-cc-visa.blue
+        -if current_user.credits.present?
+          -credit_informations.each do |credit_information|
+            - card = Credit.find_by(card_id: credit_information.id)
+            .credit_box
+              = render partial: '/shared/card_informations', locals: {credit_information: credit_information, card: card}
       .credit-top__main__card-add
         = link_to card_registrations_users_path ,class:'credit-top__main__card-add__btn btn-red btn-default', data:{"turbolinks" => false} do
           = icon('fas', 'credit-card',  class: "icon-card")

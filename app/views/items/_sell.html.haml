@@ -1,22 +1,23 @@
 .sell-main
   %h2
     商品の情報を入力
-  = form_for(@item, html: {multipart: true}) do |f|
+  = form_for(@item) do |f|
     .sell-main-form
       .sell-main-form__images
-        = f.fields_for :images, @item.images.build do |i|
+        = f.fields_for(:images) do |i|
           %h3
             %span 出品画像
             %span.must__tag.bold 必須
           %p 最大10枚までアップロードできます
-          .image-preview-wrapper
-            %ul.image-preview-list            
-            = i.label :image, class: 'sell-main-form__images__photos' do
-              .form-image
-                = i.file_field :image,{type:'file', class: 'hidden', accept: ".jpg, .jpeg, .png"}
-                %pre.placeholder
-                  ファイルをドラッグアンドドロップ
-                  \またはクリックしてファイルをアップロード
+          .image-preview-wrapper.clearfix
+            #preview
+            .dropbox
+              = i.label :image, class: 'field_label',for:'upload-image' do
+                .form_image
+                  = i.file_field :image, type:'file', name: 'images[image][]', class: 'upload-image',multiple: true , accept: ".jpg, .jpeg, .png",id: 'upload-image'
+                  %pre.placeholder
+                    ファイルをドラッグアンドドロップ
+                    \またはクリックしてファイルをアップロード
 
       .sell-main-form__descriptions
         .sell-main-form__descriptions__name
@@ -28,7 +29,7 @@
           %h4 
             %span 商品の説明
             %span.must__tag 必須
-          = f.text_field :description,{class: 'textarea-comment', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: " "}
+          = f.text_area :description,{class: 'textarea-comment', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: " "}
 
       .sell-main-form__content.clearfix
         %p 商品の詳細
@@ -42,7 +43,7 @@
               = f.select :category_id, options_for_select(@parents.map{|c|[c[:category], c[:id]]}), {prompt:"---"}, {class: 'sell-main-form__content__detail__category__box__parent', id: 'parent_category'}
               = icon('fas', 'chevron-down',  class: "chevron")
 
-          .sell-main-form__content__detail__brand#hidden
+          .sell-main-form__content__detail__brand.hidden
             %h4
               %span ブランド
               %span.brand__tag 任意
