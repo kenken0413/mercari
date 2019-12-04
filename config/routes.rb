@@ -46,5 +46,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :brands, only:[:search] do
+    collection do
+      get :search
+    end
+  end
+
   get '/category/new' , to: 'categories#new'
 end

@@ -97,7 +97,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # respond_to do |format|
       if @item.save
 
         params[:images][:image].each do |image|
@@ -108,7 +107,6 @@ class ItemsController < ApplicationController
         @item.images.build
         render '/items/new'
       end
-    # end
 
   end
 
