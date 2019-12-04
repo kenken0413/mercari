@@ -1,7 +1,7 @@
 .signup-wrapper{
   background-color: $main-background;
   height:100vh;
-  
+
   .signup-content{
     background-color:$main-content;
     height:382px;
@@ -20,41 +20,46 @@
 
     .choose-signup{
       margin-top:40px;
-      .email-signup-box{
+      .email-signup-btn{
         width:343px;
         margin:0 auto;
         background-color:$red;
-        padding:11px 81px 13px 0;
+        text-align:center;
+        line-height:50px;
         @include btn;
 
-        &__btn{
-          float:right;
-        }
-
-        &__icon{
-          height:20px;
-          width:30px;
+        .mail-logo{
+          margin-top:15px;
+          margin-left:20px;
           float:left;
-          margin:5px 0 0 20px;
+
         }
       }
     }
 
     &__sns{
       width:343px;
-      margin:20px 178.5px 0 178.5px;
+      margin:15px 178.5px 0 178.5px;
 
       .facebook-btn{
         background-color:#385185;
         @include btn;
         @include sns;
+
+        .facebook-logo{
+          @include sns-logo;
+        }
       }
       .google-btn{
-        border:#333 solid 1px;
+        border:gray solid 1px;
         @include btn;
         @include sns;
         color:#333;
-        margin-top:20px;
+        margin-top:15px;
+
+        .google-logo{
+          @include sns-logo;
+        }
       }
     }
   }

@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   def index
     @parents = Category.all.order("ancestry ASC").limit(13)
     @popular_categories = Category.find(1,200,898,685)
-    
+
     @all_brands = Brand.all
     @popular_brands = Brand.find(2447,3813,4818,1854)
     @lady_items = Item.where(category_id: 0..199).order(id: "DESC").limit(10)
@@ -31,9 +31,23 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @delivery = Delivery.find(params[:item_id])
-    @image = Image.find(params[:id])
-    @parents = Category.all.order("ancestry ASC").limit(13)    
+    # @delivery = Delivery.where(item_id:@item.id)
+    # @image = Image.find(params[:id])
+    @parents = Category.all.order("ancestry ASC").limit(13)
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    @item.images.update(
+      image: item_params[:images_attributes]["0"]["image"]
+    )
+    redirect_to "/items/#{@item.id}"
+    if @item.update(item_params)
+      redirect_to "/items/#{@item.id}"
+    else
+      render :edit
+    end
   end
 
   def show
@@ -72,9 +86,8 @@ class ItemsController < ApplicationController
       @credit_information = customer.cards.retrieve(@credit.card_id)
     end
   end
-    
-  def purchase
 
+  def purchase
     @item= Item.find(params[:id])
     @item.update(buyer_id: current_user.id)
     if @credit.present?
@@ -82,7 +95,7 @@ class ItemsController < ApplicationController
       customer = Payjp::Customer.retrieve(@credit.customer_id)
       @credit_information = customer.cards.retrieve(@credit.card_id)
     end
-    
+
     Payjp.api_key = 'sk_test_9581dc90803e604af65e7f4c'
     customer = Payjp::Customer.retrieve(@credit.customer_id)
     @payjp_token = @credit.customer_id if @credit.present?
@@ -98,7 +111,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
       if @item.save
-
         params[:images][:image].each do |image|
           @item.images.create(image: image, item_id: @item.id)
         end
@@ -114,7 +126,7 @@ class ItemsController < ApplicationController
   def category_children
     @children = Category.find("#{params[:parent_id]}").children
   end
-  
+
   # 孫を取得
   def category_grandchildren
     @grandchildren = Category.find("#{params[:child_id]}").children
@@ -130,21 +142,21 @@ private
 
   def item_params
     params.require(:item).permit(
-      :name, 
-      :description, 
-      :state_id, 
-      :price, 
-      :seller_id, 
+      :name,
+      :description,
+      :state_id,
+      :price,
+      :seller_id,
       :category_id,
       :brand_id,
-      images_attributes:[{image:[]}],    
+      images_attributes:[{image:[]}],
       delivery_attributes:[:postage_method_id,:postage_detail_id,:prefecture_id,:shipping_date_id],
       ).merge(seller_id: current_user.id)
   end
 
   def set_card
     if user_signed_in?
-      @credit = Credit.where(user_id: current_user.id).first if Credit.where(user_id: current_user.id).present? 
+      @credit = Credit.where(user_id: current_user.id).first if Credit.where(user_id: current_user.id).present?
     else
       @credit = 'nil'
     end
