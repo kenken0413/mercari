@@ -155,7 +155,7 @@ private
 
   def set_card
     if user_signed_in?
-      @credit = Credit.where(user_id: current_user.id).first if Credit.where(user_id: current_user.id).present?
+      @credit = Credit.where(user_id: current_user.id).last if Credit.where(user_id: current_user.id).present?
     else
       @credit = 'nil'
     end
