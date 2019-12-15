@@ -11,11 +11,11 @@
       =link_to 'https://ja-jp.facebook.com/' do
         .facebook-btn
           Facebookでログイン　　　
-          = image_tag 'https://i.gyazo.com/bb3d9af91723e756a32b57dc4a4d96b2.png', alt: 'Image from Gyazo', width: '27px', class: 'facebook-logo'
+          = image_tag 'facebook_logo.png', alt: 'Image from Gyazo', width: '27px', class: 'facebook-logo'
       =link_to 'https://accounts.google.com/' do
         .google-btn
           Googleでログイン　　　
-          = image_tag 'https://i.gyazo.com/a9e2fe3d122b71c3d3a308fa30a09f37.png', alt: 'Image from Gyazo', width: '25px', class: 'google-logo'
+          = image_tag 'google_logo.png', alt: 'Image from Gyazo', width: '25px', class: 'google-logo'
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .login-content__form
         .login-form-top
